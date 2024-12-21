@@ -1,1 +1,5 @@
-<p>game works!</p>
+@if (beers) {
+    @for (beer of beers; track $index) {
+        <app-beer-card [beer]="beer"></app-beer-card>
+    }
+}
