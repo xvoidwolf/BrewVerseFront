@@ -1,5 +1,9 @@
 @if (beers) {
-    @for (beer of beers; track $index) {
-        <app-beer-card [beer]="beer"></app-beer-card>
-    }
+    <div id="container">
+        @for (beer of beers; track $index) {
+            
+                <app-beer-card [beer]="beer"></app-beer-card>
+
+        }
+    </div>
 }
