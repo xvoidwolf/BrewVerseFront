@@ -3,10 +3,11 @@ import { BeerDetailsComponent } from '../beer/beer-details/beer-details.componen
 import { GameService } from '../services/game.service';
 import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
 import { Beer } from '../model/beer';
+import { BeerMiniCardComponent } from "../beer/beer-mini-card/beer-mini-card.component";
 
 @Component({
   selector: 'app-game',
-  imports: [BeerCardComponent],
+  imports: [BeerMiniCardComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
@@ -14,7 +15,7 @@ export class GameComponent implements OnInit {
 
   constructor(private gameService:GameService) { }
 
-  beers:Beer[] = [];
+  beers!:Beer[];
 
   ngOnInit(): void {
     this.getRandomBeers();
