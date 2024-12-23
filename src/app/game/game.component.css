@@ -1,13 +1,12 @@
 section {
     min-height: 600px;
-    background-color: rgb(255, 249, 241);
 }
 #container{
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(214, 186, 144);
-    max-width: 90%;
+    max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     animation: starting 1s ease-out;
@@ -50,4 +49,5 @@ app-beer-mini-card {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(255, 249, 241);
 }
