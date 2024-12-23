@@ -1,0 +1,58 @@
+section {
+    min-height: 300px;
+    max-width: 800px;
+    width: 400px;
+    background-color: rgb(230, 204, 170);
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: starting 1s ease-out;
+}
+div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+input {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px;
+}
+button {
+    margin: 10px;
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 246, 231);
+    color: rgb(0, 0, 0);
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+button:hover {
+    background-color: rgb(255, 255, 255);
+    transform: scale(1.2);
+}
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+    background-color: rgb(255, 249, 240);
+}
+@keyframes starting {
+    from {
+        opacity: 0;
+        transform: translateY(20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}

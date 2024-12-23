@@ -46,3 +46,8 @@ app-beer-mini-card {
     }
     
 }
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
