@@ -1,1 +1,165 @@
-<p>search-beer works!</p>
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BREWVERSE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid bg-dark text-white py-4">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img th:src="@{/images/beer1.jpg}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            BREWVERSE
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Vetrina</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Cerca Birra</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Recensioni</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Concorso</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Uwufufu</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Accedi</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/carica-birra" routerLinkActive="active">Registrati</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<section id="search-section" class="container py-5">
+    <h2 class="text-center mb-4">Trova la Birra Perfetta</h2>
+    <div id="search-bar" class="d-flex justify-content-center mb-4">
+        <input type="text" id="search-input" class="form-control me-2" placeholder="Cerca per nome...">
+        <button id="search-btn" class="btn btn-primary">Cerca</button>
+    </div>
+    <div id="filters" class="mb-4">
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <label for="beer-type" class="form-label">Tipo di Birra:</label>
+                <select id="beer-type" class="form-select">
+                    <option value="">Tutti</option>
+                    <option value="American Amber Ale">American Amber Ale</option>
+                    <option value="American Barleywine">American Barleywine</option>
+                    <option value="American IPA">American IPA</option>
+                    <option value="American Light Lager">American Light Lager</option>
+                    <option value="American Pale Ale">American Pale Ale</option>
+                    <option value="American Porter">American Porter</option>
+                    <option value="American Stout">American Stout</option>
+                    <option value="Barley Wine">Barley Wine</option>
+                    <option value="Belgian Pale Ale">Belgian Pale Ale</option>
+                    <option value="Belgian Strong Ale">Belgian Strong Ale</option>
+                    <option value="Berliner Weisse">Berliner Weisse</option>
+                    <option value="Bière de Garde">Bière de Garde</option>
+                    <option value="Black IPA">Black IPA</option>
+                    <option value="Black Lager">Black Lager</option>
+                    <option value="Blanche">Blanche</option>
+                    <option value="Blonde Ale">Blonde Ale</option>
+                    <option value="Bock">Bock</option>
+                    <option value="Brown Ale">Brown Ale</option>
+                    <option value="California Common">California Common</option>
+                    <option value="Cascadian Dark Ale">Cascadian Dark Ale</option>
+                    <option value="Cream Ale">Cream Ale</option>
+                    <option value="Dubbel">Dubbel</option>
+                    <option value="Doppelbock">Doppelbock</option>
+                    <option value="Dry Stout">Dry Stout</option>
+                    <option value="Dunkel">Dunkel</option>
+                    <option value="Eisbock">Eisbock</option>
+                    <option value="English Bitter">English Bitter</option>
+                    <option value="English IPA">English IPA</option>
+                    <option value="English Mild Ale">English Mild Ale</option>
+                    <option value="English Porter">English Porter</option>
+                    <option value="ESB (Extra Special Bitter)">ESB (Extra Special Bitter)</option>
+                    <option value="Farmhouse Ale">Farmhouse Ale</option>
+                    <option value="Flanders Brown Ale (Oud Bruin)">Flanders Brown Ale (Oud Bruin)</option>
+                    <option value="Flanders Red Ale">Flanders Red Ale</option>
+                    <option value="Fruit Beer">Fruit Beer</option>
+                    <option value="Golden Ale">Golden Ale</option>
+                    <option value="Gose">Gose</option>
+                    <option value="Gueuze">Gueuze</option>
+                    <option value="Helles">Helles</option>
+                    <option value="Hefeweizen">Hefeweizen</option>
+                    <option value="Imperial IPA">Imperial IPA</option>
+                    <option value="Imperial Pils">Imperial Pils</option>
+                    <option value="India Pale Lager">India Pale Lager</option>
+                    <option value="Indian Pale Ale">Indian Pale Ale</option>
+                    <option value="Irish Red Ale">Irish Red Ale</option>
+                    <option value="Italian Pale Lager">Italian Pale Lager</option>
+                    <option value="Kellerbier">Kellerbier</option>
+                    <option value="Kölsch">Kölsch</option>
+                    <option value="Lager">Lager</option>
+                    <option value="Lambic">Lambic</option>
+                    <option value="Light Lager">Light Lager</option>
+                    <option value="Marzen (Oktoberfest)">Marzen (Oktoberfest)</option>
+                    <option value="Milk Stout">Milk Stout</option>
+                    <option value="Mild">Mild</option>
+                    <option value="Munich Dunkel">Munich Dunkel</option>
+                    <option value="Munich Helles">Munich Helles</option>
+                    <option value="Oatmeal Stout">Oatmeal Stout</option>
+                    <option value="Oktoberfestbier">Oktoberfestbier</option>
+                    <option value="Old Ale">Old Ale</option>
+                    <option value="Pale Ale">Pale Ale</option>
+                    <option value="Pilsner">Pilsner</option>
+                    <option value="Porter">Porter</option>
+                    <option value="Quadrupel">Quadrupel</option>
+                    <option value="Rauchbier">Rauchbier</option>
+                    <option value="Roggenbier">Roggenbier</option>
+                    <option value="Rye IPA">Rye IPA</option>
+                    <option value="Saison">Saison</option>
+                    <option value="Scotch Ale">Scotch Ale</option>
+                    <option value="Session IPA">Session IPA</option>
+                    <option value="Sour Ale">Sour Ale</option>
+                    <option value="Specialty Beer">Specialty Beer</option>
+                    <option value="Steam Beer">Steam Beer</option>
+                    <option value="Stout">Stout</option>
+                    <option value="Strong Ale">Strong Ale</option>
+                    <option value="Tripel">Tripel</option>
+                    <option value="Vienna Lager">Vienna Lager</option>
+                    <option value="Weizenbock">Weizenbock</option>
+                    <option value="Wheat">Wheat</option>
+                    <option value="Wild Ale">Wild Ale</option>
+                    <option value="Witbier">Witbier</option>
+                    <option value="Zwickelbier">Zwickelbier</option>
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="abv" class="form-label">Gradazione Alcolica:</label>
+                <select id="abv" class="form-select">
+                    <option value="">Tutti</option>
+                    <option value="0-5">0-5%</option>
+                    <option value="5-8">5-8%</option>
+                    <option value="8+">Più di 8%</option>
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="rating" class="form-label">Valutazione Media:</label>
+                <select id="rating" class="form-select">
+                    <option value="">Tutti</option>
+                    <option value="4">4 stelle e più</option>
+                    <option value="5">5 stelle</option>
+                </select>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="brewery" class="form-label">Birrificio:</label>
+                <input type="text" id="brewery" class="form-control" placeholder="Cerca per birrificio...">
+                <button id="search-btn" class="btn btn-primary">Cerca</button>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white py-4">
+        <div class="container align-items-center justify-content-center">
+            <div class="footer-section text-center">
+                <h4>BrewVerse</h4>
+                <p>&copy; 2024 Brewverse. All rights reserved.</p>
+            </div>
+        </div>
+        <!-- Pulsante di scorrimento per tornare alla parte superiore della pagina -->
+        <div class="scroll-button">
+            <a href="search.html" th:href="@{/search}"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </footer>
+    
