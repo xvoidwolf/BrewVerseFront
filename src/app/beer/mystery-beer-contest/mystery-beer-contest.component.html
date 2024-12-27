@@ -1,1 +1,16 @@
-<p>mystery-beer-contest works!</p>
+<div>
+    <h1>Mystery Beer Contest</h1>
+    <p>Guess the beer and win a prize!</p>
+    <div class="card-container">
+    @for (beer of beers; track beer.id) {
+        <div class="beer-card">
+            <img [src]="beer.imageUrl" alt="{{ beer.name }}" class="beer-image"/>
+            <div class="beer-info">
+              <h2>{{ beer.name }}</h2>
+              <p>{{ beer.type }} | {{ beer.alcoholPercentage }}%</p>
+              <!-- <button (click)="guessBeer(beer)">Guess</button> -->
+            </div>
+          </div>
+    }
+    </div>
+</div>

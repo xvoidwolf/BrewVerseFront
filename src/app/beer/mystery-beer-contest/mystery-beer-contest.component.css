@@ -1,0 +1,60 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colonne per riga */
+    gap: 20px; /* Spaziatura tra le card */
+    margin-top: 20px;
+  }
+  
+  /* Stile per la card */
+  .beer-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; /* La card si adatta alla larghezza della cella */
+    transition: transform 0.3s ease;
+  }
+  
+  .beer-card:hover {
+    transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
+  }
+  
+  /* Immagine della birra */
+  .beer-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* Adatta l'immagine senza tagliarla */
+  }
+  
+  /* Info della birra */
+  .beer-info {
+    padding: 15px;
+  }
+  
+  .beer-info h2 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  
+  .beer-info p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 5px;
+  }
+  
+  /* Stile per il pulsante */
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
