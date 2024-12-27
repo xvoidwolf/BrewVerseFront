@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid bg-dark text-white py-4">
         <a class="navbar-brand d-flex align-items-center" routerLink="home'" routerLinkActive="active">
-            <img src="assets/images/beer1.jpg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+            <img [src]="'assets/images/foto.jpeg'" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
             BREWVERSE
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,25 +10,25 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="home" routerLinkActive="active">Vetrina</a>
+                    <a class="nav-link" routerLink="/home" routerLinkActive="active">Vetrina</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="search-beer" routerLinkActive="active">Cerca Birra</a>
+                    <a class="nav-link" routerLink="/search-beer" routerLinkActive="active">Cerca Birra</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="review" routerLinkActive="active">Recensioni</a>
+                    <a class="nav-link" routerLink="/details" routerLinkActive="active">Recensioni</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="contest" routerLinkActive="active">Concorso</a>
+                    <a class="nav-link" routerLink="/contest" routerLinkActive="active">Concorso</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="game" routerLinkActive="active">Uwufufu</a>
+                    <a class="nav-link" routerLink="/game" routerLinkActive="active">Uwufufu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="login" routerLinkActive="active">Accedi</a>
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active">Accedi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="register" routerLinkActive="active">Registrati</a>
+                    <a class="nav-link" routerLink="/register" routerLinkActive="active">Registrati</a>
                 </li>
             </ul>
         </div>

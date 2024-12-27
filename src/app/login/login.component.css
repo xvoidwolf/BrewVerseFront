@@ -29,7 +29,7 @@
     background-color: #0056b3; /* Cambia colore quando il mouse è sopra */
 }
 
-body {
+:host {
     font-family: 'Roboto', sans-serif;
     background-color: #f2dcb4;
     color: #212529;
