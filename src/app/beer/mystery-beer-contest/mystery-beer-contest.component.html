@@ -1,1 +1,20 @@
-<p>mystery-beer-contest works!</p>
+<section id="contest-section" class="section py-5">
+    <div class="container">
+        <h2 class="text-center">Concorso Birra Misteriosa</h2>
+        <p class="text-center">Ogni settimana una birra misteriosa! Indovina di quale si tratta e vinci un premio.</p>
+
+        <div id="contest-hints" class="my-4">
+            <h3>Indizi:</h3>
+            <p class="hint" data-week="1" style="display: none;">Indizio 1: La birra ha un aroma fruttato.</p>
+            <p class="hint" data-week="2" style="display: none;">Indizio 2: Prodotta da un birrificio europeo.</p>
+            <p class="hint" data-week="3" style="display: none;">Indizio 3: Alcolicità superiore al 6%.</p>
+            <p class="hint" data-week="4" style="display: none;">Indizio 4: Nome ispirato a una città famosa.</p>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <input type="text" id="contest-guess" class="form-control w-50" placeholder="Indovina la birra">
+            <button id="submit-guess" class="btn btn-primary ms-2">Invia Risposta</button>
+        </div>
+    </div>
+</section>
+
