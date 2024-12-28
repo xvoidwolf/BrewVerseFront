@@ -1,60 +1,79 @@
 .card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 colonne per riga */
-    gap: 20px; /* Spaziatura tra le card */
-    margin-top: 20px;
-  }
-  
-  /* Stile per la card */
-  .beer-card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    max-width: 100%; /* La card si adatta alla larghezza della cella */
-    transition: transform 0.3s ease;
-  }
-  
-  .beer-card:hover {
-    transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
-  }
-  
-  /* Immagine della birra */
-  .beer-image {
-    width: 100%;
-    height: 200px;
-    object-fit: contain; /* Adatta l'immagine senza tagliarla */
-  }
-  
-  /* Info della birra */
-  .beer-info {
-    padding: 15px;
-  }
-  
-  .beer-info h2 {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  
-  .beer-info p {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 5px;
-  }
-  
-  /* Stile per il pulsante */
-  button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout più responsivo */
+  gap: 20px; /* Spaziatura tra le card */
+  margin-top: 20px;
+  padding: 20px; /* Spaziatura attorno al contenitore */
+  background-color: #f9f9f9; /* Sfondo leggero */
+  border-radius: 10px; /* Bordo arrotondato per il contenitore */
+}
+
+/* Stile per la card */
+.beer-card {
+  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Effetto gradiente leggero */
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%; /* La card si adatta alla larghezza della cella */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beer-card:hover {
+  transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Aggiunge profondità */
+}
+
+/* Immagine della birra */
+.beer-image {
+  width: 100%;
+  height: auto; /* Mantiene il rapporto di aspetto originale */
+  max-height: 200px; /* Imposta un'altezza massima */
+  object-fit: cover; /* Assicura che l'immagine riempia l'area senza distorsioni */
+  border-bottom: 2px solid #ddd; /* Linea di separazione elegante */
+  display: block; /* Rimuove eventuali spazi indesiderati */
+}
+
+/* Info della birra */
+.beer-info {
+  padding: 20px;
+  text-align: center;
+}
+
+.beer-info h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.beer-info h2:hover {
+  color: #007bff; /* Cambia colore al passaggio del mouse */
+}
+
+.beer-info p {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* Stile per il pulsante */
+button {
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #0056b3, #003f7f);
+  transform: translateY(-3px); /* Leggera animazione */
+}
