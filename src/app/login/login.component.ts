@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from '../services/login.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FooterComponent, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

@@ -1,0 +1,169 @@
+/* Reset degli stili base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Bottone per tornare in cima alla pagina */
+  .scroll-button {
+    position: fixed; /* Fissa il bottone rispetto alla finestra */
+    bottom: 20px;    /* Distanza dal bordo inferiore */
+    right: 20px;     /* Distanza dal bordo destro */
+    z-index: 10000;  /* Garantisce che il bottone appaia sopra altri elementi */
+    display: block;  /* Assicurati che sia visibile */
+    background-color: #007bff; /* Colore di sfondo */
+    border-radius: 50%; /* Forma circolare */
+    padding: 10px;   /* Spaziatura interna */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+  }
+  
+  .scroll-button a {
+    color: white; /* Colore dell'icona */
+    font-size: 20px; /* Dimensione dell'icona */
+    text-decoration: none; /* Nessuna sottolineatura */
+  }
+  
+  .scroll-button:hover {
+    background-color: #0056b3; /* Cambia colore quando il mouse è sopra */
+  }
+  
+  :host {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex; /* Imposta il contenitore come flessibile */
+    flex-direction: column; /* Direzione verticale */
+    min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+    padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    color: #f4a300; /* Giallo oro per hover sugli anchor */
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #212529 ; /* Marrone scuro per la navbar */
+  }
+  
+  .navbar .navbar-brand {
+    color: #f4a300; /* Colore oro per il brand */
+    font-size: 1.3rem; 
+  }
+  
+  .navbar .nav-link {
+    color: #f4a300; /* Colore oro per i link */
+    font-size: 1.3rem; 
+  }
+  
+  .navbar .nav-link:hover {
+    color: #fff; /* Colore bianco al passaggio del mouse */
+  }
+  
+  /* Sezione principale */
+  main {
+    flex: 1; /* Espande il contenuto principale per spingere il footer verso il basso */
+    padding: 40px 0;
+  }
+  
+  h2, h3, h5 {
+    color: #212529 ; /* Marrone scuro per i titoli */
+  }
+  
+  h2 {
+    font-size: 3rem;
+  }
+  
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    color: #4b2f1e;
+    font-weight: 600;
+  }
+  
+  .card-body p {
+    color: #8a6e58; /* Un marrone più chiaro per i testi */
+  }
+  
+  /* Pulsanti */
+  .btn-primary {
+    background-color: #f4a300;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #794306; /* Giallo scuro per hover */
+  }
+  
+  .btn-success {
+    background-color: #f4a300;
+  }
+  
+  .btn-success:hover {
+    background-color: #794306; 
+  }
+  
+  /* Carosello */
+  .carousel-inner .carousel-item img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: #f4a300; /* Colore oro per i controlli del carosello */
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #212529; /* Colore scuro come bg-dark */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  footer h4 {
+    color: #f4a300;
+  }
+  
+  footer ul li a {
+    color: white;
+  }
+  
+  footer ul li a:hover {
+    color: #f4a300;
+  }
+
+  /* Form */
+  input[type="file"] {
+    border: 2px solid #4b2f1e;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  input[type="file"]:hover {
+    border-color: #f4a300;
+  }
+  .btn-custom {
+    background-color: #f4a300; /* Colore oro personalizzato */
+    color: white;
+    border: none;
+  }
+  
+  .btn-custom:hover {
+    background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
+  }
+  
+  
+  
+  

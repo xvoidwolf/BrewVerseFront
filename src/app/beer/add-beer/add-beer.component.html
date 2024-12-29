@@ -1,1 +1,103 @@
-<p>add-beer works!</p>
+<section id="add-beer-section" class="container py-5">
+    <h2 class="text-center mb-4">Aggiungi una Nuova Birra</h2>
+    <form action="/add-beer" method="POST" class="p-4 border rounded bg-light">
+        <div class="mb-3">
+            <label for="beer-name" class="form-label">Nome della Birra:</label>
+            <input type="text" id="beer-name" name="beerName" class="form-control" placeholder="Inserisci il nome della birra" required>
+        </div>
+        <div class="mb-3">
+            <label for="brewery-name" class="form-label">Birrificio:</label>
+            <input type="text" id="brewery-name" name="breweryName" class="form-control" placeholder="Inserisci il nome del birrificio" required>
+        </div>
+        <div class="mb-3">
+            <label for="beer-type" class="form-label">Tipo di Birra:</label>
+            <select id="beer-type" name="beerType" class="form-select" required>
+                <option value="">Seleziona una tipologia</option>
+                    <option value="American Amber Ale">American Amber Ale</option>
+                    <option value="American Barleywine">American Barleywine</option>
+                    <option value="American IPA">American IPA</option>
+                    <option value="American Light Lager">American Light Lager</option>
+                    <option value="American Pale Ale">American Pale Ale</option>
+                    <option value="American Porter">American Porter</option>
+                    <option value="American Stout">American Stout</option>
+                    <option value="Barley Wine">Barley Wine</option>
+                    <option value="Belgian Pale Ale">Belgian Pale Ale</option>
+                    <option value="Belgian Strong Ale">Belgian Strong Ale</option>
+                    <option value="Berliner Weisse">Berliner Weisse</option>
+                    <option value="Bière de Garde">Bière de Garde</option>
+                    <option value="Black IPA">Black IPA</option>
+                    <option value="Black Lager">Black Lager</option>
+                    <option value="Blanche">Blanche</option>
+                    <option value="Blonde Ale">Blonde Ale</option>
+                    <option value="Bock">Bock</option>
+                    <option value="Brown Ale">Brown Ale</option>
+                    <option value="California Common">California Common</option>
+                    <option value="Cascadian Dark Ale">Cascadian Dark Ale</option>
+                    <option value="Cream Ale">Cream Ale</option>
+                    <option value="Dubbel">Dubbel</option>
+                    <option value="Doppelbock">Doppelbock</option>
+                    <option value="Dry Stout">Dry Stout</option>
+                    <option value="Dunkel">Dunkel</option>
+                    <option value="Eisbock">Eisbock</option>
+                    <option value="English Bitter">English Bitter</option>
+                    <option value="English IPA">English IPA</option>
+                    <option value="English Mild Ale">English Mild Ale</option>
+                    <option value="English Porter">English Porter</option>
+                    <option value="ESB (Extra Special Bitter)">ESB (Extra Special Bitter)</option>
+                    <option value="Farmhouse Ale">Farmhouse Ale</option>
+                    <option value="Flanders Brown Ale (Oud Bruin)">Flanders Brown Ale (Oud Bruin)</option>
+                    <option value="Flanders Red Ale">Flanders Red Ale</option>
+                    <option value="Fruit Beer">Fruit Beer</option>
+                    <option value="Golden Ale">Golden Ale</option>
+                    <option value="Gose">Gose</option>
+                    <option value="Gueuze">Gueuze</option>
+                    <option value="Helles">Helles</option>
+                    <option value="Hefeweizen">Hefeweizen</option>
+                    <option value="Imperial IPA">Imperial IPA</option>
+                    <option value="Imperial Pils">Imperial Pils</option>
+                    <option value="India Pale Lager">India Pale Lager</option>
+                    <option value="Indian Pale Ale">Indian Pale Ale</option>
+                    <option value="Irish Red Ale">Irish Red Ale</option>
+                    <option value="Italian Pale Lager">Italian Pale Lager</option>
+                    <option value="Kellerbier">Kellerbier</option>
+                    <option value="Kölsch">Kölsch</option>
+                    <option value="Lager">Lager</option>
+                    <option value="Lambic">Lambic</option>
+                    <option value="Light Lager">Light Lager</option>
+                    <option value="Marzen (Oktoberfest)">Marzen (Oktoberfest)</option>
+                    <option value="Milk Stout">Milk Stout</option>
+                    <option value="Mild">Mild</option>
+                    <option value="Munich Dunkel">Munich Dunkel</option>
+                    <option value="Munich Helles">Munich Helles</option>
+                    <option value="Oatmeal Stout">Oatmeal Stout</option>
+                    <option value="Oktoberfestbier">Oktoberfestbier</option>
+                    <option value="Old Ale">Old Ale</option>
+                    <option value="Pale Ale">Pale Ale</option>
+                    <option value="Pilsner">Pilsner</option>
+                    <option value="Porter">Porter</option>
+                    <option value="Quadrupel">Quadrupel</option>
+                    <option value="Rauchbier">Rauchbier</option>
+                    <option value="Roggenbier">Roggenbier</option>
+                    <option value="Rye IPA">Rye IPA</option>
+                    <option value="Saison">Saison</option>
+                    <option value="Scotch Ale">Scotch Ale</option>
+                    <option value="Session IPA">Session IPA</option>
+                    <option value="Sour Ale">Sour Ale</option>
+                    <option value="Specialty Beer">Specialty Beer</option>
+                    <option value="Steam Beer">Steam Beer</option>
+                    <option value="Stout">Stout</option>
+                    <option value="Strong Ale">Strong Ale</option>
+                    <option value="Tripel">Tripel</option>
+                    <option value="Vienna Lager">Vienna Lager</option>
+                    <option value="Weizenbock">Weizenbock</option>
+                    <option value="Wheat">Wheat</option>
+                    <option value="Wild Ale">Wild Ale</option>
+                    <option value="Witbier">Witbier</option>
+                    <option value="Zwickelbier">Zwickelbier</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Invia</button>
+    </form>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JsJquWlL3g8Ck2E4MRGdbibM67SNfaS+8IzLf9q/49CSw1A1W0KTG+STU4PI3k47" crossorigin="anonymous"></script>
+

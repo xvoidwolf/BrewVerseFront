@@ -1,0 +1,54 @@
+/* Navbar */
+.navbar {
+    background-color: #212529; /* Marrone scuro per la navbar */
+    padding: 1rem 1.5rem; /* Spaziatura interna */
+    font-family: 'Roboto', sans-serif; /* Font coerente con il resto della pagina */
+}
+
+.navbar .navbar-brand {
+    color: #f4a300; /* Colore oro per il brand */
+    font-size: 1.5rem; /* Dimensione del brand leggermente più grande */
+    font-weight: 700; /* Grassetto per il brand */
+    display: flex;
+    align-items: center; /* Centrare il logo con il testo */
+}
+
+.navbar .navbar-brand img {
+    margin-right: 10px; /* Spaziatura tra logo e testo */
+}
+
+.navbar .navbar-toggler {
+    border: none; /* Rimuove il bordo del bottone toggler */
+}
+
+.navbar .navbar-toggler .navbar-toggler-icon {
+    background-color: #f4a300; /* Colore oro per il toggler */
+    border-radius: 50%; /* Toggler rotondo */
+    width: 24px; /* Dimensioni personalizzate */
+    height: 24px;
+    background-image: none; /* Rimuove l'icona di default */
+}
+
+.navbar .navbar-toggler:hover {
+    background-color: #d57e1d; /* Oro più scuro per hover */
+}
+
+.navbar .nav-link {
+    color: #f4a300; /* Colore oro per i link */
+    font-size: 1.2rem; /* Dimensione del testo dei link */
+    margin: 0 10px; /* Spaziatura orizzontale tra i link */
+    transition: color 0.3s ease; /* Transizione per hover */
+}
+
+.navbar .nav-link:hover {
+    color: #fff; /* Colore bianco per hover */
+}
+
+.navbar .nav-link.active {
+    color: #fff; /* Colore bianco per il link attivo */
+    font-weight: 700; /* Grassetto per il link attivo */
+}
+
+.navbar .collapse {
+    justify-content: flex-end; /* Allinea i link a destra */
+}
