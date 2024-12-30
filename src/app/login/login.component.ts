@@ -6,7 +6,7 @@ import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, FooterComponent, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

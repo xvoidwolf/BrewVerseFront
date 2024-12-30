@@ -8,7 +8,7 @@ import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-game',
-  imports: [BeerMiniCardComponent, FooterComponent],
+  imports: [BeerMiniCardComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })

@@ -1,9 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-//qui ci saranno i metodi per le chiamate crud sulle birre e le varie ricerche + recensioni
+import { Observable } from 'rxjs';
+import { Beer } from '../model/beer';
+
 @Injectable({
   providedIn: 'root'
 })
 export class BeerService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  getBeers(ratingRange: any, alcoholRange: any, breweryId: any, type: string | undefined, pageSize: number, pageNumber: number):Observable<Beer[]> {
+    return this.http.get<Beer[]>('http://localhost:8080/api/beers');
+  } 
 }
+
+
+
+
