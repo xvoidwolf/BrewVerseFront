@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-mystery-beer-contest',
-  imports: [FooterComponent],
+  imports: [],
   templateUrl: './mystery-beer-contest.component.html',
   styleUrl: './mystery-beer-contest.component.css'
 })

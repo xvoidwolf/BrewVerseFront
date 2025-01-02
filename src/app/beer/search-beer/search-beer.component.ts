@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../../footer/footer.component";
 
 @Component({
   selector: 'app-search-beer',
-  imports: [FooterComponent],
+  imports: [],
   templateUrl: './search-beer.component.html',
   styleUrl: './search-beer.component.css'
 })

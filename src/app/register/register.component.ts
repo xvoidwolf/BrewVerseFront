@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-register',
-  imports: [FooterComponent],
+  imports: [],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
