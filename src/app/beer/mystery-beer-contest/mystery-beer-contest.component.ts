@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Beer, defaultBeer } from '../../model/beer';
 import { BeerService } from '../../services/beer.service';
-import { HintService } from '../../services/hint.service';
 import { Hint } from '../../model/hint';
+import { MysteryBeerContestService } from '../../services/mystery-beer-contest.service';
+import { AnswerDto } from '../../model/answer';
 
 
 @Component({
@@ -17,13 +18,13 @@ export class MysteryBeerContestComponent implements OnInit {
   errorMessage: string = '';
   beer: Beer = defaultBeer;
   showBeerCards: boolean = false; 
+  weeklyBeerId: number = 0;
 
-  constructor(private beerService: BeerService, private hintService: HintService) { }
+  constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService) { }
 
   ngOnInit(): void {
-    console.log('Componente inizializzato');
     this.loadBeers();
-    this.loadHint();
+    this.loadWeeklyBeerAndHints();
   }
 
   loadBeers(): void {
@@ -38,8 +39,7 @@ export class MysteryBeerContestComponent implements OnInit {
     });
   }
   loadHint(): void {
-    const weeklyBeerId = 2; 
-    this.hintService.getHintsByWeeklyBeerId(weeklyBeerId).subscribe({
+    this.mysteryBeerContestService.getHintsByWeeklyBeerId(this.weeklyBeerId).subscribe({
       next: (data) => {
         console.log('Dati degli indizi:', data);
         this.hints = data;
@@ -50,7 +50,58 @@ export class MysteryBeerContestComponent implements OnInit {
       },
     });
   }
+
+  loadWeeklyBeerAndHints(): void {
+    this.mysteryBeerContestService.getCurrentWeeklyBeer().subscribe({
+      next: (data) => {
+        try {
+          this.weeklyBeerId = data.id; // Assumendo che il parsing funzioni
+          this.loadHint();
+        } catch (e) {
+          console.error('Errore durante il parsing della risposta:', e);
+          this.errorMessage = 'Errore nei dati ricevuti dal server';
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Errore durante il caricamento della birra settimanale';
+        console.error(err);
+      }
+    });
+  }
+
   toggleBeerCards(): void {
     this.showBeerCards = !this.showBeerCards;
+  }
+
+  hasUserWon(beerId: number): void {
+    this.mysteryBeerContestService.hasUserWon(this.weeklyBeerId, beerId).subscribe({
+      next: (data) => {
+        if (data) {
+          this.errorMessage = 'Hai vinto!';
+        } else {
+          this.errorMessage = 'Hai perso!';
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Errore durante il controllo della risposta';
+        console.error(err);
+      }
+    });
+  }
+
+  submitAnswer(beerId: number): void {
+    const answerDto: AnswerDto = {
+      beerId: beerId,
+      weeklyBeerId: this.weeklyBeerId
+    };
+    this.mysteryBeerContestService.createAnswer(answerDto).subscribe({
+      next: (data) => {
+        this.hasUserWon(beerId);
+      },
+      error: (err) => {
+        this.errorMessage = 'Errore durante l\'invio della risposta';
+        console.error(err);
+      }
+    });
   }
 }

@@ -1,17 +1,17 @@
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout più responsivo */
-  gap: 20px; /* Spaziatura tra le card */
-  margin-top: 20px;
-  padding: 20px; /* Spaziatura attorno al contenitore */
-  background-color: #f9f9f9; /* Sfondo leggero */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Layout più responsivo */
+  gap: 17px; /* Spaziatura tra le card */
+  margin-top: 30px;
+  padding: 50px; /* Spaziatura attorno al contenitore */
+  background-color: #f2dcb4; /* Sfondo leggero */
   border-radius: 10px; /* Bordo arrotondato per il contenitore */
 }
 
 /* Stile per la card */
 .beer-card {
-  background: linear-gradient(145deg, #ffffff, #e6e6e6); /* Effetto gradiente leggero */
-  border-radius: 15px;
+  background: linear-gradient(145deg, #fff5e1, #e6e1c5); /* Effetto gradiente leggero */
+  border-radius: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
@@ -37,20 +37,23 @@
 
 /* Info della birra */
 .beer-info {
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
 .beer-info h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem; 
   margin: 0;
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
-.beer-info h2:hover {
-  color: #007bff; /* Cambia colore al passaggio del mouse */
+.beer-info h2 {
+  font-size: 1.6rem; /* Dimensione del titolo ridotta */
+  margin: 0;
+  color: #333;
+  font-weight: bold;
 }
 
 .beer-info p {
@@ -59,13 +62,32 @@
   margin-top: 10px;
   line-height: 1.5;
 }
-
-/* Stile per il pulsante */
-button {
-  background: linear-gradient(145deg, #007bff, #0056b3);
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra il bottone orizzontalmente */
+  margin-top: 40px; /* Spazio sopra il bottone per distanziarlo dalle informazioni precedenti */
+  margin-bottom: 40px; /* Spazio sotto il bottone per distanziarlo dalle card */
+  padding: 0 20px; /* Distanza laterale */
+}
+.button-container button {
+  background: linear-gradient(145deg, #f3b15c, #d69133); /* Gradiente dorato */
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 20px 40px; /* Aumentato il padding per ingrandire il bottone */
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1.5rem; /* Aumenta la dimensione del testo */
+  transition: background 0.3s ease, transform 0.2s ease;
+  width: 230px; /* Imposta una larghezza maggiore */
+  height: 70px; /* Aumenta l'altezza */
+  text-align: center;
+}
+/* Stile per il pulsante */
+button {
+  background: linear-gradient(145deg, #f3b15c, #d69133); /* Gradiente più acceso, dorato e caldo */
+  color: white;
+  border: none;
+  padding: 12px 25px;
   border-radius: 50px;
   cursor: pointer;
   margin-top: 15px;
@@ -74,6 +96,52 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(145deg, #0056b3, #003f7f);
-  transform: translateY(-3px); /* Leggera animazione */
+  background: linear-gradient(145deg, #d69133, #c57229); /* Hover con una sfumatura più accesa e calda */
+  transform: translateY(-3px); /* Leggera animazione di sollevamento */
 }
+
+/* Reset degli stili base */
+
+:host {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2dcb4;
+  color: #212529;
+  display: flex; /* Imposta il contenitore come flessibile */
+  flex-direction: column; /* Direzione verticale */
+  min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+  padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+}
+
+a:hover {
+  color: #f4a300; /* Giallo oro per hover sugli anchor */
+}
+
+/* Titolo*/
+h2 {
+  font-size: 3rem; /* Dimensione maggiore per i titoli principali */
+  margin-bottom: 20px; /* Distanza inferiore per dare spazio tra il titolo e il contenuto */
+  text-align: center; /* Centra il titolo */
+  letter-spacing: 1px; /* Aumenta lo spazio tra le lettere per migliorare la leggibilità */
+}
+h3 {
+  font-size: 2rem; /* Dimensione minore rispetto a h2 */
+  margin-bottom: 20px; /* Distanza inferiore per separare dal contenuto successivo */
+  color: #333; /* Colore leggermente più scuro per i sottotitoli */
+  text-align: center; /* Centra il titolo */
+  font-weight: 700; /* Usa un peso più spesso, ad esempio 700 per un font bold */
+  letter-spacing: 1px; /* Aggiungi più spazio tra le lettere per accentuare l'effetto */
+}
+p {
+  font-size: 1.2rem; /* Imposta una dimensione del testo leggibile */
+  color: #333; /* Colore scuro per il testo */
+  line-height: 1.6; /* Aumenta la spaziatura tra le righe per una lettura più facile */
+  margin-bottom: 20px; /* Spazio sotto il paragrafo per separarlo dal contenuto successivo */
+  text-align: center; /* Allinea il testo al centro */
+  font-weight: normal; /* Imposta il peso normale per il testo */
+  letter-spacing: 0.5px; /* Aggiungi uno spazio leggero tra le lettere per una migliore leggibilità */
+}
+
+
+
+
+

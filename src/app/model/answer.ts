@@ -12,3 +12,12 @@ export const defaultAnswer: Answer = {
     weeklyBeerId: 0,
     date: ''
 }
+export interface AnswerDto {
+    beerId: number;
+    weeklyBeerId: number;
+}
+export const defaultAnswerDto: AnswerDto = {
+    beerId: 0,
+    weeklyBeerId: 0
+}
+  
