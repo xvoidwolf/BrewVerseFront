@@ -1,0 +1,78 @@
+
+:host {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex; /* Imposta il contenitore come flessibile */
+    flex-direction: column; /* Direzione verticale */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+    padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+}
+  section {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 400px;
+    min-height: 400px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+  }
+  #title {
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  h1 {
+    color: #212529;
+    font-size: 3em;
+  }
+
+  label {
+    font-size: 1.2em;
+  }
+  
+  /* Form */
+  input {
+    padding: 10px;
+    background-color: #fff;
+    width: 300px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+  }
+  
+  input:hover {
+    border-color: #f4a300;
+  }
+  button{
+    background-color: #f4a300; /* Colore oro personalizzato */
+    color: white;
+    border: none;
+    width: 300px;
+    padding: 8px;
+    border-radius: 7px;
+    margin-top: 15px;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
+}
+
+a {
+    color: #212529;
+    text-decoration: none;
+}
+
+#registerLink {
+    margin-bottom: 30px;
+}

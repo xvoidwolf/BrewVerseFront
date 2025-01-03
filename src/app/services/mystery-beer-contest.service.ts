@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hint } from '../model/hint';
 import { map, Observable } from 'rxjs';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { WeeklyBeer } from '../model/weekly-beer';
 import { Answer, AnswerDto } from '../model/answer';
 
@@ -12,7 +12,7 @@ export class MysteryBeerContestService {
   private baseUrl = 'http://localhost:8080/api/contest';
 
   constructor(private http: HttpClient) { }
-
+  
   getHintsByWeeklyBeerId(weeklyBeerId: number): Observable<Hint[]> {
     return this.http.get<Hint[]>(`${this.baseUrl}/by-weeklyBeerId/${weeklyBeerId}`);
   }

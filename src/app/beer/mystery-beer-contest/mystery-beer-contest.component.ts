@@ -13,6 +13,7 @@ import { AnswerDto } from '../../model/answer';
   styleUrl: './mystery-beer-contest.component.css'
 })
 export class MysteryBeerContestComponent implements OnInit {
+  winner: boolean = false;
   beers: Beer[] = [];
   hints: Hint[] = [];
   errorMessage: string = '';
@@ -73,33 +74,33 @@ export class MysteryBeerContestComponent implements OnInit {
     this.showBeerCards = !this.showBeerCards;
   }
 
-  hasUserWon(beerId: number): void {
-    this.mysteryBeerContestService.hasUserWon(this.weeklyBeerId, beerId).subscribe({
-      next: (data) => {
-        if (data) {
-          this.errorMessage = 'Hai vinto!';
-        } else {
-          this.errorMessage = 'Hai perso!';
-        }
+  submitAnswer(beerId: number): void {
+    const answerDto: AnswerDto = {
+      date: new Date().toISOString().split('T')[0],
+      beerId: beerId,
+      weeklyBeerId: this.weeklyBeerId
+    };
+    console.log('Invio risposta con questi dati:', answerDto);
+    this.mysteryBeerContestService.createAnswer(answerDto).subscribe({
+      next: () => {
+        this.hasUserWon(beerId);  
+        this.errorMessage = 'Risposta inviata con successo!';
       },
       error: (err) => {
-        this.errorMessage = 'Errore durante il controllo della risposta';
+        this.errorMessage = 'Errore durante l\'invio della risposta';
         console.error(err);
       }
     });
   }
 
-  submitAnswer(beerId: number): void {
-    const answerDto: AnswerDto = {
-      beerId: beerId,
-      weeklyBeerId: this.weeklyBeerId
-    };
-    this.mysteryBeerContestService.createAnswer(answerDto).subscribe({
-      next: (data) => {
-        this.hasUserWon(beerId);
+  hasUserWon(beerId: number): void {
+    this.mysteryBeerContestService.hasUserWon(this.weeklyBeerId, beerId).subscribe({
+      next: (data: boolean) => {
+        this.winner = data; 
+        this.errorMessage = data ? 'Hai vinto!' : 'Hai perso!';
       },
       error: (err) => {
-        this.errorMessage = 'Errore durante l\'invio della risposta';
+        this.errorMessage = 'Errore durante il controllo della risposta';
         console.error(err);
       }
     });

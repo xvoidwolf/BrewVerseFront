@@ -5,31 +5,35 @@
 
     <div id="contest-hints" class="my-4">
       <h3>Indizi:</h3>
-    @for (hint of hints; track hint.id) {
-      <div>
-        <h3>indizio: {{hint.number}}</h3>
-        <h3>{{hint.description}}</h3>
+      @for (hint of hints; track hint.id) {
+        <div>
+          <h3>Indizio: {{ hint.number }}</h3>
+          <h3>{{ hint.description }}</h3>
+        </div>
+      }
+    </div>
+
+    <div class="button-container">
+      <button (click)="toggleBeerCards()">Mostra Birre</button>
+    </div>
+    @if (errorMessage) {
+      <div [class.alert-success]="winner" [class.alert-danger]="!winner" class="alert">
+        <p>{{ errorMessage }}</p>
       </div>
     }
-  </div>
-
-  <div class="button-container">
-    <button (click)="toggleBeerCards()">Mostra Birre</button>
-  </div>
-
     @if (showBeerCards) {
       <div class="card-container">
         @for (beer of beers; track beer.id) {
-         <div class="beer-card">
+          <div class="beer-card">
             <img [src]="beer.imageUrl" alt="{{ beer.name }}" class="beer-image"/>
             <div class="beer-info">
               <h2>{{ beer.name }}</h2>
               <p>{{ beer.type }} | {{ beer.alcoholPercentage }}%</p>
-              <button (click)="hasUserWon(beer.id)">Vota</button>
+              <button (click)="submitAnswer(beer.id)">Vota</button>
             </div>
           </div>
         }
-    </div>
+      </div>
     }
-</div>
+  </div>
 </section>

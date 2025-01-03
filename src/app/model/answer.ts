@@ -13,10 +13,12 @@ export const defaultAnswer: Answer = {
     date: ''
 }
 export interface AnswerDto {
+    date: string;
     beerId: number;
     weeklyBeerId: number;
 }
 export const defaultAnswerDto: AnswerDto = {
+    date: '',
     beerId: 0,
     weeklyBeerId: 0
 }
