@@ -7,17 +7,16 @@ import { jwtDecode } from 'jwt-decode';
 export class AuthService {
   constructor() {}
 
-  // Method to get the user ID from the JWT
   getUserIdFromToken(): string | null {
-    const token = localStorage.getItem('jwtToken'); // or wherever you store the token
+    const token = localStorage.getItem('jwtToken'); // prendo il token dal local storage
 
     if (!token) {
       return null;
     }
 
     try {
-      const decodedToken = jwtDecode<any>(token); // Decoding the JWT
-      return decodedToken?.userId || null; // Return the userId field from the decoded token
+      const decodedToken = jwtDecode<any>(token); // decodifico il JWT token
+      return decodedToken?.userId || null; // ritorno lo userId dal token decodificato
     } catch (error) {
       console.error('Error decoding token', error);
       return null;
