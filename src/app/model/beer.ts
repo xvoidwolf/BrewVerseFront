@@ -1,16 +1,19 @@
 export interface Beer {
-    id:number;
-    imageUrl:string;
-    name:string;
-    alcoholPercentage:number;
-    type:string;
-    
-}
+    id: number;
+    name: string;
+    breweryName: string;
+    type: string;
+    alcoholRange: string;
+    ratingRange: string;
+    imageUrl: string;
+  }
 
-export const defaultBeer: Beer = {
+  export const defaultBeer: Beer = {
     id: 0,
-    imageUrl: '', 
-    name: '', 
-    alcoholPercentage: 0, 
-    type: ''
-}
+    name: '',
+    breweryName: '',
+    type: '',
+    alcoholRange: '',
+    ratingRange: '',
+    imageUrl: ''
+  }

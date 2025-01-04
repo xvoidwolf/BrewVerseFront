@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { FooterComponent } from "../../footer/footer.component";
 import { BeerCardComponent } from '../beer-card/beer-card.component';
 import { BeerService } from '../../services/beer.service';
 import { Beer } from '../../model/beer';
+import { BeerDetailsComponent } from '../beer-details/beer-details.component';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-search-beer',
-  imports: [BeerCardComponent],
+  selector: 'app-search-beer', 
+  imports: [ReactiveFormsModule, BeerCardComponent],
   templateUrl: './search-beer.component.html',
   styleUrls: ['./search-beer.component.css']
 })
+
 export class SearchBeerComponent implements OnInit {
+  beerForm!: FormGroup;
   beers: Beer[] = [];
+  searchExecuted: boolean = false;
   totalElements: number = 0;
   pageNumber: number = 0;
   pageSize: number = 12;
@@ -20,55 +24,41 @@ export class SearchBeerComponent implements OnInit {
   breweryName?: string;
   type?: string;
 
-  constructor(private beerService: BeerService) {}
-
-  beer!:Beer;
-
+  constructor(private fb:FormBuilder, private beerService: BeerService) {}
+  
   ngOnInit(): void {
-    this.getBeers();
+    this.beerForm= this.fb.group({
+      name:['',[]],
+      breweryName:['',[]],
+      type:['',[]],
+      alcoholRange:['',[]],
+      ratingRange:['',[]],
+    });
   }
-  getBeers(): void {
-    this.beerService
-      .getBeers(
+
+  onSubmit(event: Event): void {
+    if(this.beerForm.valid){
+      this.searchExecuted = true;
+      this.pageNumber = 0;
+      this.ratingRange = this.beerForm.get('ratingRange')?.value;
+      this.alcoholRange = this.beerForm.get('alcoholRange')?.value;
+      this.breweryName = this.beerForm.get('breweryName')?.value;
+      this.type = this.beerForm.get('type')?.value;
+      this.beerService.getBeers(
         this.ratingRange,
         this.alcoholRange,
         this.breweryName,
         this.type,
         this.pageSize,
-        this.pageNumber
-      )
-      .subscribe({
-        next: (response: any) => {
-          this.beers = response; // Aggiorna l'elenco delle birre
+        this.pageNumber).subscribe({
+        next: (response: Beer[]) => {
+          this.beers = response;
         },
         error: (error) => {
           console.error('Errore durante il caricamento delle birre:', error);
         }
       });
-  }
+    }
 
-  onPageChange(event: any): void {
-    this.pageNumber = event.pageIndex;
-    this.pageSize = event.pageSize;
-    this.getBeers();
-  }
-
-  onSubmit(event: Event): void {
-    event.preventDefault(); 
-    const target = event.target as HTMLFormElement;
-
-    const name = (target['name'] as unknown as HTMLInputElement).value;
-    const breweryName = (target['breweryName'] as HTMLInputElement).value;
-    const type = (target['stile'] as HTMLSelectElement).value;
-    const alcoholRange = (target['alcoholRange'] as HTMLSelectElement).value;
-    const ratingRange = (target['valutazione'] as HTMLSelectElement).value;
-
-    this.breweryName = breweryName || undefined;
-    this.type = type || undefined;
-    this.alcoholRange = alcoholRange || undefined;
-    this.ratingRange = ratingRange || undefined;
-
-    this.pageNumber = 0; 
-    this.getBeers();
   }
 }

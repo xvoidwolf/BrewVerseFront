@@ -10,11 +10,17 @@ export class BeerService {
 
   constructor(private http:HttpClient) { }
 
-  getBeers(ratingRange: any, alcoholRange: any, breweryId: any, type: string | undefined, pageSize: number, pageNumber: number):Observable<Beer[]> {
-    return this.http.get<Beer[]>('http://localhost:8080/api/beers');
-  } 
+  getBeers(ratingRange: string | undefined, alcoholRange: string | undefined, breweryName: string | undefined, type: string | undefined, pageSize: number, pageNumber: number): Observable<Beer[]> {
+    const params: any = {
+      pageSize: pageSize.toString(),
+      pageNumber: pageNumber.toString()
+    };
+    
+    if (type) params.type = type;
+    if (breweryName) params.breweryName = breweryName;
+    if (alcoholRange) params.alcoholRange = alcoholRange;
+    if (ratingRange) params.ratingRange = ratingRange;
+    
+    return this.http.get<Beer[]>('http://localhost:8080/api/beers', { params });
+  }
 }
-
-
-
-
