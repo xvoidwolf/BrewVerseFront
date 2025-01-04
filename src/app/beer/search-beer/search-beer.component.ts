@@ -51,8 +51,9 @@ export class SearchBeerComponent implements OnInit {
         this.type,
         this.pageSize,
         this.pageNumber).subscribe({
-        next: (response: Beer[]) => {
-          this.beers = response;
+        next: (response:any) => {
+          this.beers = response.content;
+          console.log(response);
         },
         error: (error) => {
           console.error('Errore durante il caricamento delle birre:', error);
