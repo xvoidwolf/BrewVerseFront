@@ -89,6 +89,9 @@
                 <app-beer-mini-card  [beer]="winner"></app-beer-mini-card>
             </div>
         }
+        @if (winner && hasStarted) {
+            <button (click)="onRestart()">Ricomincia</button>
+        }
     </div>
 }
 </section>
