@@ -1,6 +1,5 @@
 .card{
     max-width: 120px;
-    min-height: 200px;
     max-height: 200px;
     margin: 10px;
     margin-inline: 15px;
@@ -15,7 +14,6 @@
 .card-img-top{
     width: 100%;
     height: auto; 
-    min-height: 120px;
     max-height: 120px; 
     object-fit: cover; 
     border-bottom: 2px solid #ddd; 
@@ -24,4 +22,54 @@
 }
 .card-body{
     padding: 10px;
+}
+@media (max-width: 600px) {
+    .card {
+    max-width: 60px;
+    max-height: 80px;
+    margin-inline: 5px;
+    }
+    .card-img-top {
+        max-width: 50px;
+        min-height: 40px;
+        max-height: 40px;
+    }
+    .card-body {
+        padding: 0;
+    }
+    h6 {
+        font-size: xx-small;
+        padding-bottom: 10px;
+        font-weight: 700;
+    }
+}
+
+/* Schermi medi (tra 601px e 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        max-width: 60px;
+        max-height: 100px;
+    }
+    .card-img-top {
+        max-width: 50px;
+        min-height: 50px;
+        max-height: 50px;
+    }
+    .card-body {
+        font-size: smaller;
+    }
+}
+
+/* Schermi grandi (min 1025px) */
+@media (min-width: 1025px) {
+    .card {
+        max-width: 120px;
+        min-height: 200px;
+        max-height: 200px;
+    }
+    .card-img-top {
+        max-width: 100px;
+        min-height: 100px;
+        max-height: 100px;
+    }
 }

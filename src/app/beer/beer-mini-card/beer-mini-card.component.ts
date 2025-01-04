@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from '../../model/beer';
 
 @Component({
@@ -10,4 +10,11 @@ import { Beer } from '../../model/beer';
 export class BeerMiniCardComponent {
   @Input()
   beer!:Beer;
+  @Output()
+  beerClicked: EventEmitter<Beer> = new EventEmitter<Beer>();
+
+  onBeerClicked() {
+    this.beerClicked.emit(this.beer);
+    console.log(this.beer);
+  }
 }
