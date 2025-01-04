@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GameService } from '../services/game.service';
 import { Beer } from '../model/beer';
 import { BeerMiniCardComponent } from "../beer/beer-mini-card/beer-mini-card.component";
+import { WinnerBeer } from '../model/winner-beer';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-game',
@@ -11,7 +13,7 @@ import { BeerMiniCardComponent } from "../beer/beer-mini-card/beer-mini-card.com
 })
 export class GameComponent implements OnInit {
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService, private authService:AuthService) { }
 
   beers!: Beer[];
   chooseBeers: Beer[] = [];
@@ -22,8 +24,11 @@ export class GameComponent implements OnInit {
   winner?: Beer; 
   hasStarted: boolean = false;
 
+  userId: string | null = null;
+
   ngOnInit(): void {
     this.getRandomBeers();
+    this.userId = this.authService.getUserIdFromToken();
   }
 
   onStart() {
@@ -79,12 +84,29 @@ export class GameComponent implements OnInit {
     } else {
       if (this.winner) {
         this.chooseBeers.push(this.winner);
+        this.saveWinnerBeer(this.winner);
       } else {
         console.error("Winner non definito.");
       }
     }
   }
-  
+
+  saveWinnerBeer(beer: Beer): void {
+    const winnerBeer: WinnerBeer = { 
+      userId: this.userId ? parseInt(this.userId) : 1, //se c'è userId lo converto in numero, altrimenti metto 0
+      beerId: beer.id,
+      dateAssigned: new Date().toISOString().split("T")[0]
+    };
+    this.gameService.saveWinnerBeer(winnerBeer).subscribe({
+      next: (winnerBeer: WinnerBeer) => {
+        console.log("Birra vincitrice salvata:", winnerBeer);
+      },
+      error: (error) => {
+        console.error("Errore nel salvataggio della birra vincitrice:", error);
+      }
+    });
+  }
+
   onChooseBeer(beer: Beer): void {
     console.log(this.choosingCounter);
     if (this.firstRoundBeers.length < this.beers.length / 2) {
