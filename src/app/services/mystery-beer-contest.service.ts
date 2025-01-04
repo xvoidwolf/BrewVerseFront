@@ -31,4 +31,13 @@ export class MysteryBeerContestService {
   createAnswer(answerDto: AnswerDto): Observable<Answer> {
     return this.http.post<Answer>(`${this.baseUrl}/newAnswer`, answerDto);
   }
+  
+  checkIfUserHasVoted(weeklyBeerId: number): Observable<boolean> {
+    const params = new HttpParams()
+      .set('weeklyBeerId', `${weeklyBeerId}`);
+    return this.http.get<boolean>(`${this.baseUrl}/hasVoted` , {params} );
+  }
+  getAnswerByUserId(userId: number): Observable<Answer> {
+    return this.http.get<Answer>(`${this.baseUrl}/by-userId/${userId}`);
+  }
 }

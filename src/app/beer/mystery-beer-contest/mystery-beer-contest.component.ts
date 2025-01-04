@@ -13,7 +13,8 @@ import { AnswerDto } from '../../model/answer';
   styleUrl: './mystery-beer-contest.component.css'
 })
 export class MysteryBeerContestComponent implements OnInit {
-  winner: boolean = false;
+  winner: boolean | null = null; 
+  hasVoted: boolean = false; 
   beers: Beer[] = [];
   hints: Hint[] = [];
   errorMessage: string = '';
@@ -56,8 +57,9 @@ export class MysteryBeerContestComponent implements OnInit {
     this.mysteryBeerContestService.getCurrentWeeklyBeer().subscribe({
       next: (data) => {
         try {
-          this.weeklyBeerId = data.id; // Assumendo che il parsing funzioni
+          this.weeklyBeerId = data.id; 
           this.loadHint();
+          this.checkIfUserHasVoted();
         } catch (e) {
           console.error('Errore durante il parsing della risposta:', e);
           this.errorMessage = 'Errore nei dati ricevuti dal server';
@@ -71,7 +73,9 @@ export class MysteryBeerContestComponent implements OnInit {
   }
 
   toggleBeerCards(): void {
-    this.showBeerCards = !this.showBeerCards;
+    if (!this.hasVoted) {
+      this.showBeerCards = !this.showBeerCards;
+    }
   }
 
   submitAnswer(beerId: number): void {
@@ -83,11 +87,12 @@ export class MysteryBeerContestComponent implements OnInit {
     console.log('Invio risposta con questi dati:', answerDto);
     this.mysteryBeerContestService.createAnswer(answerDto).subscribe({
       next: () => {
+        this.hasVoted = true; 
         this.hasUserWon(beerId);  
         this.errorMessage = 'Risposta inviata con successo!';
       },
       error: (err) => {
-        this.errorMessage = 'Errore durante l\'invio della risposta';
+        this.errorMessage = 'Hai gia\' votato per questa settimana';
         console.error(err);
       }
     });
@@ -97,10 +102,25 @@ export class MysteryBeerContestComponent implements OnInit {
     this.mysteryBeerContestService.hasUserWon(this.weeklyBeerId, beerId).subscribe({
       next: (data: boolean) => {
         this.winner = data; 
-        this.errorMessage = data ? 'Hai vinto!' : 'Hai perso!';
+       // this.errorMessage = data ? 'Hai vinto!' : 'Hai perso!';
       },
       error: (err) => {
         this.errorMessage = 'Errore durante il controllo della risposta';
+        console.error(err);
+      }
+    });
+  }
+
+  checkIfUserHasVoted(): void {
+    this.mysteryBeerContestService.checkIfUserHasVoted(this.weeklyBeerId).subscribe({
+      next: (data: boolean) => {
+        this.hasVoted = data; 
+        if (data) {
+          this.hasUserWon(this.weeklyBeerId); 
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Errore durante il controllo del voto';
         console.error(err);
       }
     });
