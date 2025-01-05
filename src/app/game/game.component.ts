@@ -93,7 +93,7 @@ export class GameComponent implements OnInit {
 
   saveWinnerBeer(beer: Beer): void {
     const winnerBeer: WinnerBeer = { 
-      userId: this.userId ? parseInt(this.userId) : 1, //se c'è userId lo converto in numero, altrimenti metto 0
+      userId: this.userId ? parseInt(this.userId) : 0, //se c'è userId lo converto in numero, altrimenti metto 0
       beerId: beer.id,
       dateAssigned: new Date().toISOString().split("T")[0]
     };
