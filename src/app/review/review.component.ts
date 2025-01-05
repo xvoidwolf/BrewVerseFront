@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ReviewService } from '../services/review.service';
 
 @Component({
   selector: 'app-review',
@@ -20,6 +21,13 @@ export class ReviewComponent implements OnInit{
 })
  }
  onSubmit(){
-  this.reviewService
+  this.reviewService.saveReview(this.reviewForm.value).subscribe({
+    next:()=>{
+      console.log("review inserita");
+    },
+    error:err=>{
+      console.log("errore nell'inserimento della review",err);
+    }
+  });
  }
 }
