@@ -4,32 +4,32 @@
             <h3>Aggiungi la tua recensione</h3>
             <form id="review-form">
                 <div class="form-group">
-                    <label for="beer-name">Nome della Birra:</label>
-                    <input type="text" class="form-control" id="beer-name" name="beer-name" required>
+                    <!-- <label for="beer-name">Nome della Birra:</label>
+                    <input type="text" class="form-control" id="beer-name" name="beer-name" required> -->
                 </div>
 
                 <div class="form-group">
                     <label for="review-text">Scrivi la tua recensione:</label>
-                    <textarea class="form-control" id="review-text" name="review-text" rows="4" required></textarea>
+                    <textarea class="form-control" id="review-text" name="review-text" rows="4" required formControlName="text"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="rating">Valutazione:</label>
                     <div class="form-control" id="rating" name="rating" required>
                         <label for="star5"></label>
-                        <input type="radio" name="rating" id="star5" value="5">
+                        <input type="radio" name="rating" id="star5" value="5" formControlName="rating">
                         
                         <label for="star4"></label>
-                        <input type="radio" name="rating" id="star4" value="4">
+                        <input type="radio" name="rating" id="star4" value="4" formControlName="rating">
                         
                         <label for="star3"></label>
-                        <input type="radio" name="rating" id="star3" value="3">
+                        <input type="radio" name="rating" id="star3" value="3" formControlName="rating">
                         
                         <label for="star2"></label>
-                        <input type="radio" name="rating" id="star2" value="2">
+                        <input type="radio" name="rating" id="star2" value="2" formControlName="rating">
                         
                         <label for="star1"></label>
-                        <input type="radio" name="rating" id="star1" value="1">
+                        <input type="radio" name="rating" id="star1" value="1" formControlName="rating">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Invia la recensione</button>
