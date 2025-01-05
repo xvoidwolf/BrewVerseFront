@@ -39,63 +39,7 @@
     padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
   }
   
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  a:hover {
-    color: #f4a300; /* Giallo oro per hover sugli anchor */
-  }
-  
-  /* Navbar */
-  .navbar {
-    background-color: #212529 ; /* Marrone scuro per la navbar */
-  }
-  
-  .navbar .navbar-brand {
-    color: #f4a300; /* Colore oro per il brand */
-    font-size: 1.3rem; 
-  }
-  
-  .navbar .nav-link {
-    color: #f4a300; /* Colore oro per i link */
-    font-size: 1.3rem; 
-  }
-  
-  .navbar .nav-link:hover {
-    color: #fff; /* Colore bianco al passaggio del mouse */
-  }
-  
-  /* Sezione principale */
-  main {
-    flex: 1; /* Espande il contenuto principale per spingere il footer verso il basso */
-    padding: 40px 0;
-  }
-  
-  h2, h3, h5 {
-    color: #212529 ; /* Marrone scuro per i titoli */
-  }
-  
-  h2 {
-    font-size: 3rem;
-  }
-  
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    color: #4b2f1e;
-    font-weight: 600;
-  }
-  
-  .card-body p {
-    color: #8a6e58; /* Un marrone più chiaro per i testi */
-  }
-  
+ 
   /* Pulsanti */
   .btn-primary {
     background-color: #f4a300;
@@ -112,36 +56,6 @@
   
   .btn-success:hover {
     background-color: #794306; 
-  }
-  
-  /* Carosello */
-  .carousel-inner .carousel-item img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: #f4a300; /* Colore oro per i controlli del carosello */
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #212529; /* Colore scuro come bg-dark */
-    color: white;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  footer h4 {
-    color: #f4a300;
-  }
-  
-  footer ul li a {
-    color: white;
-  }
-  
-  footer ul li a:hover {
-    color: #f4a300;
   }
   
   /* Form */
@@ -164,6 +78,22 @@
     background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
   }
   
-  
-  
-  
+.rating{
+    display: inline-block;
+}
+.rating input{
+    display: none;
+}
+.rating label{
+    float: right;
+    cursor: pointer;
+    color: 333;
+}
+.rating label:before{
+    content: '\2605';
+    font-size: 50px;
+}
+
+.rating input:checked label{
+    color: #d57e1d;
+}
