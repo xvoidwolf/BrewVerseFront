@@ -4,6 +4,7 @@ import { BeerService } from '../../services/beer.service';
 import { Hint } from '../../model/hint';
 import { MysteryBeerContestService } from '../../services/mystery-beer-contest.service';
 import { AnswerDto } from '../../model/answer';
+import { AuthService } from '../../services/auth.service';
 
 
 @Component({
@@ -21,12 +22,15 @@ export class MysteryBeerContestComponent implements OnInit {
   beer: Beer = defaultBeer;
   showBeerCards: boolean = false; 
   weeklyBeerId: number = 0;
+  userId: string | null = null;
+  beerId: number = 0;
 
-  constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService) { }
+  constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loadBeers();
     this.loadWeeklyBeerAndHints();
+    this.userId = this.authService.getUserIdFromToken();
   }
 
   loadBeers(): void {
@@ -58,6 +62,7 @@ export class MysteryBeerContestComponent implements OnInit {
       next: (data) => {
         try {
           this.weeklyBeerId = data.id; 
+          console.log(`Set weeklyBeerId: ${this.weeklyBeerId}`);
           this.loadHint();
           this.checkIfUserHasVoted();
         } catch (e) {
@@ -102,7 +107,7 @@ export class MysteryBeerContestComponent implements OnInit {
     this.mysteryBeerContestService.hasUserWon(this.weeklyBeerId, beerId).subscribe({
       next: (data: boolean) => {
         this.winner = data; 
-       // this.errorMessage = data ? 'Hai vinto!' : 'Hai perso!';
+        //this.errorMessage = data ? 'Hai vinto!' : 'Hai perso!';
       },
       error: (err) => {
         this.errorMessage = 'Errore durante il controllo della risposta';
@@ -114,9 +119,37 @@ export class MysteryBeerContestComponent implements OnInit {
   checkIfUserHasVoted(): void {
     this.mysteryBeerContestService.checkIfUserHasVoted(this.weeklyBeerId).subscribe({
       next: (data: boolean) => {
-        this.hasVoted = data; 
+        this.hasVoted = data;
+  
         if (data) {
-          this.hasUserWon(this.weeklyBeerId); 
+          console.log('L\'utente ha già votato. Recupero la risposta...');
+          this.mysteryBeerContestService.getAnswerByUserId(Number(this.userId)).subscribe({
+            next: (answerData) => {
+              if (answerData && answerData.length > 0) { 
+                console.log('Risposta dell\'utente:', answerData);
+                const answer = answerData[0]; 
+                this.beerId = answer.beerId;
+      
+                console.log(`Verifica se l'utente ha votato per la birra settimanale con weeklyBeerId: ${this.weeklyBeerId}`);
+                console.log(`weeklyBeerId dalla risposta: ${answer.weeklyBeerId}`);
+          
+                if (answer.weeklyBeerId === this.weeklyBeerId) {
+                  console.log(`Verifica se l'utente ha vinto con beerId: ${this.beerId}`);
+                  this.hasUserWon(this.beerId); 
+                } else {
+                  console.warn('L\'utente ha votato per una birra diversa.');
+                }
+              } else {
+                console.warn('Nessuna risposta trovata per l\'utente.');
+              }
+            },
+            error: (err) => {
+              this.errorMessage = 'Errore nel recupero della risposta dell\'utente.';
+              console.error(err);
+            }
+          });
+        } else {
+          console.log('L\'utente non ha ancora votato.');
         }
       },
       error: (err) => {

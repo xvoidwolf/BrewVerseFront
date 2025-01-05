@@ -37,7 +37,7 @@ export class MysteryBeerContestService {
       .set('weeklyBeerId', `${weeklyBeerId}`);
     return this.http.get<boolean>(`${this.baseUrl}/hasVoted` , {params} );
   }
-  getAnswerByUserId(userId: number): Observable<Answer> {
-    return this.http.get<Answer>(`${this.baseUrl}/by-userId/${userId}`);
+  getAnswerByUserId(userId: number): Observable<Answer[]> {
+    return this.http.get<Answer[]>(`${this.baseUrl}/by-userId/${userId}`);
   }
 }
