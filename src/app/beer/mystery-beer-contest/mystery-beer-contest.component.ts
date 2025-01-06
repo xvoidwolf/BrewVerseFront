@@ -82,6 +82,10 @@ export class MysteryBeerContestComponent implements OnInit {
       this.showBeerCards = !this.showBeerCards;
     }
   }
+  toggleFlip(event: any) {
+    const card = event.currentTarget; // Riferimento alla card cliccata
+    card.classList.toggle('flipped'); // Aggiungi o rimuovi la classe per farla girare
+  }
 
   submitAnswer(beerId: number): void {
     const answerDto: AnswerDto = {

@@ -11,15 +11,22 @@
 
     @if (!hasVoted) {
       <div id="contest-hints" class="my-4">
-        <h3>Indizi:</h3>
-        @for (hint of hints; track hint.id) {
-          <div>
-            <h3>Indizio: {{ hint.number }}</h3>
-            <p>{{ hint.description }}</p>
-          </div>
-        }
+        <div class="hints-container">
+          @for (hint of hints; track hint.id) {
+            <div class="hint-card" (click)="toggleFlip($event)">
+              <!-- Fronte della card -->
+              <div class="front">
+                <h4>Indizio {{ hint.number }}</h4>
+                <p>Clicca per scoprire l'indizio</p>
+              </div>
+              <!-- Retro della card -->
+              <div class="back">
+                <h4>{{ hint.description }}</h4>
+              </div>
+            </div>
+          }
+        </div>
       </div>
-
       <div class="button-container">
         <button (click)="toggleBeerCards()">Mostra Birre</button>
       </div>
@@ -32,7 +39,7 @@
               <div class="beer-info">
                 <h2>{{ beer.name }}</h2>
                 <p>{{ beer.type }} | {{ beer.alcoholPercentage }}%</p>
-                <button (click)="submitAnswer(beer.id)">Vota</button>
+                <button class="vote button" (click)="submitAnswer(beer.id)">Vota</button>
               </div>
             </div>
         }
@@ -43,6 +50,8 @@
     @if (hasVoted) {
       <div class="result-message">
         <h3>{{ winner ? 'Hai vinto!' : 'Hai perso!' }}</h3>
+        <p>{{ winner ? 'Congratulazioni! Hai indovinato la birra misteriosa.' : 'Purtroppo non è andata bene questa volta.' }}</p>
+        <p>Riprova la settimana prossima per scoprire una nuova birra misteriosa!</p>
       </div>
     }
   </div>  
