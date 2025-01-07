@@ -63,10 +63,22 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
     animation: starting 1s ease-out;
 }
 app-beer-mini-card {
     animation: forCards 1s ease-out;
+}
+#winnerBeers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#winnerBeersContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 button {
     background-color: #f4a300;

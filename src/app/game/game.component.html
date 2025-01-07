@@ -94,4 +94,16 @@
         }
     </div>
 }
+
+@if (winnerBeers.length > 0) {
+    <div id="winnerBeers">
+        <h3>Le tue birre vincitrici:</h3>
+        <div id="winnerBeersContainer">
+            @for (beer of winnerBeers; track beer.beer.id) {
+                <app-beer-mini-card  [beer]="beer.beer"></app-beer-mini-card>
+            }
+        </div>
+    </div>
+}
+
 </section>
