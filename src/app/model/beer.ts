@@ -10,8 +10,11 @@ export interface Beer {
 }
 export const defaultBeer: Beer = {
     id: 0,
+    name: '',
+    breweryId: 0,
     imageUrl: '', 
-    name: '', 
     alcoholPercentage: 0, 
-    type: ''
+    averageRating: 0,
+    type: '',
+    reviewsId: []
 }
