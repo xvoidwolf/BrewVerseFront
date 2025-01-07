@@ -44,6 +44,7 @@ export class MysteryBeerContestComponent implements OnInit {
       },
     });
   }
+
   loadHint(): void {
     this.mysteryBeerContestService.getHintsByWeeklyBeerId(this.weeklyBeerId).subscribe({
       next: (data) => {
@@ -82,9 +83,10 @@ export class MysteryBeerContestComponent implements OnInit {
       this.showBeerCards = !this.showBeerCards;
     }
   }
+
   toggleFlip(event: any) {
-    const card = event.currentTarget; // Riferimento alla card cliccata
-    card.classList.toggle('flipped'); // Aggiungi o rimuovi la classe per farla girare
+    const card = event.currentTarget; 
+    card.classList.toggle('flipped'); 
   }
 
   submitAnswer(beerId: number): void {
@@ -162,4 +164,5 @@ export class MysteryBeerContestComponent implements OnInit {
       }
     });
   }
+  //tutti questi console.log non servono era per debuggare :)
 }
