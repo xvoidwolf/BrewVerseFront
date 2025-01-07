@@ -10,7 +10,7 @@ import { BeerDetailsComponent } from "./beer/beer-details/beer-details.component
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, HeaderComponent, FooterComponent, SearchBeerComponent, RouterLink, RegisterComponent, LoginComponent, BeerDetailsComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

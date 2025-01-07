@@ -1,19 +1,15 @@
-<section id="brewery-beer-section" class="container py-5">
-    <h2 class="text-center mb-4">Birre del Birrificio <span id="brewery-name">[ Birrificio in evidenza]</span></h2>
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/images/default-beer.jpg" class="card-img-top" alt="Immagine Birra">
-                <div class="card-body">
-                    <h5 class="card-title">Nome Birra</h5>
-                    <p class="card-text">
-                        <strong>Tipo:</strong> IPA<br>
-                        <strong>Gradazione alcolica:</strong> 5.5%<br>
-                        <strong>Valutazione media:</strong> 4.3/5
-                    </p>
-                    <a href="/beer-details/1" class="btn btn-primary">Dettagli</a>
-                </div>
-            </div>
-        </div>
+<div class="title"><h1>Le birre del mese</h1></div>
+<div class='container'>
+    @for (beer of beers; track $index) {
+    <div class="card" style="width: 18rem;">
+      <div class="card-img-top" [ngStyle]="{'background-image': 'url(' + beer.imageUrl + ')'}"></div>
+      <div class="card-body">
+        <h3 class="card-title">{{beer.name}}</h3>
+        <ul>
+            <li>Grado alcolico: {{beer.alcoholPercentage}}%</li>
+            <li>Tipo: {{beer.type}}</li>
+        </ul>
+      </div>
     </div>
-</section>
+    }
+</div>

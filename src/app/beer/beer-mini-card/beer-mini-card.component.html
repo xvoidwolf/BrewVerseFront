@@ -1,7 +1,7 @@
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem;" (click) = "onBeerClicked()">
     <img class="card-img-top" [src]="beer.imageUrl" alt="Card image cap">
     <div class="card-body">
-      <h3 class="card-title">{{beer.name}}</h3>
+      <h6 class="card-title">{{beer.name}}</h6>
       <!-- <ul>
           <li>Grado alcolico: {{beer.alcoholPercentage}}%</li>
           <li>Tipo: {{beer.type}}</li>

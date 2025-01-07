@@ -4,9 +4,106 @@
     </div>
 @if (beers) {
     <div id="container">
-        @for (beer of beers; track $index) {
-                <app-beer-mini-card [beer]="beer"></app-beer-mini-card>
+        <div >
+            <div id="randomBeers">
+                @for (beer of beers; track $index) {
+                    <app-beer-mini-card [beer]="beer"></app-beer-mini-card>
+                }
+            </div>
+        </div>
+        <div id="firstRound">
+            <div class="svgContainer">
+                @for (beer of firstRoundBeers; track $index) {
+                    <div>
+                        <svg width="150" height="80" xmlns="http://www.w3.org/2000/svg" class="horizontalLine">
+                            <line x1="0" y1="30" x2="0" y2="0" stroke="white" stroke-width="5" />
+                            <line x1="150" y1="30" x2="150" y2="0" stroke="white" stroke-width="5" />
+                            <line x1="75" y1="30" x2="75" y2="80" stroke="white" stroke-width="3" />
+                            <line x1="0" y1="30" x2="150" y2="30" stroke="white" stroke-width="3" />
+                        </svg>
+                    </div>
+                }
+            </div>
+            <div id="firstRoundBeers">
+                @if (firstRoundBeers) {
+                    @for (beer of firstRoundBeers; track beer.id) {
+                        <app-beer-mini-card  [beer]="beer" class="first"></app-beer-mini-card>
+                    }
+                }
+            </div>
+        </div>
+        <div>
+            <div class="svgContainer">
+                @for (beer of secondRoundBeers; track $index) {
+                    <div >
+                        <svg width="300" height="80" xmlns="http://www.w3.org/2000/svg" class="secondLine">
+                            <line x1="0" y1="30" x2="0" y2="0" stroke="white" stroke-width="5" />
+                            <line x1="300" y1="30" x2="300" y2="0" stroke="white" stroke-width="5" />
+                            <line x1="150" y1="30" x2="150" y2="80" stroke="white" stroke-width="3" />
+                            <line x1="0" y1="30" x2="300" y2="30" stroke="white" stroke-width="3" />
+                        </svg>
+                    </div>
+                    
+                }
+            </div>
+            <div id="secondRoundBeers">
+            @if (secondRoundBeers) {
+                @for (beer of secondRoundBeers; track beer.id) {
+                    <app-beer-mini-card  [beer]="beer" class="second"></app-beer-mini-card>
+                }
+            }
+            </div>
+        </div>
+        @if (winner) {
+            <div id="svgContainer3">
+                    <svg width="600" height="80" xmlns="http://www.w3.org/2000/svg" class="thirdLine">
+                        <line x1="0" y1="30" x2="0" y2="0" stroke="white" stroke-width="5" />
+                        <line x1="600" y1="30" x2="600" y2="0" stroke="white" stroke-width="5" />
+                        <line x1="300" y1="30" x2="300" y2="80" stroke="white" stroke-width="3" />
+                        <line x1="0" y1="30" x2="600" y2="30" stroke="white" stroke-width="3" />
+                    </svg>
+            </div>
+        }
+        <!-- <div id="winner">
+            @if (winner) {
+                <app-beer-mini-card  [beer]="winner"></app-beer-mini-card>
+            }
+        </div> -->
+    </div>
+
+    <div id="gameContainer">
+        @if (!hasStarted) {
+            <button (click)="onStart()">Inizia il gioco</button>
+        }
+        @if (hasStarted && !winner) {
+            <h3>Scegli quale birra preferisci:</h3>
+            <div id="choosingContainer">
+                @for (beer of chooseBeers; track beer.id) {
+                    <app-beer-mini-card (beerClicked) = "onChooseBeer($event)" [beer]="beer" ></app-beer-mini-card>
+                }
+            </div>
+        }
+        @if (winner) {
+            <h3>La birra vincitrice è:</h3>
+            <div class="winner">
+                <app-beer-mini-card  [beer]="winner"></app-beer-mini-card>
+            </div>
+        }
+        @if (winner && hasStarted) {
+            <button (click)="onRestart()">Ricomincia</button>
         }
     </div>
 }
+
+@if (winnerBeers.length > 0) {
+    <div id="winnerBeers">
+        <h3>Le tue birre vincitrici:</h3>
+        <div id="winnerBeersContainer">
+            @for (beer of winnerBeers; track beer.beer.id) {
+                <app-beer-mini-card  [beer]="beer.beer"></app-beer-mini-card>
+            }
+        </div>
+    </div>
+}
+
 </section>

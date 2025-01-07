@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from '../services/login.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { FooterComponent } from "../footer/footer.component";
+import { Router, RouterLink, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -35,3 +34,4 @@ export class LoginComponent implements OnInit {
     }); 
   }
 }
+

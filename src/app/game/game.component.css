@@ -2,26 +2,131 @@ section {
     min-height: 600px;
 }
 #container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(214, 186, 144);
+    background-color: #212529;
     max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    animation: starting 1s ease-out;
+    animation: all 1s ease-out;
+}
+#choosingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: starting 1s ease-out;
+    background-color: #212529;
+    width: 300px;
+    min-height: 200px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    animation: starting 1s ease-out;
+}
+#gameContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#randomBeers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: starting 1s ease-out;
+}
+#winner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: starting 1s ease-out;
+}
+#firstRoundBeers {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    animation: starting 1s ease-out;
+}
+#secondRoundBeers {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    animation: starting 1s ease-out;
+}
+#winner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: starting 1s ease-out;
 }
 #title {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
     animation: starting 1s ease-out;
 }
-
 app-beer-mini-card {
     animation: forCards 1s ease-out;
 }
-
+#winnerBeers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#winnerBeersContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+button {
+    background-color: #f4a300;
+    color: white;
+    border: none;
+    width: 300px;
+    padding: 8px;
+    border-radius: 7px;
+    margin-top: 15px;
+    font-size: 1.2em;
+    animation: starting 1s ease-out;
+}
+.svgContainer {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    animation: forCards 1s ease-out;
+}
+.horizontalLine {
+    margin-inline: 76px;
+    animation: forCards 1s ease-out;
+}
+.secondLine {
+    margin-inline: 152px;
+    animation: forCards 1s ease-out;
+}
+#svgContainer3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: forCards 1s ease-out;
+}
+.first {
+    margin-inline: 76px;
+}
+.second {
+    margin-inline: 227px;
+}
+.winner {
+    background-color: #212529;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 @keyframes starting {
     from {
         opacity: 0;
@@ -31,9 +136,7 @@ app-beer-mini-card {
         opacity: 1;
         transform: translateY(0);
     }
-    
 }
-
 @keyframes forCards {
     from {
         opacity: 0;
@@ -43,11 +146,72 @@ app-beer-mini-card {
         opacity: 1;
         transform: translateY(0);
     }
-    
 }
 :host {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(255, 249, 241);
+    background-color: #f2dcb4;
+}
+
+@media (max-width: 600px) {
+    :host {
+    max-width: 600px;
+    }
+    #container{
+    width: 600px;
+    transform: scale(0.9);
+    }
+    #firstRoundBeers {
+    justify-content: center;
+    align-items: start;
+    transform: scale(1.2);
+    }
+    #secondRoundBeers {
+    justify-content: center;
+    align-items: start;
+    transform: scale(1.5);
+    }
+    .first {
+    margin-inline: 23px;
+    }
+    .second {
+        margin-inline: 57px;
+    }
+    .winner {
+        transform: scale(1.5);
+    }
+    .svgContainer div {
+        margin: 0 0; /* Evita spazi superflui */
+        
+    }
+    #svgContainer3 {
+        transform: scale(0.47);
+    }
+    .horizontalLine, .secondLine {
+        margin: 0;   
+        padding: 0; 
+        width: 100%;  
+        display: block;
+    }
+}
+
+/* Schermi medi (tra 601px e 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    :host {
+        max-width: 1024px;
+    }
+    #container{
+        max-width: 1000px;
+    }
+}
+
+/* Schermi grandi (min 1025px) */
+@media (min-width: 1025px) {
+    :host {
+        max-width: 1900px;
+    }
+    #container{
+        max-width: 100%;
+    }
 }
