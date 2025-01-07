@@ -9,6 +9,7 @@ import { SearchBeerComponent } from './beer/search-beer/search-beer.component';
 import { BeerDetailsComponent } from './beer/beer-details/beer-details.component';
 import { MysteryBeerContestComponent } from './beer/mystery-beer-contest/mystery-beer-contest.component';
 import { ReviewComponent } from './review/review.component';
+import { BeerCardComponent } from './beer/beer-card/beer-card.component';
 
 export const routes: Routes = [
     {path: "home", component: HomeComponent},
@@ -23,4 +24,5 @@ export const routes: Routes = [
     {path: "contest", component: MysteryBeerContestComponent},
     {path: "review", component: ReviewComponent},
     {path: "**", redirectTo: "pathNotFound"} //se non trova la rotta, reindirizza a pathNotFound
+    
 ];

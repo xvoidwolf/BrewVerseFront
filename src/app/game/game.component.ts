@@ -4,6 +4,7 @@ import { Beer } from '../model/beer';
 import { BeerMiniCardComponent } from "../beer/beer-mini-card/beer-mini-card.component";
 import { WinnerBeer } from '../model/winner-beer';
 import { AuthService } from '../services/auth.service';
+import { CombinedWinnerBeer } from '../model/combined-winner-beer';
 
 @Component({
   selector: 'app-game',
@@ -23,12 +24,14 @@ export class GameComponent implements OnInit {
   thirdRoundBeers: Beer[] = [];
   winner?: Beer; 
   hasStarted: boolean = false;
+  winnerBeers!: CombinedWinnerBeer[];
 
   userId: string | null = null;
 
   ngOnInit(): void {
     this.getRandomBeers();
     this.userId = this.authService.getUserIdFromToken();
+    this.getWinnerBeers();
   }
 
   onStart() {
@@ -46,6 +49,7 @@ export class GameComponent implements OnInit {
     this.choosingCounter = 0; 
   
     this.getRandomBeers();
+    this.getWinnerBeers();
   }
   
   getRandomBeers(): void {
@@ -93,7 +97,7 @@ export class GameComponent implements OnInit {
 
   saveWinnerBeer(beer: Beer): void {
     const winnerBeer: WinnerBeer = { 
-      userId: this.userId ? parseInt(this.userId) : 1, //se c'è userId lo converto in numero, altrimenti metto 0
+      userId: this.userId ? parseInt(this.userId) : 0, //se c'è userId lo converto in numero, altrimenti metto 0
       beerId: beer.id,
       dateAssigned: new Date().toISOString().split("T")[0]
     };
@@ -122,4 +126,16 @@ export class GameComponent implements OnInit {
     this.choosingCounter += 2;
     this.getBeersToChoose();
   }
+
+  getWinnerBeers(): void {
+    this.gameService.getWinnerBeers().subscribe({
+      next: (winnerBeers: CombinedWinnerBeer[]) => {
+        this.winnerBeers = winnerBeers;
+      },
+      error: (error) => {
+        console.error("Errore nel recupero dei vincitori:", error);
+      }
+    });
+  }
 }
+
