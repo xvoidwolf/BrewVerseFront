@@ -1,31 +1,8 @@
-<section id="reviews-section" class="container mt-5">
-    <div class="row">
-        <div class="col-md-6">
-            <h3>Aggiungi la tua recensione</h3>
-            <form id="review-form">
-                <div class="form-group">
-                    <label for="beer-name">Nome della Birra:</label>
-                    <input type="text" class="form-control" id="beer-name" name="beer-name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="review-text">Scrivi la tua recensione:</label>
-                    <textarea class="form-control" id="review-text" name="review-text" rows="4" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="rating">Valutazione:</label>
-                    <select class="form-control" id="rating" name="rating" required>
-                        <option value="1">1 Stella</option>
-                        <option value="2">2 Stelle</option>
-                        <option value="3">3 Stelle</option>
-                        <option value="4">4 Stelle</option>
-                        <option value="5">5 Stelle</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Invia la recensione</button>
-            </form>
-        </div>
-    </div>
-</section>
+@if(reviews) {
+    <section id="reviews-section" class="container mt-5">
+    @for (review of reviews; track $index) {
+        <app-review-card [review]="review"></app-review-card>
+    }
+    </section>
+}
 
