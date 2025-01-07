@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path: "add-beer", component: AddBeerComponent},
     {path: "update-beer", component: UpdateBeerComponent},
     {path: "search-beer", component: SearchBeerComponent},
-    {path: "details", component: BeerDetailsComponent}, //qui carosello con le recensioni e tasto per farne un'altra
+    {path: "details/:id", component: BeerDetailsComponent}, //qui carosello con le recensioni e tasto per farne un'altra
     {path: "contest", component: MysteryBeerContestComponent},
     {path: "review", component: ReviewComponent},
     {path: "**", redirectTo: "pathNotFound"} //se non trova la rotta, reindirizza a pathNotFound
