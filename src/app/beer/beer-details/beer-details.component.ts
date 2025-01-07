@@ -16,7 +16,6 @@ export class BeerDetailsComponent {
   reviews!: Review[];
   beerId!: number;
   beer!: Beer;
-
   constructor(private beerService: BeerService, private reviewService: ReviewService, private router: Router, private route: ActivatedRoute) { }
 
 
@@ -33,19 +32,23 @@ export class BeerDetailsComponent {
       error: err => {
         console.log("errore nel caricamento della birra", err);
       }
-  });
-}
+    });
+  }
 
-getReviews(){
-  this.beerId = Number(this.route.snapshot.paramMap.get('id'));
-  this.reviewService.getReviews(this.beerId).subscribe({
-    next: reviews => {
-      this.reviews = reviews;
-    },
-    error: err => {
-      console.log("errore nel caricamento delle reviews", err);
-    }
-  });
-}
+  getReviews() {
+    this.beerId = Number(this.route.snapshot.paramMap.get('id'));
+    this.reviewService.getReviews(this.beerId).subscribe({
+      next: reviews => {
+        this.reviews = reviews;
+      },
+      error: err => {
+        console.log("errore nel caricamento delle reviews", err);
+      }
+    });
+  }
+
+  onClick(beerId:number){
+    this.router.navigate([`review/${beerId}`]);
+  }
 
 }
