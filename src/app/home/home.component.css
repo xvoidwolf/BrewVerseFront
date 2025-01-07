@@ -1,24 +1,114 @@
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/* Reset degli stili base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.card{
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-}
-.card-img-top{
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
 
+/* Stile generale del corpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 60px;
 }
-.card-body{
-    padding: 10px;
+.title{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #764e35;
+}
+
+/* Contenitore delle schede */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Permette di andare a capo per schede multiple */
+    justify-content: center; /* Centra le schede nella pagina */
+    gap: 20px; /* Spaziatura tra le schede */
+    padding: 20px;
+}
+
+/* Card per le birre */
+.card {
+    width: 18rem;
+    background-color: #fff; /* Colore di sfondo della card */
+    border: 2px solid #4b2f1e; /* Bordo marrone scuro */
+    border-radius: 10px; /* Angoli arrotondati */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra della card */
+    overflow: hidden; /* Assicura che il contenuto non fuoriesca */
+    transition: transform 0.2s ease-in-out; /* Effetto al passaggio del mouse */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Leggera animazione al passaggio del mouse */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
+}
+
+/* Immagine della card */
+.card-img-top {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Contenuto della card */
+.card-body {
+    padding: 20px;
+    text-align: center;
+    background-color: #f6e1bb61;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #4b2f1e;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.card-body li {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.card-body ul {
+    list-style: none; /* Rimuove i pallini */
+    padding: 0;
+    color: #8a6e58; /* Marrone chiaro per il testo */
+    font-size: 1rem;
+    text-align: left;
+    margin-top: 10px;
+}
+
+/* Link generici */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color: #f4a300; /* Cambia colore al passaggio del mouse */
+}
+
+/* Footer */
+footer {
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+footer h4 {
+    color: #f4a300;
+}
+
+footer ul li a {
+    color: white;
+}
+
+footer ul li a:hover {
+    color: #f4a300;
 }

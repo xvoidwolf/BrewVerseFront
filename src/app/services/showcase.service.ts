@@ -10,7 +10,7 @@ export class ShowcaseService {
 
   constructor(private http:HttpClient) { }
 
-  getAllBeers(): Observable<Beer[]>{
-    return this.http.get<Beer[]>('http://localhost:8080/api/beers/allBeers');
+  getBeersByMonthlySelectedBrewery(): Observable<Beer[]>{
+    return this.http.get<Beer[]>('http://localhost:8080/api/brewery/monthly-brewery');
   }
 }

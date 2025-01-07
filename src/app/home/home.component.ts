@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Beer } from '../model/beer';
 import { ShowcaseService } from '../services/showcase.service';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -16,10 +17,10 @@ export class HomeComponent implements OnInit {
   constructor(private showcaseService: ShowcaseService) { }
 
   ngOnInit(): void {
-    this.getAllBeers();    
+    this.getBeersByMonthlySelectedBrewery();    
   }
-  getAllBeers(): void {
-    this.showcaseService.getAllBeers().subscribe({
+  getBeersByMonthlySelectedBrewery(): void {
+    this.showcaseService.getBeersByMonthlySelectedBrewery().subscribe({
       next: (res) => {  
         this.beers = res;
       },
