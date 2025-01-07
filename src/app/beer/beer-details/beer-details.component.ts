@@ -21,6 +21,8 @@ ngOnInit():void{
   this.getReviews();
 }
 
+// TODO: chiamata per prendere la birra
+
 getReviews(){
   this.beerId=Number(this.route.snapshot.paramMap.get('id'));
   this.reviewService.getReviews(this.beerId).subscribe({
