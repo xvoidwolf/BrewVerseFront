@@ -4,6 +4,7 @@ import { BeerService } from '../../services/beer.service';
 import { Beer } from '../../model/beer';
 import { BeerDetailsComponent } from '../beer-details/beer-details.component';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-beer', 
@@ -26,7 +27,7 @@ export class SearchBeerComponent implements OnInit {
   totalItems!: number;
   paginatedBeers: any[] = [];
 
-  constructor(private fb:FormBuilder, private beerService: BeerService) {}
+  constructor(private fb:FormBuilder, private beerService: BeerService, private router:Router, private route:ActivatedRoute) {}
   
   ngOnInit(): void {
     this.beerForm= this.fb.group({
@@ -126,4 +127,8 @@ export class SearchBeerComponent implements OnInit {
       }
     }
   }
+
+  onCardSelected(beer: Beer) {
+  this.router.navigate([`details/${beer.id}`]);
+ }
 }

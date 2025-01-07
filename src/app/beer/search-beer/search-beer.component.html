@@ -44,7 +44,7 @@
 <div class="beer-results">
   @if (beers.length > 0) {
     @for (beer of beers; track beer.id) {
-      <app-beer-card [beer]="beer"></app-beer-card>
+      <app-beer-card (chooseBeerEvent)="onCardSelected($event)" [beer]="beer"></app-beer-card>
     }
   }
 </div>
