@@ -3,6 +3,7 @@ import { ReviewService } from '../../services/review.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Review } from '../../model/review';
 import { ReviewCardComponent } from '../../review-card/review-card.component';
+import { Beer } from '../../model/beer';
 
 @Component({
   selector: 'app-beer-details',
@@ -13,6 +14,7 @@ import { ReviewCardComponent } from '../../review-card/review-card.component';
 export class BeerDetailsComponent {
 reviews!:Review[];
 beerId!:number;
+beer!:Beer;
 
 constructor(private reviewService:ReviewService, private router:Router, private route:ActivatedRoute){ }
 

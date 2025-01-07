@@ -1,8 +1,27 @@
-@if(reviews) {
+@if (beer) {
+    <section>
+        <div>
+            <h1>{{beer.name}}</h1>
+            <img src="{{beer.imageUrl}}" alt="immagine della birra: {{beer.name}}">
+        </div>
+        <div>
+            <ul>
+                <li> Tipo: {{beer.type}} </li>
+                <li> Percentuale Alcolica: {{beer.alcoholPercentage}} </li>
+                <li> Rating medio: {{beer.averageRating}} </li>
+                <!-- prendere il birrificio per id per stampare il nome in base al beer id -->
+                <!-- <li> {{beer.brewery.name}} </li>  -->
+            </ul>
+            
+        </div>
+    </section>
+}
+
+<!-- @if(reviews) {
     <section id="reviews-section" class="container mt-5">
     @for (review of reviews; track $index) {
         <app-review-card [review]="review"></app-review-card>
     }
     </section>
-}
+} -->
 
