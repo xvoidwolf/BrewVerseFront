@@ -12,21 +12,24 @@ import { AuthService } from '../services/auth.service';
 })
 export class ReviewComponent implements OnInit {
   reviewForm!: FormGroup;
-  userId:string | null = null;
+  userId!:number;
   beerId!:number;
 
   constructor(private fb: FormBuilder, private reviewService: ReviewService, private authService:AuthService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userId = Number(this.authService.getUserIdFromToken());
+    this.beerId = Number(this.route.snapshot.paramMap.get('id'));
     this.reviewForm = this.fb.group({
-      text: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(240)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(240)]],
       rating: ['', [Validators.required]],
-      userId:this.authService.getUserIdFromToken(),
-      beerId:Number(this.route.snapshot.paramMap.get('id'))
-
-    })
+      userId: this.userId,
+      beerId: this.beerId
+    });
+    console.log(this.userId,this.beerId);
   }
   onSubmit() {
+    
     this.reviewService.saveReview(this.reviewForm.value).subscribe({
       next: () => {
         console.log("review inserita");
