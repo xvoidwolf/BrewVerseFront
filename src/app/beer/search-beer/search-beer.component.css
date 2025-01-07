@@ -1,168 +1,115 @@
-/* Reset degli stili base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Bottone per tornare in cima alla pagina */
-.scroll-button {
-  position: fixed; /* Fissa il bottone rispetto alla finestra */
-  bottom: 20px;    /* Distanza dal bordo inferiore */
-  right: 20px;     /* Distanza dal bordo destro */
-  z-index: 10000;  /* Garantisce che il bottone appaia sopra altri elementi */
-  display: block;  /* Assicurati che sia visibile */
-  background-color: #007bff; /* Colore di sfondo */
-  border-radius: 50%; /* Forma circolare */
-  padding: 10px;   /* Spaziatura interna */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra */
-  cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-}
-
-.scroll-button a {
-  color: white; /* Colore dell'icona */
-  font-size: 20px; /* Dimensione dell'icona */
-  text-decoration: none; /* Nessuna sottolineatura */
-}
-
-.scroll-button:hover {
-  background-color: #0056b3; /* Cambia colore quando il mouse è sopra */
-}
-
 :host {
   font-family: 'Roboto', sans-serif;
   background-color: #f2dcb4;
   color: #212529;
-  display: flex; /* Imposta il contenitore come flessibile */
-  flex-direction: column; /* Direzione verticale */
-  min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
-  padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+}
+.beer-results {
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 20px; 
+  margin: 20px; 
+  padding: 20px; 
+  background-color: #f2dcb4; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-a:hover {
-  color: #f4a300; /* Giallo oro per hover sugli anchor */
-}
-
-/* Navbar */
-.navbar {
-  background-color: #212529 ; /* Marrone scuro per la navbar */
-}
-
-.navbar .navbar-brand {
-  color: #f4a300; /* Colore oro per il brand */
-  font-size: 1.3rem; 
-}
-
-.navbar .nav-link {
-  color: #f4a300; /* Colore oro per i link */
-  font-size: 1.3rem; 
-}
-
-.navbar .nav-link:hover {
-  color: #fff; /* Colore bianco al passaggio del mouse */
-}
-
-/* Sezione principale */
-main {
-  flex: 1; /* Espande il contenuto principale per spingere il footer verso il basso */
-  padding: 40px 0;
-}
-
-h2, h3, h5 {
-  color: #212529 ; /* Marrone scuro per i titoli */
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2rem;
-  margin-bottom: 30px;
-}
-
-.card-title {
-  font-size: 1.25rem;
-  color: #4b2f1e;
-  font-weight: 600;
-}
-
-.card-body p {
-  color: #8a6e58; /* Un marrone più chiaro per i testi */
-}
-
-/* Pulsanti */
-.btn-primary {
-  background-color: #f4a300;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: #794306; /* Giallo scuro per hover */
-}
-
-.btn-success {
-  background-color: #f4a300;
-}
-
-.btn-success:hover {
-  background-color: #794306; 
-}
-
-/* Carosello */
-.carousel-inner .carousel-item img {
-  width: 100%;
-  height: auto;
-}
-
-.carousel-control-prev-icon, .carousel-control-next-icon {
-  background-color: #f4a300; /* Colore oro per i controlli del carosello */
-}
-
-/* Footer */
-footer {
-  background-color: #212529; /* Colore scuro come bg-dark */
-  color: white;
+.title {
   text-align: center;
-  padding: 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-footer h4 {
-  color: #f4a300;
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-footer ul li a {
-  color: white;
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
-footer ul li a:hover {
-  color: #f4a300;
+label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
 }
 
-/* Form */
-input[type="file"] {
-  border: 2px solid #4b2f1e;
+input,
+select {
   padding: 10px;
-  background-color: #fff;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s;
 }
 
-input[type="file"]:hover {
-  border-color: #f4a300;
+input:focus,
+select:focus {
+  border: 1px solid #212529;
 }
-.btn-custom {
-  background-color: #f4a300; /* Colore oro personalizzato */
+
+.submit-button {
+  background-color: #212529;
   color: white;
+  padding: 10px 15px;
+  font-size: 1.2rem;
   border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.btn-custom:hover {
-  background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
+.submit-button:hover {
+  background-color: #0056b3;
 }
 
+/* Stile per i pulsanti di paginazione */
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
 
+.pagination-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
+.pagination-button:hover {
+  background-color: #0056b3;
+}
+
+/* Stile per la sezione dei risultati */
+.beer-results {
+  margin-top: 30px;
+}
+
+.no-results h2 {
+  text-align: center;
+  color: #999;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
