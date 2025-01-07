@@ -1,169 +1,258 @@
+.hints-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  margin-top: 70px;
+  margin-bottom: 100px;
+  padding: 0 15px;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  perspective: 1000px; 
+}
+
+
+.hint-card {
+  width: 280px;
+  height: 380px; 
+  position: relative;
+  transform-style: preserve-3d; 
+  transition: transform 0.6s ease-in-out; 
+  cursor: pointer;
+}
+
+
+.hint-card .front, 
+.hint-card .back {
+  font-family: 'Times New Roman', serif;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  font-size: 1.5rem;
+}
+
+
+.hint-card .front {
+  background-image: url('https://i.pinimg.com/736x/8f/e0/b7/8fe0b71e8264ea944a540d7990935f83.jpg');
+  background-size: cover; /* Assicura che l'immagine copra completamente lo sfondo */
+  background-position: center; /* Centra l'immagine */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Mantiene gli angoli arrotondati */
+  padding: 20px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.hint-card .back {
+  background-image: url('https://i.pinimg.com/736x/8f/e0/b7/8fe0b71e8264ea944a540d7990935f83.jpg');
+  background-size: cover;
+  background-position: center;
+  color: rgb(44, 43, 43);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.hint-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Layout più responsivo */
+  gap: 17px; /* Spaziatura tra le card */
+  margin-top: 30px;
+  padding: 50px; /* Spaziatura attorno al contenitore */
+  background-color: #f2dcb4; /* Sfondo leggero */
+  border-radius: 10px; /* Bordo arrotondato per il contenitore */
+}
+
+/* Stile per la card */
+.beer-card {
+  background: linear-gradient(145deg, #fff5e1, #e6e1c5); /* Effetto gradiente leggero */
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%; /* La card si adatta alla larghezza della cella */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beer-card:hover {
+  transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Aggiunge profondità */
+}
+
+/* Immagine della birra */
+.beer-image {
+  width: 100%;
+  height: auto; /* Mantiene il rapporto di aspetto originale */
+  max-height: 200px; /* Imposta un'altezza massima */
+  object-fit: cover; /* Assicura che l'immagine riempia l'area senza distorsioni */
+  border-bottom: 2px solid #ddd; /* Linea di separazione elegante */
+  display: block; /* Rimuove eventuali spazi indesiderati */
+}
+
+/* Info della birra */
+.beer-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.beer-info h2 {
+  font-size: 1.6rem; 
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.beer-info h2 {
+  font-size: 1.6rem; /* Dimensione del titolo ridotta */
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.beer-info p {
+  font-size: 1rem;
+  color: #777;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.button-container {
+  display: flex;
+  justify-content: center; /* Centra il bottone orizzontalmente */
+  margin-top: 40px; /* Spazio sopra il bottone per distanziarlo dalle informazioni precedenti */
+  margin-bottom: 40px; /* Spazio sotto il bottone per distanziarlo dalle card */
+  padding: 0 20px; /* Distanza laterale */
+}
+.button-container button {
+  background: linear-gradient(145deg, #f0e6d2, #d4b27e); /* Gradiente caldo con crema e beige dorato */
+  color: #3e2a47; /* Colore scuro per il testo */
+  border: 2px solid #b67c4e; /* Bordo marrone dorato */
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombra morbida */
+  letter-spacing: 1px;
+}
+
+.button-container button:hover {
+  background: linear-gradient(145deg, #d4b27e, #c1a17b); /* Gradiente con marrone più chiaro durante l'hover */
+  color: #3e2a47; /* Manteniamo il testo scuro per il contrasto */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombra più marcata durante l'hover */
+}
+
+.button-container button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 163, 91, 0.5); /* Focus dorato delicato */
+}
+
+.button-container button:active {
+  background: linear-gradient(145deg, #b67c4e, #d4b27e); /* Colori invertiti per l'effetto di pressione */
+  transform: translateY(2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+/* Stile per il pulsante */
+button {
+  background: linear-gradient(145deg, #f3b15c, #d69133); /* Gradiente più acceso, dorato e caldo */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 15px;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #d69133, #c57229); /* Hover con una sfumatura più accesa e calda */
+  transform: translateY(-3px); /* Leggera animazione di sollevamento */
+}
+
 /* Reset degli stili base */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  /* Bottone per tornare in cima alla pagina */
-  .scroll-button {
-    position: fixed; /* Fissa il bottone rispetto alla finestra */
-    bottom: 20px;    /* Distanza dal bordo inferiore */
-    right: 20px;     /* Distanza dal bordo destro */
-    z-index: 10000;  /* Garantisce che il bottone appaia sopra altri elementi */
-    display: block;  /* Assicurati che sia visibile */
-    background-color: #007bff; /* Colore di sfondo */
-    border-radius: 50%; /* Forma circolare */
-    padding: 10px;   /* Spaziatura interna */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra */
-    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
-  }
-  
-  .scroll-button a {
-    color: white; /* Colore dell'icona */
-    font-size: 20px; /* Dimensione dell'icona */
-    text-decoration: none; /* Nessuna sottolineatura */
-  }
-  
-  .scroll-button:hover {
-    background-color: #0056b3; /* Cambia colore quando il mouse è sopra */
-  }
-  
-  :host {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f2dcb4;
-    color: #212529;
-    display: flex; /* Imposta il contenitore come flessibile */
-    flex-direction: column; /* Direzione verticale */
-    min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
-    padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
-  }
-  
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  a:hover {
-    color: #f4a300; /* Giallo oro per hover sugli anchor */
-  }
-  
-  /* Navbar */
-  .navbar {
-    background-color: #212529 ; /* Marrone scuro per la navbar */
-  }
-  
-  .navbar .navbar-brand {
-    color: #f4a300; /* Colore oro per il brand */
-    font-size: 1.3rem; 
-  }
-  
-  .navbar .nav-link {
-    color: #f4a300; /* Colore oro per i link */
-    font-size: 1.3rem; 
-  }
-  
-  .navbar .nav-link:hover {
-    color: #fff; /* Colore bianco al passaggio del mouse */
-  }
-  
-  /* Sezione principale */
-  main {
-    flex: 1; /* Espande il contenuto principale per spingere il footer verso il basso */
-    padding: 40px 0;
-  }
-  
-  h2, h3, h5 {
-    color: #212529 ; /* Marrone scuro per i titoli */
-  }
-  
-  h2 {
-    font-size: 3rem;
-  }
-  
-  h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    color: #4b2f1e;
-    font-weight: 600;
-  }
-  
-  .card-body p {
-    color: #8a6e58; /* Un marrone più chiaro per i testi */
-  }
-  
-  /* Pulsanti */
-  .btn-primary {
-    background-color: #f4a300;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #794306; /* Giallo scuro per hover */
-  }
-  
-  .btn-success {
-    background-color: #f4a300;
-  }
-  
-  .btn-success:hover {
-    background-color: #794306; 
-  }
-  
-  /* Carosello */
-  .carousel-inner .carousel-item img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .carousel-control-prev-icon, .carousel-control-next-icon {
-    background-color: #f4a300; /* Colore oro per i controlli del carosello */
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #212529; /* Colore scuro come bg-dark */
-    color: white;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  footer h4 {
-    color: #f4a300;
-  }
-  
-  footer ul li a {
-    color: white;
-  }
-  
-  footer ul li a:hover {
-    color: #f4a300;
-  }
-  
-  /* Form */
-  input[type="file"] {
-    border: 2px solid #4b2f1e;
-    padding: 10px;
-    background-color: #fff;
-  }
-  
-  input[type="file"]:hover {
-    border-color: #f4a300;
-  }
-  .btn-custom {
-    background-color: #f4a300; /* Colore oro personalizzato */
-    color: white;
-    border: none;
-  }
-  
-  .btn-custom:hover {
-    background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
-  }
-  
-  
-  
-  
+
+:host {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2dcb4;
+  color: #212529;
+  display: flex; /* Imposta il contenitore come flessibile */
+  flex-direction: column; /* Direzione verticale */
+  min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+  padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+}
+
+a:hover {
+  color: #f4a300; /* Giallo oro per hover sugli anchor */
+}
+
+/* Titolo*/
+h2 {
+  font-size: 3rem; /* Dimensione maggiore per i titoli principali */
+  margin-bottom: 20px; /* Distanza inferiore per dare spazio tra il titolo e il contenuto */
+  text-align: center; /* Centra il titolo */
+  letter-spacing: 1px; /* Aumenta lo spazio tra le lettere per migliorare la leggibilità */
+}
+h3 {
+  font-size: 2rem; /* Dimensione minore rispetto a h2 */
+  margin-bottom: 20px; /* Distanza inferiore per separare dal contenuto successivo */
+  color: #333; /* Colore leggermente più scuro per i sottotitoli */
+  text-align: center; /* Centra il titolo */
+  font-weight: 700; /* Usa un peso più spesso, ad esempio 700 per un font bold */
+  letter-spacing: 1px; /* Aggiungi più spazio tra le lettere per accentuare l'effetto */
+}
+p {
+  font-size: 1.2rem; /* Imposta una dimensione del testo leggibile */
+  color: #333; /* Colore scuro per il testo */
+  line-height: 1.6; /* Aumenta la spaziatura tra le righe per una lettura più facile */
+  margin-bottom: 20px; /* Spazio sotto il paragrafo per separarlo dal contenuto successivo */
+  text-align: center; /* Allinea il testo al centro */
+  font-weight: normal; /* Imposta il peso normale per il testo */
+  letter-spacing: 0.5px; /* Aggiungi uno spazio leggero tra le lettere per una migliore leggibilità */
+}
+.result-message {
+  background: linear-gradient(145deg, #fff7d6, #e5cb91); /* Sfondo dorato/chiaro */
+  border: 2px solid #d3b992;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  max-width: 600px;
+}
+
+.result-message h3 {
+  font-family: 'Georgia', serif;
+  color: #8b5e3c;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.result-message p {
+  font-size: 1.2rem;
+  color: #5f4b3a;
+}
+
+
+
+
