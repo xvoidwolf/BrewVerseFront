@@ -33,5 +33,9 @@ export class BeerService {
     
     return this.http.get<Beer[]>('http://localhost:8080/api/beers', { params });
   }
+
+  getBeerById(id:number){
+  return this.http.get<Beer>(`http://localhost:8080/api/beers/${id}`);
+  }
 }
 
