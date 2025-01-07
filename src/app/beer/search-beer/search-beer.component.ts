@@ -23,6 +23,8 @@ export class SearchBeerComponent implements OnInit {
   ratingRange?: string;
   breweryName?: string;
   type?: string;
+  totalItems!: number;
+  paginatedBeers: any[] = [];
 
   constructor(private fb:FormBuilder, private beerService: BeerService) {}
   
@@ -60,6 +62,68 @@ export class SearchBeerComponent implements OnInit {
         }
       });
     }
+  }
 
+  hasNextPage(): boolean {
+    return this.pageSize <= 13
+  }
+
+  hasPreviousPage(): boolean {
+    return this.pageNumber > 0;
+  }
+
+  goToNextPage() {
+    if (this.hasNextPage()) {
+        if(this.beerForm.valid){
+          this.searchExecuted = true;
+          this.pageNumber ++; 
+          this.ratingRange = this.beerForm.get('ratingRange')?.value;
+          this.alcoholRange = this.beerForm.get('alcoholRange')?.value;
+          this.breweryName = this.beerForm.get('breweryName')?.value;
+          this.type = this.beerForm.get('type')?.value;
+          this.beerService.getBeers(
+            this.ratingRange,
+            this.alcoholRange,
+            this.breweryName,
+            this.type,
+            this.pageSize,
+            this.pageNumber).subscribe({
+            next: (response:any) => {
+              this.beers = response.content;
+              console.log(response);
+            },
+            error: (error) => {
+              console.error('Errore durante il caricamento delle birre:', error);
+            }
+          });
+        }
+      }
+    }
+  goToPreviousPage() {
+    if (this.hasPreviousPage()) {
+      if(this.beerForm.valid){
+        this.searchExecuted = true;
+        this.pageNumber --;  
+        this.ratingRange = this.beerForm.get('ratingRange')?.value;
+        this.alcoholRange = this.beerForm.get('alcoholRange')?.value;
+        this.breweryName = this.beerForm.get('breweryName')?.value;
+        this.type = this.beerForm.get('type')?.value;
+        this.beerService.getBeers(
+          this.ratingRange,
+          this.alcoholRange,
+          this.breweryName,
+          this.type,
+          this.pageSize,
+          this.pageNumber).subscribe({
+          next: (response:any) => {
+            this.beers = response.content;
+            console.log(response);
+          },
+          error: (error) => {
+            console.error('Errore durante il caricamento delle birre:', error);
+          }
+        });
+      }
+    }
   }
 }

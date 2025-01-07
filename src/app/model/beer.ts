@@ -16,4 +16,4 @@ export interface Beer {
     alcoholRange: '',
     ratingRange: '',
     imageUrl: ''
-  }
+  }z
