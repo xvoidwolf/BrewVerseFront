@@ -1,15 +1,23 @@
 <div class="title"><h1>Le birre del mese</h1></div>
-<div class='container'>
-    @for (beer of beers; track $index) {
-    <div class="card" style="width: 18rem;">
-      <div class="card-img-top" [ngStyle]="{'background-image': 'url(' + beer.imageUrl + ')'}"></div>
-      <div class="card-body">
-        <h3 class="card-title">{{beer.name}}</h3>
-        <ul>
-            <li>Grado alcolico: {{beer.alcoholPercentage}}%</li>
-            <li>Tipo: {{beer.type}}</li>
-        </ul>
+  <p-carousel [value]="beers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+    <ng-template let-beer #item>
+      <div class="mb-2 mt-2 d-flex justify-content-center align-items-center" >
+        <div class="card" style="width: 18rem;">
+          <div 
+              class="card-img-top" 
+              [ngStyle]="{'background-image': 'url(' + beer.imageUrl + ')'}" 
+              style="height: 200px; background-size: cover; background-position: center;">
+          </div>
+          <div class="card-body">
+              <h3 class="card-title">{{ beer.name }}</h3>
+              <ul>
+                  <li>Grado alcolico: {{ beer.alcoholPercentage }}%</li>
+                  <li>Tipo: {{ beer.type }}</li>
+              </ul>
+          </div>
+        </div>
       </div>
-    </div>
-    }
-</div>
+    </ng-template>
+  </p-carousel>
+
+
