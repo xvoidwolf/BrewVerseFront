@@ -57,15 +57,17 @@ select {
   border-radius: 5px;
   outline: none;
   transition: border 0.3s;
+  background-color: #fff;
+  color: #000;
 }
 
 input:focus,
 select:focus {
-  border: 1px solid #212529;
+  border: 1px solid #f4a300;
 }
 
 .submit-button {
-  background-color: #212529;
+  background-color: #f4a300;
   color: white;
   padding: 10px 15px;
   font-size: 1.2rem;
