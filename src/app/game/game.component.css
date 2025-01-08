@@ -74,6 +74,7 @@ app-beer-mini-card {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 #winnerBeersContainer {
     display: flex;
@@ -214,4 +215,11 @@ button {
     #container{
         max-width: 100%;
     }
+}
+
+p-carousel {
+    max-width: 700px;
+    background-color: #212529;
+    border-radius: 20px;
+    margin-block: 30px;
 }

@@ -98,11 +98,11 @@
 @if (winnerBeers.length > 0) {
     <div id="winnerBeers">
         <h3>Le tue birre vincitrici:</h3>
-        <div id="winnerBeersContainer">
-            @for (beer of winnerBeers; track beer.beer.id) {
-                <app-beer-mini-card  [beer]="beer.beer"></app-beer-mini-card>
-            }
-        </div>
+        <p-carousel [value]="winnerBeers" [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+            <ng-template pTemplate = "winnerBeers" let-winnerBeer >
+              <app-beer-mini-card [beer]="winnerBeer.beer"></app-beer-mini-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
+            </ng-template>
+          </p-carousel>
     </div>
 }
 
