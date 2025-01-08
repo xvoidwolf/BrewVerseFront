@@ -1,10 +1,14 @@
+@if (beer) {
 <div class="card" style="width: 18rem;">
-    <img class="card-img-top" [src]="beer.imageUrl" alt="Card image cap">
-    <div class="card-body">
-      <h3 class="card-title">{{beer.name}}</h3>
-      <ul>
-          <li>Grado alcolico: {{beer.alcoholPercentage}}%</li>
-          <li>Tipo: {{beer.type}}</li>
-      </ul>
-    </div>
+  <div class="card-img-top" >
+    <img [src]="beer.imageUrl" class="card-img-top" alt="...">
   </div>
+  <div class="card-body">
+    <h3 class="card-title">{{ beer.name }}</h3>
+    <ul>
+      <li>Grado alcolico: {{ beer.alcoholPercentage }}%</li>
+      <li>Tipo: {{ beer.type }}</li>
+    </ul>
+  </div>
+</div>
+}
