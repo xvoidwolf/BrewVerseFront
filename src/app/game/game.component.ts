@@ -32,6 +32,7 @@ export class GameComponent implements OnInit {
     this.getRandomBeers();
     this.userId = this.authService.getUserIdFromToken();
     this.getWinnerBeers();
+    console.log(this.userId);
   }
 
   onStart() {
