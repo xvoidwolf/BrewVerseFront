@@ -1,10 +1,10 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Beer } from '../model/beer';
 import { ShowcaseService } from '../services/showcase.service';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +12,8 @@ import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit { 
+export class HomeComponent implements OnInit {
+ 
   beers: Beer[] = [];
   responsiveOptions: any[] | undefined = [
     {
@@ -37,7 +38,7 @@ export class HomeComponent implements OnInit {
     },
     ]; 
 
-  constructor(private showcaseService: ShowcaseService) { }
+  constructor(private showcaseService: ShowcaseService, private router:Router) { }
 
   ngOnInit(): void {
     this.getBeersByMonthlySelectedBrewery();    
@@ -53,15 +54,8 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-// Metodo per creare l'injector dinamico
-// createInjector(beer: any) {
-//   const injector = Injector.create({
-//     providers: [{ provide: 'beer', useValue: beer }],
-//     parent: this.injector
-//   });
-//   return injector;
-// }
 
-// carouselComponents = this.beers.map(beer => BeerCardComponent);
-
+  onCardSelected(beer: Beer) {
+    this.router.navigate([`details/${beer.id}`]);
+   }
 }

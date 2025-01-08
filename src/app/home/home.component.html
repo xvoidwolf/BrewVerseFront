@@ -1,6 +1,6 @@
 <p-carousel [value]="beers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
   <ng-template pTemplate = "beer" let-beer >
-    <app-beer-card [beer]="beer"></app-beer-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
+    <app-beer-card [beer]="beer" (chooseBeerEvent)="onCardSelected($event)"></app-beer-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
   </ng-template>
 </p-carousel>
 
