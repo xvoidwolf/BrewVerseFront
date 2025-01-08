@@ -3,7 +3,7 @@
   <form [formGroup]="beerForm" (ngSubmit)="onSubmit($event)" class="styled-form">
     <div class="form-group">
       <label for="name">Nome della Birra:</label>
-      <select id="name" formControlName="type">
+      <select id="name" formControlName="beerName">
         <option value="" disabled selected>Seleziona una Birra</option> 
         @for (name of beerNames; track name) {
           <option value="{{ name }}">{{ name }}</option>
@@ -13,9 +13,9 @@
 
     <div class="form-group">
       <label for="breweryId">Birrificio:</label>
-      <select id="breweryId" formControlName="type">
+      <select id="breweryId" formControlName="breweryName">
         <option value="" disabled selected>Seleziona una Birrificio</option> 
-        @for (brewery of breweries; track breweryId) {
+        @for (brewery of breweries; track brewery) {
           <option value="{{ breweryId }}">{{ brewery.name }}</option>
         }
       </select>

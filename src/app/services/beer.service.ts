@@ -15,23 +15,18 @@ export class BeerService {
     return this.http.get<Beer[]>(`${this.baseUrl}/allBeers`);
   }
 
-  getBeers(beerName: string | null, ratingRange: string | null, alcoholRange: string | null, breweryId: number | null, type: string | null, pageSize: number, pageNumber: number): Observable<Beer[]> {
+  getBeers(beerName: string | null, ratingRange: string | null, alcoholRange: string | null, breweryId: number | null,
+     type: string | null, pageSize: number, pageNumber: number): Observable<Beer[]> {
     const params: any = {
-      //beerName:beerName,
-      //ratingRange: ratingRange,
-      alcoholRange: alcoholRange,
-      //breweryId: breweryId,
-      type: type, 
       pageSize: pageSize.toString(),
       pageNumber: pageNumber.toString()
     };
-    console.log(params);
     if (beerName) params.beerName = beerName;
-    if (type) params.type = type;
     if (breweryId) params.breweryId = breweryId; 
+    if (type) params.type = type;
     if (alcoholRange) params.alcoholRange = alcoholRange;
     if (ratingRange) params.ratingRange = ratingRange;
-    
+    console.log(params);
     return this.http.get<Beer[]>('http://localhost:8080/api/beers', { params });
   }
 

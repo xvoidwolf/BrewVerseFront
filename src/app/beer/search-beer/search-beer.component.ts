@@ -27,12 +27,13 @@ export class SearchBeerComponent implements OnInit {
   paginatedBeers: any[] = [];
   beerTypes: string[] = [];
   breweries: any[] = [];
+  beerName: string = '';
 
   constructor(private fb:FormBuilder, private beerService: BeerService) {}
   
   ngOnInit(): void {
     this.beerForm= this.fb.group({
-      beerNames:['',[]],
+      beerName:['',[]],
       breweryName:['',[]],
       type:['',[]],
       alcoholRange:['',[]],
@@ -47,7 +48,6 @@ export class SearchBeerComponent implements OnInit {
         console.error('Errore durante il caricamento dei tipi di birre:', error);
       },
     });
-    
       // Recupera i nomi delle birre dal backend
     this.beerService.getBeerNames().subscribe({
       next: (data) => {
@@ -76,9 +76,10 @@ export class SearchBeerComponent implements OnInit {
       this.alcoholRange = this.beerForm.get('alcoholRange')?.value || null;
       this.breweryId = this.beerForm.get('breweryId')?.value || null;
       this.type = this.beerForm.get('type')?.value || null;
-      const beerName = this.beerForm.get('name')?.value || null;
+      this.beerName = this.beerForm.get('beerName')?.value || null;
+      console.log(this.beerForm.value);
       this.beerService.getBeers(
-        beerName,
+        this.beerName,
         this.ratingRange,
         this.alcoholRange,
         this.breweryId,
