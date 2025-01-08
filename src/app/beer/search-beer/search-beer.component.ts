@@ -4,10 +4,11 @@ import { BeerService } from '../../services/beer.service';
 import { Beer } from '../../model/beer';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BeerCardSearchComponent } from "../beer-card-search/beer-card-search.component";
 
 @Component({
   selector: 'app-search-beer', 
-  imports: [ReactiveFormsModule, BeerCardComponent],
+  imports: [ReactiveFormsModule, BeerCardSearchComponent],
   templateUrl: './search-beer.component.html',
   styleUrls: ['./search-beer.component.css']
 })
@@ -110,7 +111,7 @@ export class SearchBeerComponent implements OnInit {
   goToNextPage() {
     if(this.beerForm.valid){
       this.searchExecuted = true;
-      this.pageNumber = 0;
+      this.pageNumber ++;
       this.ratingRange = this.beerForm.get('ratingRange')?.value || null;
       this.alcoholRange = this.beerForm.get('alcoholRange')?.value || null;
       this.breweryId = this.beerForm.get('breweryId')?.value || null;
@@ -139,7 +140,7 @@ export class SearchBeerComponent implements OnInit {
   goToPreviousPage() {
     if(this.beerForm.valid){
       this.searchExecuted = true;
-      this.pageNumber = 0;
+      this.pageNumber --;
       this.ratingRange = this.beerForm.get('ratingRange')?.value || null;
       this.alcoholRange = this.beerForm.get('alcoholRange')?.value || null;
       this.breweryId = this.beerForm.get('breweryId')?.value || null;

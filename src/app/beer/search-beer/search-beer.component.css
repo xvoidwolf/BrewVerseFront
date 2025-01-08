@@ -76,7 +76,7 @@ select:focus {
 }
 
 .submit-button:hover {
-  background-color: #0056b3;
+  background-color: #f4a300;
 }
 
 /* Stile per i pulsanti di paginazione */
@@ -88,7 +88,7 @@ select:focus {
 }
 
 .pagination-button {
-  background-color: #007BFF;
+  background-color: #f4a300;
   color: white;
   padding: 10px 15px;
   font-size: 1rem;
@@ -99,7 +99,7 @@ select:focus {
 }
 
 .pagination-button:hover {
-  background-color: #0056b3;
+  background-color: #f4a300;
 }
 
 /* Stile per la sezione dei risultati */
