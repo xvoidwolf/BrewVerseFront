@@ -17,3 +17,13 @@
 .card-body{
     padding: 10px;
 }
+
+:host {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex; /* Imposta il contenitore come flessibile */
+    flex-direction: column; /* Direzione verticale */
+    min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+    padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+  }
