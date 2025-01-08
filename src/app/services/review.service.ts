@@ -14,7 +14,12 @@ export class ReviewService {
     return this.http.post<Review>('http://localhost:8080/api/reviews',newReview);
   }
 
-  getReviews(id:number):Observable<Review[]>{
-    return this.http.get<Review[]>(`http://localhost:8080/api/reviews/${id}`)
+  getReviewsByBeerId(id:number):Observable<Review[]>{
+    return this.http.get<Review[]>(`http://localhost:8080/api/reviews/beer/${id}`)
   }
+
+  getReviewsByUserId(id:number):Observable<Review[]>{
+    return this.http.get<Review[]>(`http://localhost:8080/api/reviews/user/${id}`)
+  }
+
 }

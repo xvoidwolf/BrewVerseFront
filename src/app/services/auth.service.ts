@@ -21,6 +21,16 @@ export class AuthService {
     console.log(dc);
     return dc.id; // ritorno lo userId dal token decodificato
   }
+
+  getUserNameFromToken(): string | null {
+    const dc = this.getDecodedToken();
+    if (!dc) {
+      return null;
+    }
+    console.log("decoded token esiste");
+    console.log(dc);
+    return dc.name; // ritorno lo userName dal token decodificato
+  }
   private getDecodedToken() {
     const token = localStorage.getItem('jwtToken');
 

@@ -9,7 +9,7 @@ import { SearchBeerComponent } from './beer/search-beer/search-beer.component';
 import { BeerDetailsComponent } from './beer/beer-details/beer-details.component';
 import { MysteryBeerContestComponent } from './beer/mystery-beer-contest/mystery-beer-contest.component';
 import { ReviewComponent } from './review/review.component';
-import { BeerCardComponent } from './beer/beer-card/beer-card.component';
+import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 
 export const routes: Routes = [
     {path: "home", component: HomeComponent},
@@ -23,6 +23,7 @@ export const routes: Routes = [
     {path: "details/:id", component: BeerDetailsComponent}, //qui carosello con le recensioni e tasto per farne un'altra
     {path: "contest", component: MysteryBeerContestComponent},
     {path: "review/:id", component: ReviewComponent},
+    {path: "user-reviews/:id", component:UserReviewsComponent},
     {path: "**", redirectTo: "pathNotFound"} //se non trova la rotta, reindirizza a pathNotFound
     
 ];
