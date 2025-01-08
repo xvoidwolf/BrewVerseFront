@@ -1,0 +1,99 @@
+/* Reset degli stili base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Bottone per tornare in cima alla pagina */
+  .scroll-button {
+    position: fixed; /* Fissa il bottone rispetto alla finestra */
+    bottom: 20px;    /* Distanza dal bordo inferiore */
+    right: 20px;     /* Distanza dal bordo destro */
+    z-index: 10000;  /* Garantisce che il bottone appaia sopra altri elementi */
+    display: block;  /* Assicurati che sia visibile */
+    background-color: #007bff; /* Colore di sfondo */
+    border-radius: 50%; /* Forma circolare */
+    padding: 10px;   /* Spaziatura interna */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Effetto ombra */
+    cursor: pointer; /* Cambia il cursore al passaggio del mouse */
+  }
+  
+  .scroll-button a {
+    color: white; /* Colore dell'icona */
+    font-size: 20px; /* Dimensione dell'icona */
+    text-decoration: none; /* Nessuna sottolineatura */
+  }
+  
+  .scroll-button:hover {
+    background-color: #0056b3; /* Cambia colore quando il mouse è sopra */
+  }
+  
+  :host  {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex; /* Imposta il contenitore come flessibile */
+    flex-direction: column; /* Direzione verticale */
+    min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+    padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+  }
+  
+ 
+  /* Pulsanti */
+  .btn-primary {
+    background-color: #f4a300;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #794306; /* Giallo scuro per hover */
+  }
+  
+  .btn-success {
+    background-color: #f4a300;
+  }
+  
+  .btn-success:hover {
+    background-color: #794306; 
+  }
+  
+  /* Form */
+  input[type="file"] {
+    border: 2px solid #4b2f1e;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  input[type="file"]:hover {
+    border-color: #f4a300;
+  }
+  .btn-custom {
+    background-color: #f4a300; /* Colore oro personalizzato */
+    color: white;
+    border: none;
+  }
+  
+  .btn-custom:hover {
+    background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
+  }
+  
+.rating{
+    display: inline-block;
+}
+.rating input{
+    display: none;
+}
+.rating label{
+    float: right;
+    cursor: pointer;
+    color: 333;
+}
+.rating label:before{
+    content: '\2605';
+    font-size: 50px;
+}
+
+.rating input:checked label{
+    color: #d57e1d;
+}

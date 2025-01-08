@@ -15,23 +15,32 @@ export class BeerService {
     return this.http.get<Beer[]>(`${this.baseUrl}/allBeers`);
   }
 
-  getBeers(ratingRange: string | undefined, alcoholRange: string | undefined, breweryName: string | undefined, type: string | undefined, pageSize: number, pageNumber: number): Observable<Beer[]> {
+  getBeers(beerName: string | null, ratingRange: string | null, alcoholRange: string | null, breweryId: number | null,
+     type: string | null, pageSize: number, pageNumber: number): Observable<Beer[]> {
     const params: any = {
-      // aggiungi anche il name
-      // ratingRange: ratingRange,
-      // alcoholRange: alcoholRange,
-      // breweryName: breweryName,
-      type: type, 
       pageSize: pageSize.toString(),
       pageNumber: pageNumber.toString()
     };
-    console.log(params);
+    if (beerName) params.beerName = beerName;
+    if (breweryId) params.breweryId = breweryId; 
     if (type) params.type = type;
-    if (breweryName) params.breweryName = breweryName; //ahia.. ti serve l'id qui non il nome
     if (alcoholRange) params.alcoholRange = alcoholRange;
     if (ratingRange) params.ratingRange = ratingRange;
-    
+    console.log(params);
     return this.http.get<Beer[]>('http://localhost:8080/api/beers', { params });
   }
-}
 
+  getBeerById(id:number){
+  return this.http.get<Beer>(`http://localhost:8080/api/beers/${id}`);
+  }
+
+  getBeerTypes(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8080/api/beers/beer-types');
+  }
+  getBeerNames(): Observable<string[]> {
+    return this.http.get<string[]>('http://localhost:8080/api/beers/beer-names');
+  }
+  getBreweries(): Observable<{ id: number; name: string }[]> {
+    return this.http.get<{ id: number; name: string }[]>('http://localhost:8080/api/beers/breweries');
+  }
+}

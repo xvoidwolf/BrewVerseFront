@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { WeeklyBeer } from '../model/weekly-beer';
 import { Answer, AnswerDto } from '../model/answer';
+import { Beer } from '../model/beer';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,8 @@ export class MysteryBeerContestService {
   }
   getAnswerByUserId(userId: number): Observable<Answer[]> {
     return this.http.get<Answer[]>(`${this.baseUrl}/by-userId/${userId}`);
+  }
+  getRandomSelectionIncludingWeeklyBeer(weeklyBeerId: number): Observable<Beer[]> {
+    return this.http.get<Beer[]>(`${this.baseUrl}/random-selection/${weeklyBeerId}`);
   }
 }

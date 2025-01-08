@@ -1,14 +1,12 @@
-/* Reset degli stili base */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Stile generale del corpo */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f2dcb4;
     color: #212529;
     display: flex;
     flex-direction: column;
@@ -23,46 +21,44 @@ body {
     color: #764e35;
 }
 
-/* Contenitore delle schede */
 .container {
-    display: flex;
-    flex-wrap: wrap; /* Permette di andare a capo per schede multiple */
-    justify-content: center; /* Centra le schede nella pagina */
-    gap: 20px; /* Spaziatura tra le schede */
-    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-/* Card per le birre */
 .card {
-    width: 18rem;
-    background-color: #fff; /* Colore di sfondo della card */
     border: 2px solid #4b2f1e; /* Bordo marrone scuro */
-    border-radius: 10px; /* Angoli arrotondati */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra della card */
     overflow: hidden; /* Assicura che il contenuto non fuoriesca */
     transition: transform 0.2s ease-in-out; /* Effetto al passaggio del mouse */
 }
 
 .card:hover {
-    transform: scale(1.05); /* Leggera animazione al passaggio del mouse */
+    transform: scale(1.01); /* Leggera animazione al passaggio del mouse */
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
 }
-
-/* Immagine della card */
-.card-img-top {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+::ng-deep .p-carousel-viewport  {
+    background-color:#f6e1bb;
+    border-radius: 5px;
 }
+.p-carousel-indicator-list{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: var(--p-carousel-indicator-list-padding);
+        gap: var(--p-carousel-indicator-list-gap);
+        margin: 0;
+        list-style: none;
+        background-color: #f2dcb1 ;
+    }
 
-/* Contenuto della card */
+
 .card-body {
     padding: 20px;
     text-align: center;
-    background-color: #f6e1bb61;
+    background-color: #f6e1bb4a;
 }
-
 .card-title {
     font-size: 1.5rem;
     color: #4b2f1e;

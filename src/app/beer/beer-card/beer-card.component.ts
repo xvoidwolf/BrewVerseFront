@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from '../../model/beer';
+
 
 @Component({
   selector: 'app-beer-card',
@@ -10,4 +11,13 @@ import { Beer } from '../../model/beer';
 export class BeerCardComponent {
   @Input()
   beer!:Beer;
+
+  @Output()
+  chooseBeerEvent = new EventEmitter<Beer>();
+
+  onSelectCard(beer: Beer) {
+   this.chooseBeerEvent.emit(beer);
+  }
 }
+
+
