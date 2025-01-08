@@ -1,15 +1,6 @@
-<div class="title"><h1>Le birre del mese</h1></div>
-<div class='container'>
-    @for (beer of beers; track $index) {
-    <div class="card" style="width: 18rem;">
-      <div class="card-img-top" [ngStyle]="{'background-image': 'url(' + beer.imageUrl + ')'}"></div>
-      <div class="card-body">
-        <h3 class="card-title">{{beer.name}}</h3>
-        <ul>
-            <li>Grado alcolico: {{beer.alcoholPercentage}}%</li>
-            <li>Tipo: {{beer.type}}</li>
-        </ul>
-      </div>
-    </div>
-    }
-</div>
+<p-carousel [value]="beers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+  <ng-template pTemplate = "beer" let-beer >
+    <app-beer-card [beer]="beer"></app-beer-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
+  </ng-template>
+</p-carousel>
+

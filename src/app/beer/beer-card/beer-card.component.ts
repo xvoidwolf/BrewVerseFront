@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from '../../model/beer';
-import { BeerDetailsComponent } from '../beer-details/beer-details.component';
+
 
 @Component({
   selector: 'app-beer-card',
@@ -19,3 +19,5 @@ export class BeerCardComponent {
    this.chooseBeerEvent.emit(beer);
   }
 }
+
+
