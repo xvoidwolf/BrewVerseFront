@@ -76,3 +76,92 @@ a {
 #registerLink {
   margin-bottom: 30px;
 }
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s;
+  background-color: #fff;
+  color: #000;
+}
+
+input:focus,
+select:focus {
+  border: 1px solid #f4a300;
+}
+
+.submit-button {
+  background-color: #f4a300;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #f4a300;
+}
+
+/* Stile per i pulsanti di paginazione */
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination-button {
+  background-color: #f4a300;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-button:hover {
+  background-color: #f4a300;
+}
+
+/* Stile per la sezione dei risultati */
+.beer-results {
+  margin-top: 30px;
+}
+
+.no-results h2 {
+  text-align: center;
+  color: #999;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}

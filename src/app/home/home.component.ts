@@ -5,10 +5,12 @@ import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
+import { BeerCardSearchComponent } from "../beer/beer-card-search/beer-card-search.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule,CarouselModule,BeerCardComponent],
+  imports: [CommonModule, CarouselModule, BeerCardSearchComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -37,8 +39,7 @@ export class HomeComponent implements OnInit {
     },
     ]; 
 
-  constructor(private showcaseService: ShowcaseService) { }
-
+  constructor(private showcaseService: ShowcaseService, private router:Router) { }
   ngOnInit(): void {
     this.getBeersByMonthlySelectedBrewery();    
   }
@@ -64,4 +65,7 @@ export class HomeComponent implements OnInit {
 
 // carouselComponents = this.beers.map(beer => BeerCardComponent);
 
+onCardSelected(beer: Beer) {
+  this.router.navigate([`details/${beer.id}`]);
+ }
 }

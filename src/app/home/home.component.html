@@ -1,6 +1,8 @@
+<h2 class="text-center">Scopri il Birrificio del Mese</h2>
+<p class="text-center">Un viaggio di gusto tra le sue birre artigianali, pronte a stupire il tuo palato!</p>
 <p-carousel [value]="beers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
   <ng-template pTemplate = "beer" let-beer >
-    <app-beer-card [beer]="beer"></app-beer-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
+    <app-beer-card-search (chooseBeerEvent)="onCardSelected($event)" [beer]="beer"></app-beer-card-search> <!-- Passa i dati della birra direttamente al componente BeerCard -->
   </ng-template>
 </p-carousel>
 
