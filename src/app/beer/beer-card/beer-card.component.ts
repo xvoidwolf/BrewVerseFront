@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Beer } from '../../model/beer';
-import { BeerDetailsComponent } from '../beer-details/beer-details.component';
+
 
 @Component({
   selector: 'app-beer-card',
@@ -8,7 +8,7 @@ import { BeerDetailsComponent } from '../beer-details/beer-details.component';
   templateUrl: './beer-card.component.html',
   styleUrl: './beer-card.component.css'
 })
-export class BeerCardComponent implements OnInit {
+export class BeerCardComponent {
   @Input()
   beer!:Beer;
 
