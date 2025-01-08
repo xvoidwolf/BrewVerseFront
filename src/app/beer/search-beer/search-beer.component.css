@@ -19,19 +19,19 @@
 
 h2 {
   margin-top: 60px;
-  font-size: 3rem; /* Dimensione maggiore per i titoli principali */
-  margin-bottom: 20px; /* Distanza inferiore per dare spazio tra il titolo e il contenuto */
-  text-align: center; /* Centra il titolo */
-  letter-spacing: 1px; /* Aumenta lo spazio tra le lettere per migliorare la leggibilità */
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 p {
-  font-size: 1.2rem; /* Imposta una dimensione del testo leggibile */
-  color: #333; /* Colore scuro per il testo */
-  line-height: 1.6; /* Aumenta la spaziatura tra le righe per una lettura più facile */
-  margin-bottom: 20px; /* Spazio sotto il paragrafo per separarlo dal contenuto successivo */
-  text-align: center; /* Allinea il testo al centro */
-  font-weight: normal; /* Imposta il peso normale per il testo */
-  letter-spacing: 0.5px; /* Aggiungi uno spazio leggero tra le lettere per una migliore leggibilità */
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 0.5px;
 }
 
 .styled-form {
@@ -89,7 +89,6 @@ select:focus {
   background-color: #f4a300;
 }
 
-/* Stile per i pulsanti di paginazione */
 .pagination-buttons {
   display: flex;
   justify-content: center;
@@ -112,7 +111,6 @@ select:focus {
   background-color: #f4a300;
 }
 
-/* Stile per la sezione dei risultati */
 .beer-results {
   margin-top: 30px;
 }

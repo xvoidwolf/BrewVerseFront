@@ -6,23 +6,25 @@
     flex-direction: column; 
     min-height: 100vh; 
   }
+
   h2 {
     margin-top: 60px;
-    font-size: 3rem; /* Dimensione maggiore per i titoli principali */
-    margin-bottom: 20px; /* Distanza inferiore per dare spazio tra il titolo e il contenuto */
-    text-align: center; /* Centra il titolo */
-    letter-spacing: 1px; /* Aumenta lo spazio tra le lettere per migliorare la leggibilità */
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    letter-spacing: 1px; 
   }
+  
   p {
-    font-size: 1.2rem; /* Imposta una dimensione del testo leggibile */
-    color: #333; /* Colore scuro per il testo */
-    line-height: 1.6; /* Aumenta la spaziatura tra le righe per una lettura più facile */
-    margin-bottom: 20px; /* Spazio sotto il paragrafo per separarlo dal contenuto successivo */
-    text-align: center; /* Allinea il testo al centro */
-    font-weight: normal; /* Imposta il peso normale per il testo */
-    letter-spacing: 0.5px; /* Aggiungi uno spazio leggero tra le lettere per una migliore leggibilità */
+    font-size: 1.2rem; 
+    color: #333; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    font-weight: normal; 
+    letter-spacing: 0.5px; 
   }
-/* Stile generale per il carousel */
+
 p-carousel {
     display: block;
     margin: 20px auto;
@@ -34,14 +36,12 @@ p-carousel {
     padding: 20px;
   }
   
-  /* Responsiveness: centra il contenuto */
   p-carousel .ui-carousel {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  /* Stile per le frecce del carousel */
   p-carousel .ui-carousel-prev,
   p-carousel .ui-carousel-next {
     background-color: #f4a300;
@@ -62,20 +62,18 @@ p-carousel {
     transform: scale(1.1);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   }
-  
-  /* Nascondi le frecce su schermi piccoli */
+
   @media (max-width: 768px) {
     p-carousel .ui-carousel-prev,
     p-carousel .ui-carousel-next {
       display: none;
     }
   }
-  /* Aggiungere padding interno al carousel */
+
 p-carousel .ui-carousel-content {
     padding: 10px;
   }
   
-  /* Stile per i puntini della paginazione */
   p-carousel .ui-carousel-indicators .ui-carousel-indicator {
     background-color: #f4a300;
     width: 12px;
@@ -87,11 +85,10 @@ p-carousel .ui-carousel-content {
   }
   
   p-carousel .ui-carousel-indicators .ui-carousel-indicator.ui-state-highlight {
-    background-color: #0056b3;
+    background-color: #f4a300;
     transform: scale(1.2);
   }
 
-  /* Animazione transizione per lo scorrimento */
   p-carousel .ui-carousel-item {
     transition: transform 0.5s ease, opacity 0.5s ease;
   }

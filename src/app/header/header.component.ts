@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -11,7 +11,12 @@ import { AuthService } from '../services/auth.service';
 export class HeaderComponent implements OnInit{
   isLoggedIn = false;
 
-  constructor(private authService:AuthService) {}
+  constructor(private authService:AuthService, private router:Router) {}
+
+  logout() {
+    this.authService.logout(); 
+    this.router.navigate(['/home']); 
+  }
 
   ngOnInit(): void {
     this.authService.loggedIn$.subscribe({
