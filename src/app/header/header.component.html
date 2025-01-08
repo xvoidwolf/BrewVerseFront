@@ -16,7 +16,7 @@
                     <a class="nav-link" routerLink="/search-beer" routerLinkActive="active">Cerca Birra</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/user-reviews/:id" routerLinkActive="active">Recensioni</a>
+                    <a class="nav-link" routerLink="/user-reviews/:id" routerLinkActive="active" (click)="onClick(userId)" >Le tue Recensioni</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/contest" routerLinkActive="active">Concorso</a>
@@ -34,7 +34,7 @@
                 } 
                 @else {
                     <li>
-                        Benvenuto [user]
+                        <a class="nav-link" routerLink="/login" routerLinkActive="active">Benvenuto userId, <br>Logout</a>
                     </li>
                 }
             </ul>

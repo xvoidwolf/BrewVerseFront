@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -10,13 +10,18 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent implements OnInit{
   isLoggedIn = false;
+  userId!:number;
 
-  constructor(private authService:AuthService) {}
+  constructor(private authService:AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.loggedIn$.subscribe({
       next: s => this.isLoggedIn = s,
       error: err => console.log(err)
     });
+  }
+
+  onClick(userId:number){
+    this.router.navigate([`user-reviews/${userId}`]);
   }
 }
