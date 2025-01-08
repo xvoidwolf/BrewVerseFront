@@ -114,10 +114,12 @@ export class SearchBeerComponent implements OnInit {
       this.ratingRange = this.beerForm.get('ratingRange')?.value || null;
       this.alcoholRange = this.beerForm.get('alcoholRange')?.value || null;
       this.breweryId = this.beerForm.get('breweryId')?.value || null;
+      console.log(this.beerForm.get('breweryId'));
       this.type = this.beerForm.get('type')?.value || null;
-      const beerName = this.beerForm.get('name')?.value || null;
+      this.beerName = this.beerForm.get('beerName')?.value || null;
+      console.log(this.beerForm.value);
       this.beerService.getBeers(
-        beerName,
+        this.beerName,
         this.ratingRange,
         this.alcoholRange,
         this.breweryId,
@@ -141,10 +143,12 @@ export class SearchBeerComponent implements OnInit {
       this.ratingRange = this.beerForm.get('ratingRange')?.value || null;
       this.alcoholRange = this.beerForm.get('alcoholRange')?.value || null;
       this.breweryId = this.beerForm.get('breweryId')?.value || null;
+      console.log(this.beerForm.get('breweryId'));
       this.type = this.beerForm.get('type')?.value || null;
-      const beerName = this.beerForm.get('name')?.value || null;
+      this.beerName = this.beerForm.get('beerName')?.value || null;
+      console.log(this.beerForm.value);
       this.beerService.getBeers(
-        beerName,
+        this.beerName,
         this.ratingRange,
         this.alcoholRange,
         this.breweryId,
