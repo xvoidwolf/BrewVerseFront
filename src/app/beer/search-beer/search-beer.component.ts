@@ -34,7 +34,7 @@ export class SearchBeerComponent implements OnInit {
   ngOnInit(): void {
     this.beerForm= this.fb.group({
       beerName:['',[]],
-      breweryName:['',[]],
+      breweryId:['',[]],
       type:['',[]],
       alcoholRange:['',[]],
       ratingRange:['',[]],
@@ -75,6 +75,7 @@ export class SearchBeerComponent implements OnInit {
       this.ratingRange = this.beerForm.get('ratingRange')?.value || null;
       this.alcoholRange = this.beerForm.get('alcoholRange')?.value || null;
       this.breweryId = this.beerForm.get('breweryId')?.value || null;
+      console.log(this.beerForm.get('breweryId'));
       this.type = this.beerForm.get('type')?.value || null;
       this.beerName = this.beerForm.get('beerName')?.value || null;
       console.log(this.beerForm.value);

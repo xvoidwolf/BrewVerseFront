@@ -13,10 +13,10 @@
 
     <div class="form-group">
       <label for="breweryId">Birrificio:</label>
-      <select id="breweryId" formControlName="breweryName">
+      <select id="breweryId" formControlName="breweryId">
         <option value="" disabled selected>Seleziona una Birrificio</option> 
         @for (brewery of breweries; track brewery) {
-          <option value="{{ breweryId }}">{{ brewery.name }}</option>
+          <option value="{{ brewery.id }}">{{ brewery.name }}</option>
         }
       </select>
     </div>
