@@ -8,7 +8,7 @@ import { BeerDetailsComponent } from '../beer-details/beer-details.component';
   templateUrl: './beer-card.component.html',
   styleUrl: './beer-card.component.css'
 })
-export class BeerCardComponent {
+export class BeerCardComponent implements OnInit {
   @Input()
   beer!:Beer;
 
@@ -19,3 +19,5 @@ export class BeerCardComponent {
    this.chooseBeerEvent.emit(beer);
   }
 }
+
+
