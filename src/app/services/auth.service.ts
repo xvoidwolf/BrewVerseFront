@@ -6,9 +6,10 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
+  //classe che genera gli osservabili, si specializza con una generic
   private loggedIn = new BehaviorSubject<boolean>(false); //creare un observable a manina, valore iniziale false
-  loggedIn$ = this.loggedIn.asObservable(); //var privata, ho bisogno di questa var che è pubblica, $ convenzione -> var observable finiscono con il $
-  
+  loggedIn$ = this.loggedIn.asObservable(); //var privata sù, ho bisogno di questa var che è pubblica, $ convenzione -> var observable finiscono con il $
+  //al posto del pattern redux, per fare veloce
   constructor() {}
 
   getUserIdFromToken(): string | null {
@@ -18,7 +19,7 @@ export class AuthService {
     }
     console.log("decoded token esiste");
     console.log(dc);
-    return dc.id;
+    return dc.id; // ritorno lo userId dal token decodificato
   }
   private getDecodedToken() {
     const token = localStorage.getItem('jwtToken');
@@ -30,7 +31,7 @@ export class AuthService {
     try {
       const decodedToken = jwtDecode<any>(token); // decodifico il JWT token
       console.log(decodedToken);
-      return decodedToken; // ritorno lo userId dal token decodificato
+      return decodedToken; //ritorno il token decodificato
     } catch (error) {
       console.error('Error decoding token', error);
       return null;
