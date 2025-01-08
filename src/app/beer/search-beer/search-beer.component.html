@@ -3,25 +3,38 @@
   <form [formGroup]="beerForm" (ngSubmit)="onSubmit($event)" class="styled-form">
     <div class="form-group">
       <label for="name">Nome della Birra:</label>
-      <input type="text" id="name" formControlName="name" placeholder="Inserisci il nome della birra" />
+      <select id="name" formControlName="beerName">
+        <option value="" disabled selected>Seleziona una Birra</option> 
+        @for (name of beerNames; track name) {
+          <option value="{{ name }}">{{ name }}</option>
+        }
+      </select>
     </div>
 
     <div class="form-group">
-      <label for="breweryName">Nome del Birrificio:</label>
-      <input type="text" id="birrificio" formControlName="breweryName" placeholder="Inserisci il nome del birrificio" />
+      <label for="breweryId">Birrificio:</label>
+      <select id="breweryId" formControlName="breweryId">
+        <option value="" disabled selected>Seleziona una Birrificio</option> 
+        @for (brewery of breweries; track brewery) {
+          <option value="{{ brewery.id }}">{{ brewery.name }}</option>
+        }
+      </select>
     </div>
 
     <div class="form-group">
       <label for="type">Stile della Birra:</label>
       <select id="type" formControlName="type">
-        <option value="">Tutti</option>
+        <option value="" disabled selected>Seleziona uno stile di Birra</option> 
+        @for (type of beerTypes; track type) {
+          <option value="{{ type }}">{{ type }}</option>
+        }
       </select>
     </div>
 
     <div class="form-group">
       <label for="alcoholRange">Gradazione Alcolica (%):</label>
       <select id="alcoholRange" formControlName="alcoholRange" #alcoholRange>
-        <option value="">Tutte</option>
+        <option value="" disabled selected>Seleziona la Gradazione Alcolica</option> 
         <option value="low">0-5%</option>
         <option value="medium">5-8%</option>
         <option value="high">Più di 8%</option>
@@ -31,9 +44,9 @@
     <div class="form-group">
       <label for="ratingRange">Valutazione Media:</label>
       <select id="ratingRange" formControlName="ratingRange" #ratingRange>
-        <option value="">Tutte</option>
-        <option value="4">4 stelle e più</option>
-        <option value="5">5 stelle</option>
+        <option value="" disabled selected>Seleziona la Valutazione Media</option> 
+        <option value="low">4 stelle e più</option>
+        <option value="high">5 stelle</option>
       </select>
     </div>
 

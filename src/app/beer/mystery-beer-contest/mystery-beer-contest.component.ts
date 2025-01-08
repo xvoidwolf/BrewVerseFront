@@ -28,12 +28,27 @@ export class MysteryBeerContestComponent implements OnInit {
   constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.loadBeers();
+   // this.loadBeers();
     this.loadWeeklyBeerAndHints();
     this.userId = this.authService.getUserIdFromToken();
   }
-
   loadBeers(): void {
+    if (this.weeklyBeerId === 0) {
+     console.log ('ID della birra settimanale non valido.');
+      return;
+    }
+    this.mysteryBeerContestService.getRandomSelectionIncludingWeeklyBeer(this.weeklyBeerId).subscribe({
+      next: (data) => {
+        this.beers = data;
+        console.log('Birre random:', this.beers);
+      },
+      error: (err) => {
+        console.log ( 'Errore durante il caricamento delle birre');
+        console.error(err);
+      }
+    });
+  }
+  /*loadBeers(): void {
     this.beerService.getAllBeers().subscribe({
       next: (data) => {
         this.beers = data; 
@@ -43,7 +58,7 @@ export class MysteryBeerContestComponent implements OnInit {
         console.error(err);
       },
     });
-  }
+  }*/
 
   loadHint(): void {
     this.mysteryBeerContestService.getHintsByWeeklyBeerId(this.weeklyBeerId).subscribe({
@@ -66,6 +81,7 @@ export class MysteryBeerContestComponent implements OnInit {
           console.log(`Set weeklyBeerId: ${this.weeklyBeerId}`);
           this.loadHint();
           this.checkIfUserHasVoted();
+          this.loadBeers();
         } catch (e) {
           console.error('Errore durante il parsing della risposta:', e);
           this.errorMessage = 'Errore nei dati ricevuti dal server';
