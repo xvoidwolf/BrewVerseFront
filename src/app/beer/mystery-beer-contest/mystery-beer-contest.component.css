@@ -71,7 +71,7 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Layout più responsivo */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout più responsivo */
   gap: 17px; /* Spaziatura tra le card */
   margin-top: 30px;
   padding: 50px; /* Spaziatura attorno al contenitore */
