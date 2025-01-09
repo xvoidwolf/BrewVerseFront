@@ -39,9 +39,11 @@
               <div class="beer-info">
                 <h2>{{ beer.name }}</h2>
                 <p>{{ beer.type }} | {{ beer.alcoholPercentage }}%</p>
+                <div class="vote-button-container">
                 <button class="vote button" (click)="submitAnswer(beer.id)">Vota</button>
               </div>
             </div>
+          </div>
         }
       </div>
     }
