@@ -19,7 +19,7 @@ export class AuthService {
     }
     console.log("decoded token esiste");
     console.log(dc);
-    return dc.id; // ritorno lo userId dal token decodificato
+    return dc.userId; // ritorno lo userId dal token decodificato
   }
 
   getUserNameFromToken(): string | null {

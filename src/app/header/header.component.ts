@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit{
   constructor(private authService:AuthService, private router: Router) {}
 
   ngOnInit(): void {
+    this.userId = Number(this.authService.getUserIdFromToken());
     this.authService.loggedIn$.subscribe({
       next: s => this.isLoggedIn = s,
       error: err => console.log(err)
