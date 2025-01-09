@@ -77,5 +77,8 @@ export class BeerDetailsComponent {
   onClick(beerId:number){
     this.router.navigate([`review/${beerId}`]);
   }
+  onEdit(beerId:number){
+    this.router.navigate([`edit-beer/${beerId}`]);
+  }
 
 }

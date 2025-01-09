@@ -18,12 +18,12 @@ export const routes: Routes = [
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
     {path: "add-beer", component: AddBeerComponent},
-    {path: "update-beer", component: UpdateBeerComponent},
     {path: "search-beer", component: SearchBeerComponent},
     {path: "details/:id", component: BeerDetailsComponent}, //qui carosello con le recensioni e tasto per farne un'altra
     {path: "contest", component: MysteryBeerContestComponent},
     {path: "review/:id", component: ReviewComponent},
     {path: "user-reviews/:id", component:UserReviewsComponent},
+    {path:"edit-beer/:id", component:UpdateBeerComponent},
     {path: "**", redirectTo: "pathNotFound"} //se non trova la rotta, reindirizza a pathNotFound
     
 ];
