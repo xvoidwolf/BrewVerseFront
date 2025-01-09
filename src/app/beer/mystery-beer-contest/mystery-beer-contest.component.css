@@ -88,12 +88,13 @@
 
 /* Stile per la card */
 .beer-card {
-  background: linear-gradient(145deg, #fff5e1, #e6e1c5); /* Effetto gradiente leggero */
+  background: linear-gradient(145deg, #fff5e1, #e6e1c5); /* Gradiente per il fondo */
   border-radius: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 400px; /* Altezza fissa per la card */
   max-width: 100%; /* La card si adatta alla larghezza della cella */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -106,17 +107,15 @@
 /* Immagine della birra */
 .beer-image {
   width: 100%;
-  height: auto; /* Mantiene il rapporto di aspetto originale */
-  max-height: 200px; /* Imposta un'altezza massima */
-  object-fit: cover; /* Assicura che l'immagine riempia l'area senza distorsioni */
+  height: 200px; /* Altezza fissa per tutte le immagini */
+  object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
   border-bottom: 2px solid #ddd; /* Linea di separazione elegante */
-  display: block; /* Rimuove eventuali spazi indesiderati */
 }
 
-/* Info della birra */
 .beer-info {
-  padding: 15px;
+  padding: 10px 15px;
   text-align: center;
+  flex-grow: 1; /* Fa sì che questa parte occupi lo spazio disponibile tra l'immagine e il pulsante */
 }
 
 .beer-info h2 {
@@ -125,13 +124,6 @@
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
-}
-
-.beer-info h2 {
-  font-size: 1.6rem; /* Dimensione del titolo ridotta */
-  margin: 0;
-  color: #333;
-  font-weight: bold;
 }
 
 .beer-info p {
@@ -179,24 +171,51 @@
   transform: translateY(2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-/* Stile per il pulsante */
-button {
-  background: linear-gradient(145deg, #f3b15c, #d69133); /* Gradiente più acceso, dorato e caldo */
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 50px;
-  cursor: pointer;
+/* Contenitore per il pulsante di voto */
+.vote-button-container {
+  display: flex;
+  justify-content: center; /* Centra il pulsante orizzontalmente */
   margin-top: 15px;
-  font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  margin-bottom: 10px; /* Spazio sopra il pulsante */
 }
 
-button:hover {
-  background: linear-gradient(145deg, #d69133, #c57229); /* Hover con una sfumatura più accesa e calda */
-  transform: translateY(-3px); /* Leggera animazione di sollevamento */
+/* Pulsante all'interno della card (stile più piccolo) */
+.beer-card .vote {
+  background: linear-gradient(145deg, #f0e6d2, #d4b27e);
+  color: #3e2a47;
+  border: 2px solid #b67c4e;
+  padding: 10px 20px; /* Il pulsante sarà più piccolo */
+  border-radius: 50px;
+  font-size: 1.2rem; /* Dimensione font ridotta per il pulsante */
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  width: 110px; /* Larghezza fissa per il pulsante */
+  max-width: 100%; /* Garantisce che non ecceda la larghezza della card */
 }
 
+/* Effetto hover per il pulsante */
+.beer-card .vote:hover {
+  background: linear-gradient(145deg, #d4b27e, #c1a17b); /* Gradiente con marrone più chiaro durante l'hover */
+  color: #3e2a47;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombra più marcata durante l'hover */
+}
+
+/* Effetto focus per il pulsante */
+.beer-card .vote:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(244, 163, 91, 0.5); /* Focus dorato delicato */
+}
+
+/* Effetto active per il pulsante */
+.beer-card .vote:active {
+  background: linear-gradient(145deg, #b67c4e, #d4b27e); /* Colori invertiti per l'effetto di pressione */
+  transform: translateY(2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
 /* Reset degli stili base */
 
 :host {
