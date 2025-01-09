@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, Injector, Input, OnInit } from '@angular/core';
 import { Beer } from '../model/beer';
 import { ShowcaseService } from '../services/showcase.service';
 import { Observable } from 'rxjs';
@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit { 
   beers: Beer[] = [];
+  breweryDescription: string = '';
   responsiveOptions: any[] | undefined = [
     {
         breakpoint: '1400px',
@@ -41,13 +42,25 @@ export class HomeComponent implements OnInit {
 
   constructor(private showcaseService: ShowcaseService, private router:Router) { }
   ngOnInit(): void {
-    this.getBeersByMonthlySelectedBrewery();    
+    this.getBeersByMonthlySelectedBrewery(); 
+    this.getBreweryDescriptionById(5);
+  
   }
   getBeersByMonthlySelectedBrewery(): void {
     this.showcaseService.getBeersByMonthlySelectedBrewery().subscribe({
       next: (res) => {  
         this.beers = res;
         console.log(this.beers);
+      },
+      error: (err) => {
+        console.error(err);
+      }
+    });
+  }
+  getBreweryDescriptionById(id: number): void {
+    this.showcaseService.getBreweryDescriptionById(id).subscribe({
+      next: (res) => {
+        this.breweryDescription = res;
       },
       error: (err) => {
         console.error(err);
