@@ -5,6 +5,12 @@
   display: flex; 
   flex-direction: column; 
   min-height: 100vh; 
+  background-image: url('public/sfondo.png');
+  background-size: cover; /* Adatta l'immagine per coprire l'intero schermo */
+  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+  background-position: center; /* Centra l'immagine */
+  margin: 0; /* Rimuovi margini */
+  padding: 0; /* Rimuovi padding */
 }
 .beer-results {
   display: grid; 
