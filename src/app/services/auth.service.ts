@@ -6,48 +6,65 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  //classe che genera gli osservabili, si specializza con una generic
-  private loggedIn = new BehaviorSubject<boolean>(false); //creare un observable a manina, valore iniziale false
-  loggedIn$ = this.loggedIn.asObservable(); //var privata sù, ho bisogno di questa var che è pubblica, $ convenzione -> var observable finiscono con il $
-  //al posto del pattern redux, per fare veloce
+  // Osservabile per il login
+  private loggedIn = new BehaviorSubject<boolean>(false); // Valore iniziale: false
+  loggedIn$ = this.loggedIn.asObservable(); // Observable pubblico (convenzione $)
+
   constructor() {}
 
+  // ** Ottieni lo userId dal token decodificato **
   getUserIdFromToken(): string | null {
-    const dc = this.getDecodedToken();
-    if (!dc) {
+    const decodedToken = this.getDecodedToken();
+    if (!decodedToken) {
       return null;
     }
-    console.log("decoded token esiste");
-    console.log(dc);
-    return dc.id; // ritorno lo userId dal token decodificato
+    console.log('decoded token esiste');
+    console.log(decodedToken);
+    return decodedToken.id; // Ritorna lo userId dal token decodificato
   }
-  private getDecodedToken() {
-    const token = localStorage.getItem('jwtToken');
 
+  // ** Decodifica il token JWT **
+  private getDecodedToken() {
+    const token = localStorage.getItem('jwtToken'); // Recupera il token dal localStorage
     if (!token) {
-      return null;
+      return null; // Se il token non esiste, ritorna null
     }
 
     try {
-      const decodedToken = jwtDecode<any>(token); // decodifico il JWT token
+      const decodedToken = jwtDecode<any>(token); // Decodifica il JWT
       console.log(decodedToken);
-      return decodedToken; //ritorno il token decodificato
+      return decodedToken; // Ritorna il token decodificato
     } catch (error) {
       console.error('Error decoding token', error);
       return null;
     }
   }
-  setLoggedIn(status:boolean):void { //per cambiare stato login
-    this.loggedIn.next(status); 
+
+  // ** Cambia lo stato di login **
+  setLoggedIn(status: boolean): void {
+    this.loggedIn.next(status); // Aggiorna lo stato del BehaviorSubject
   }
-  isLoggedIn():boolean {
-    return this.loggedIn.value;
+
+  // ** Controlla se l'utente è loggato **
+  isLoggedIn(): boolean {
+    return this.loggedIn.value; // Restituisce il valore corrente del BehaviorSubject
   }
-  getUserRole():string | null {
-    return this.getDecodedToken()?.role;
+
+  // ** Ottieni il ruolo dell'utente dal token decodificato **
+  getUserRole(): string | null {
+    return this.getDecodedToken()?.role || null; // Ritorna il ruolo dell'utente, o null se non esiste
   }
-  isAdmin():boolean {
-    const dc = this.getDecodedToken();
-    return dc && dc.role === "ADMIN";
+
+  // ** Controlla se l'utente è un ADMIN **
+  isAdmin(): boolean {
+    const decodedToken = this.getDecodedToken();
+    return decodedToken && decodedToken.role === 'ADMIN'; // Ritorna true se il ruolo è "ADMIN"
+  }
+
+  // ** Metodo per il logout **
+  logout(): void {
+    localStorage.removeItem('jwtToken'); // Rimuovi il token dal localStorage
+    this.setLoggedIn(false); // Aggiorna lo stato di login
+    console.log('User logged out successfully.');
   }
 }

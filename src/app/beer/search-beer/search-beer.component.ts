@@ -41,28 +41,28 @@ export class SearchBeerComponent implements OnInit {
       alcoholRange:['',[]],
       ratingRange:['',[]],
     });
-    // Recupera i tipi di birre dal backend
+
     this.beerService.getBeerTypes().subscribe({
       next: (data) => {
-        this.beerTypes = data; // Popola la lista con i tipi di birre
+        this.beerTypes = data; 
       },
       error: (error) => {
         console.error('Errore durante il caricamento dei tipi di birre:', error);
       },
     });
-      // Recupera i nomi delle birre dal backend
+
     this.beerService.getBeerNames().subscribe({
       next: (data) => {
-        this.beerNames = data; // Popola la lista con i nomi delle birre
+        this.beerNames = data;
       },
       error: (error) => {
         console.error('Errore durante il caricamento dei nomi delle birre:', error);
       },
   });
-    // Recupera i birrifici dal backend
+
     this.beerService.getBreweries().subscribe({
       next: (data) => {
-        this.breweries = data; // Popola la lista con i birrifici
+        this.breweries = data;
       },
       error: (error) => {
         console.error('Errore durante il caricamento dei birrifici:', error);

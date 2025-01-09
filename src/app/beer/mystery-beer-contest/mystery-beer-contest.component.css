@@ -35,6 +35,10 @@
   padding: 20px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   font-size: 1.5rem;
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center; /* Centra il testo all'interno */
 }
 
 
@@ -62,8 +66,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 1.5rem;
 }
-
+.hint-card .back h4 {
+  font-size: 1.4rem;
+}
 
 .hint-card.flipped {
   transform: rotateY(180deg);
@@ -71,7 +78,7 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Layout più responsivo */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout più responsivo */
   gap: 17px; /* Spaziatura tra le card */
   margin-top: 30px;
   padding: 50px; /* Spaziatura attorno al contenitore */

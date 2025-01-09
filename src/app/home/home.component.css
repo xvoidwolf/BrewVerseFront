@@ -1,110 +1,94 @@
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
+:host {
     font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
     color: #212529;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding-bottom: 60px;
-}
-.title{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #764e35;
-}
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+  }
 
-.container {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
+  h2 {
+    margin-top: 60px;
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    letter-spacing: 1px; 
+  }
+  
+  p {
+    font-size: 1.2rem; 
+    color: #333; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    font-weight: normal; 
+    letter-spacing: 0.5px; 
+  }
 
-.card {
-    border: 2px solid #4b2f1e; /* Bordo marrone scuro */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombra della card */
-    overflow: hidden; /* Assicura che il contenuto non fuoriesca */
-    transition: transform 0.2s ease-in-out; /* Effetto al passaggio del mouse */
-}
-
-.card:hover {
-    transform: scale(1.01); /* Leggera animazione al passaggio del mouse */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Ombra più pronunciata */
-}
-::ng-deep .p-carousel-viewport  {
-    background-color:#f6e1bb;
-    border-radius: 5px;
-}
-.p-carousel-indicator-list{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: var(--p-carousel-indicator-list-padding);
-        gap: var(--p-carousel-indicator-list-gap);
-        margin: 0;
-        list-style: none;
-        background-color: #f2dcb1 ;
-    }
-
-
-.card-body {
+p-carousel {
+    display: block;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #f2dcb4;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    text-align: center;
-    background-color: #f6e1bb4a;
-}
-.card-title {
-    font-size: 1.5rem;
-    color: #4b2f1e;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-.card-body li {
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-.card-body ul {
-    list-style: none; /* Rimuove i pallini */
-    padding: 0;
-    color: #8a6e58; /* Marrone chiaro per il testo */
-    font-size: 1rem;
-    text-align: left;
-    margin-top: 10px;
-}
-
-/* Link generici */
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-a:hover {
-    color: #f4a300; /* Cambia colore al passaggio del mouse */
-}
-
-/* Footer */
-footer {
-    background-color: #212529;
+  }
+  
+  p-carousel .ui-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  p-carousel .ui-carousel-prev,
+  p-carousel .ui-carousel-next {
+    background-color: #f4a300;
     color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: auto;
-}
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  p-carousel .ui-carousel-prev:hover,
+  p-carousel .ui-carousel-next:hover {
+    background-color: #f4a300;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
 
-footer h4 {
-    color: #f4a300;
-}
+  @media (max-width: 768px) {
+    p-carousel .ui-carousel-prev,
+    p-carousel .ui-carousel-next {
+      display: none;
+    }
+  }
 
-footer ul li a {
-    color: white;
-}
+p-carousel .ui-carousel-content {
+    padding: 10px;
+  }
+  
+  p-carousel .ui-carousel-indicators .ui-carousel-indicator {
+    background-color: #f4a300;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  p-carousel .ui-carousel-indicators .ui-carousel-indicator.ui-state-highlight {
+    background-color: #f4a300;
+    transform: scale(1.2);
+  }
 
-footer ul li a:hover {
-    color: #f4a300;
-}
+  p-carousel .ui-carousel-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }

@@ -17,13 +17,21 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.title {
-  text-align: center;
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #333;
+h2 {
+  margin-top: 60px;
+  font-size: 3rem;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  letter-spacing: 1px;
+}
+p {
+  font-size: 1.2rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: normal;
+  letter-spacing: 0.5px;
 }
 
 .styled-form {
@@ -81,7 +89,6 @@ select:focus {
   background-color: #f4a300;
 }
 
-/* Stile per i pulsanti di paginazione */
 .pagination-buttons {
   display: flex;
   justify-content: center;
@@ -104,7 +111,6 @@ select:focus {
   background-color: #f4a300;
 }
 
-/* Stile per la sezione dei risultati */
 .beer-results {
   margin-top: 30px;
 }
