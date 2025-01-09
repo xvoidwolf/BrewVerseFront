@@ -29,6 +29,15 @@ export class BeerService {
     console.log(params);
     return this.http.get<Beer[]>('http://localhost:8080/api/beers', { params });
   }
+  createBeer(beer: Beer): Observable<Beer> {
+    return this.http.post<Beer>(`${this.baseUrl}`, beer);
+  }
+  deleteBeer(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+  updateBeer(id: number, beer: Beer): Observable<Beer> {
+    return this.http.post<Beer>(`${this.baseUrl}/${id}`, beer);
+  }
 
   getBeerById(id:number){
   return this.http.get<Beer>(`http://localhost:8080/api/beers/${id}`);
