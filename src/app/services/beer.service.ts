@@ -43,4 +43,5 @@ export class BeerService {
   getBreweries(): Observable<{ id: number; name: string }[]> {
     return this.http.get<{ id: number; name: string }[]>('http://localhost:8080/api/beers/breweries');
   }
+
 }

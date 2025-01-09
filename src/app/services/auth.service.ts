@@ -20,7 +20,17 @@ export class AuthService {
     }
     console.log('decoded token esiste');
     console.log(decodedToken);
-    return decodedToken.id; // Ritorna lo userId dal token decodificato
+    return decodedToken.userId; // Ritorna lo userId dal token decodificato
+  }
+
+  getUserNameFromToken(): string | null {
+    const dc = this.getDecodedToken();
+    if (!dc) {
+      return null;
+    }
+    console.log("decoded token esiste");
+    console.log(dc);
+    return dc.name; // ritorno lo userName dal token decodificato
   }
 
   // ** Decodifica il token JWT **
