@@ -80,5 +80,17 @@ export class BeerDetailsComponent {
   onEdit(beerId:number){
     this.router.navigate([`edit-beer/${beerId}`]);
   }
-
+  onDelete(beerId:number){
+    this.beerService.deleteBeer(beerId).subscribe({
+      next:() => {
+        alert('The beer was deleted successfully!');
+        this.router.navigate([`search-beer`]);
+      },
+      error :(error) => {
+        console.log(error);
+        alert('The beer could not be deleted!');
+      }
+    });
+  }
+  
 }
