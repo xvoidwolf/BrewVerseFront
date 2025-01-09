@@ -88,16 +88,18 @@
 
 /* Stile per la card */
 .beer-card {
-  background: linear-gradient(145deg, #fff5e1, #e6e1c5); /* Gradiente per il fondo */
+  background: linear-gradient(145deg, #fff5e1, #e6e1c5);
   border-radius: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Disposizione verticale degli elementi */
   height: 400px; /* Altezza fissa per la card */
-  max-width: 100%; /* La card si adatta alla larghezza della cella */
+  max-width: 100%;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: space-between; /* Distribuisci uniformemente gli elementi */
 }
+
 
 .beer-card:hover {
   transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
@@ -115,7 +117,10 @@
 .beer-info {
   padding: 10px 15px;
   text-align: center;
-  flex-grow: 1; /* Fa sì che questa parte occupi lo spazio disponibile tra l'immagine e il pulsante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuisce uniformemente lo spazio */
+  flex-grow: 1; /* Fa sì che il contenuto occupi tutto lo spazio disponibile tra l'immagine e il pulsante */
 }
 
 .beer-info h2 {
@@ -135,15 +140,16 @@
 .button-container {
   display: flex;
   justify-content: center; /* Centra il bottone orizzontalmente */
-  margin-top: 40px; /* Spazio sopra il bottone per distanziarlo dalle informazioni precedenti */
-  margin-bottom: 40px; /* Spazio sotto il bottone per distanziarlo dalle card */
+  margin-top: 20px; /* Spazio sopra il bottone per distanziarlo dalle informazioni */
+  margin-bottom: 30px; /* Distanza minima dal bordo della card */
   padding: 0 20px; /* Distanza laterale */
+  flex-shrink: 0; /* Evita che il pulsante venga contratto */
 }
 .button-container button {
   background: linear-gradient(145deg, #f0e6d2, #d4b27e); /* Gradiente caldo con crema e beige dorato */
   color: #3e2a47; /* Colore scuro per il testo */
   border: 2px solid #b67c4e; /* Bordo marrone dorato */
-  padding: 14px 28px;
+  padding: 10px 20px;
   border-radius: 50px;
   font-size: 1.4rem;
   font-weight: bold;
@@ -151,7 +157,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombra morbida */
-  letter-spacing: 1px;
 }
 
 .button-container button:hover {
@@ -171,12 +176,9 @@
   transform: translateY(2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-/* Contenitore per il pulsante di voto */
-.vote-button-container {
-  display: flex;
-  justify-content: center; /* Centra il pulsante orizzontalmente */
-  margin-top: 15px;
-  margin-bottom: 10px; /* Spazio sopra il pulsante */
+
+.vote.button{
+  margin-top: 10px;
 }
 
 /* Pulsante all'interno della card (stile più piccolo) */
