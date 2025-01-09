@@ -9,7 +9,7 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 1s ease;
-    background: linear-gradient(145deg, #fff5e1, #e6e1c5); 
+    background: fff; 
 }
 .card-img-top{
     width: 100%;
@@ -22,6 +22,8 @@
 }
 .card-body{
     padding: 10px;
+    text-align: center;
+    color: #333;
 }
 @media (max-width: 600px) {
     .card {
