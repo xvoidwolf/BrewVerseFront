@@ -10,6 +10,7 @@ import { BeerDetailsComponent } from './beer/beer-details/beer-details.component
 import { MysteryBeerContestComponent } from './beer/mystery-beer-contest/mystery-beer-contest.component';
 import { ReviewComponent } from './review/review.component';
 import { UserReviewsComponent } from './user-reviews/user-reviews.component';
+import { AdminPageComponent } from './admin/admin-page/admin-page.component';
 
 export const routes: Routes = [
     {path: "home", component: HomeComponent},
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path: "register", component: RegisterComponent},
     {path: "add-beer", component: AddBeerComponent},
     {path: "search-beer", component: SearchBeerComponent},
+    {path: "admin", component: AdminPageComponent}, //qui ci saranno le funzionalità per l'admin
     {path: "details/:id", component: BeerDetailsComponent}, //qui carosello con le recensioni e tasto per farne un'altra
     {path: "contest", component: MysteryBeerContestComponent},
     {path: "review/:id", component: ReviewComponent},
