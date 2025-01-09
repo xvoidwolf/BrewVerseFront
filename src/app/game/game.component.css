@@ -74,6 +74,7 @@ app-beer-mini-card {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 #winnerBeersContainer {
     display: flex;
@@ -156,43 +157,72 @@ button {
 
 @media (max-width: 600px) {
     :host {
-    max-width: 600px;
+        max-width: 600px;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     #container{
-    width: 600px;
-    transform: scale(0.9);
+        width: 600px;
+        transform: scale(0.9);
+    }
+    #firstRoundBeers, #secondRoundBeers {
+        display: flex;
+        justify-content: start; /* Allinea a sinistra */
+        align-items: center; /* Centra verticalmente */
+        flex-wrap: wrap; /* Assicura che gli elementi si adattino */
+       
     }
     #firstRoundBeers {
-    justify-content: center;
-    align-items: start;
-    transform: scale(1.2);
+        gap: 70px; /* Spaziatura tra le carte */
+        margin-left: 55px;
     }
-    #secondRoundBeers {
-    justify-content: center;
-    align-items: start;
-    transform: scale(1.5);
+    #secondRoundBeers  {
+        gap: 230px; /* Spaziatura tra le carte */
+        margin-left: 113px;
     }
-    .first {
-    margin-inline: 23px;
-    }
-    .second {
-        margin-inline: 57px;
+    .first, .second {
+        margin: 0; /* Rimuove margini laterali */
+        flex: 0 0 auto; /* Previene lo stiramento degli elementi */
     }
     .winner {
         transform: scale(1.5);
     }
+    #randomBeers {
+        margin: 0 0;
+        max-width: fit-content;
+    }
+    #randomBeerContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .svgContainer div {
         margin: 0 0; /* Evita spazi superflui */
-        
     }
     #svgContainer3 {
-        transform: scale(0.47);
+        transform: scale(0.7);
+    }
+    svg {
+        transform: scale(0.7);
     }
     .horizontalLine, .secondLine {
         margin: 0;   
         padding: 0; 
         width: 100%;  
         display: block;
+    }
+    .svgContainer #f {
+        margin: 0 0; /* Evita spazi superflui */
+        margin-left: 0px;
+        transform: scale(0.8);
+    }
+    .svgContainer #s {
+        margin: 0 0; /* Evita spazi superflui */
+        transform: scale(0.8);
     }
 }
 
@@ -202,7 +232,65 @@ button {
         max-width: 1024px;
     }
     #container{
-        max-width: 1000px;
+        max-width: 750px;
+    }
+    #firstRoundBeers, #secondRoundBeers {
+        display: flex;
+        justify-content: start; /* Allinea a sinistra */
+        align-items: center; /* Centra verticalmente */
+        flex-wrap: wrap; /* Assicura che gli elementi si adattino */
+       
+    }
+    #firstRoundBeers {
+        gap: 90px; /* Spaziatura tra le carte */
+        margin-left: 55px;
+    }
+    #secondRoundBeers  {
+        gap: 270px; /* Spaziatura tra le carte */
+        margin-left: 145px;
+    }
+    .first, .second {
+        margin: 0; /* Rimuove margini laterali */
+        flex: 0 0 auto; /* Previene lo stiramento degli elementi */
+    }
+    
+    .winner {
+        transform: scale(1.5);
+    }
+    #randomBeers {
+        margin: 0 0;
+    }
+    #randomBeerContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .svgContainer #f {
+        margin: 0 0; /* Evita spazi superflui */
+        min-width: 160px;
+        margin-left: 20px;
+    }
+    .svgContainer #s {
+        margin: 0 0; /* Evita spazi superflui */
+        margin-left: 40px;
+    }
+    .svgContainer #s:nth-child(2) {
+        margin: 0 0; /* Evita spazi superflui */
+        margin-left: 60px;
+    }
+    #svgContainer3 {
+        min-width: 160px;
+        margin-left: 20px;
+        transform: scale(0.85);
+    }
+    svg {
+        transform: scale(0.7);
+    }
+    .horizontalLine, .secondLine {
+        margin: 0;   
+        padding: 0; 
+        width: 100%;  
+        display: block;
     }
 }
 
@@ -215,3 +303,35 @@ button {
         max-width: 100%;
     }
 }
+
+p-carousel {
+    max-width: 700px;
+    background-color: #212529;
+    border-radius: 20px;
+    margin-block: 30px;
+}
+
+h2 {
+    margin-top: 60px;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+  }
+  p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+  }
+  :host {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+  }

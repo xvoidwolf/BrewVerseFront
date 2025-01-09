@@ -10,4 +10,6 @@ import { Review } from '../model/review';
 export class ReviewCardComponent {
 @Input()
 review!:Review
+
+
 }

@@ -1,7 +1,6 @@
 import { Component, Injector, Input, OnInit } from '@angular/core';
 import { Beer } from '../model/beer';
 import { ShowcaseService } from '../services/showcase.service';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
@@ -14,7 +13,8 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements OnInit { 
+export class HomeComponent implements OnInit {
+ 
   beers: Beer[] = [];
   breweryDescription: string = '';
   responsiveOptions: any[] | undefined = [

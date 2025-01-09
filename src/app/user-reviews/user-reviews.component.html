@@ -1,0 +1,11 @@
+<div>
+  <h2>Le tue recensioni:</h2>
+  @if(reviews) {
+  <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+    <ng-template pTemplate="review" let-review>
+      <app-beer-review-card [beerReview]="review"></app-beer-review-card>
+    </ng-template>
+  </p-carousel>
+
+  }
+</div>

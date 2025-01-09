@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import { RegisterDto } from '../model/register-dto';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -12,8 +13,9 @@ import { RegisterDto } from '../model/register-dto';
 })
 export class RegisterComponent implements OnInit {
   registerForm!:FormGroup;
+  isLoggedIn:boolean = false;
 
-  constructor(private fb:FormBuilder, private registerService:RegisterService, private router:Router) { }
+  constructor(private fb:FormBuilder, private authService:AuthService, private registerService:RegisterService, private router:Router) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -21,7 +23,11 @@ export class RegisterComponent implements OnInit {
       lastname: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.email, Validators.required]],
       password: ['', [Validators.required, Validators.minLength(5)]]
-    })
+    });
+    this.authService.loggedIn$.subscribe({ //qui un po' inutile rip
+      next: s => this.isLoggedIn = s,
+      error: err => console.log(err)
+    });
   }
   onSubmit() {
     const register:RegisterDto={
@@ -36,6 +42,7 @@ export class RegisterComponent implements OnInit {
         //var globale che esiste perchè lavoriamo con un browser come document o window
         //funziona come una mappa, chiavi e valori sono stringhe
         localStorage.setItem('jwtToken', r.token); //setta il token (r = ogg response)
+        this.authService.setLoggedIn(true);
         this.router.navigate(['/home']); //andiamo nella pagina home
       },
       error: err => alert('register failed.')

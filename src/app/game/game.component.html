@@ -1,20 +1,19 @@
 <section>
-    <div id="title">
-        <h1>Beer Game</h1>
-    </div>
+        <h2 class="text-center">Beer Game</h2>
+        <p class="text-center">Scelgi la tua birra preferita tra le nostre!</p>
 @if (beers) {
     <div id="container">
-        <div >
+        <div id="randomBeerContainer">
             <div id="randomBeers">
                 @for (beer of beers; track $index) {
-                    <app-beer-mini-card [beer]="beer"></app-beer-mini-card>
+                        <app-beer-mini-card [beer]="beer"></app-beer-mini-card>
                 }
             </div>
         </div>
         <div id="firstRound">
             <div class="svgContainer">
                 @for (beer of firstRoundBeers; track $index) {
-                    <div>
+                    <div id="f">
                         <svg width="150" height="80" xmlns="http://www.w3.org/2000/svg" class="horizontalLine">
                             <line x1="0" y1="30" x2="0" y2="0" stroke="white" stroke-width="5" />
                             <line x1="150" y1="30" x2="150" y2="0" stroke="white" stroke-width="5" />
@@ -32,10 +31,10 @@
                 }
             </div>
         </div>
-        <div>
+        <div id="secondRoundContainer">
             <div class="svgContainer">
                 @for (beer of secondRoundBeers; track $index) {
-                    <div >
+                    <div id="s">
                         <svg width="300" height="80" xmlns="http://www.w3.org/2000/svg" class="secondLine">
                             <line x1="0" y1="30" x2="0" y2="0" stroke="white" stroke-width="5" />
                             <line x1="300" y1="30" x2="300" y2="0" stroke="white" stroke-width="5" />
@@ -98,11 +97,11 @@
 @if (winnerBeers.length > 0) {
     <div id="winnerBeers">
         <h3>Le tue birre vincitrici:</h3>
-        <div id="winnerBeersContainer">
-            @for (beer of winnerBeers; track beer.beer.id) {
-                <app-beer-mini-card  [beer]="beer.beer"></app-beer-mini-card>
-            }
-        </div>
+        <p-carousel [value]="winnerBeers" [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+            <ng-template pTemplate = "winnerBeers" let-winnerBeer >
+              <app-beer-mini-card [beer]="winnerBeer.beer"></app-beer-mini-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
+            </ng-template>
+          </p-carousel>
     </div>
 }
 

@@ -1,30 +1,36 @@
 @if (beer) {
 <section>
-    <div id="title">
-        <h1>{{beer.name}}</h1>
-        <img src="{{beer.imageUrl}}" alt="immagine della birra: {{beer.name}}">
-    </div>
-    <div>
-        <ul>
-            <li> Tipo: {{beer.type}} </li>
-            <li> Percentuale Alcolica: {{beer.alcoholPercentage}} </li>
-            <li> Rating medio: {{beer.averageRating}} </li>
-            <!-- prendere il birrificio per id per stampare il nome in base al beer id -->
-            <!-- <li> {{beer.brewery.name}} </li>  -->
-        </ul>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="beer.imageUrl" alt="Card image cap">
+        <div class="card-body">
+            <h3 class="card-title">{{beer.name}}</h3>
+            <ul>
+                <li><strong>Birrificio:</strong> {{beer.breweryName}}</li>
+                <li><strong>Tipo:</strong> {{beer.type}}</li>
+                <li><strong>Grado alcolico:</strong> {{beer.alcoholPercentage}}%</li>
+                <li><strong>Valutazione Media:</strong> {{beer.averageRating}}</li>
+            </ul>
+        </div>
     </div>
 </section>
 }
 <div>
     <button (click)="onClick(beer.id)">Crea una recensione</button>
+    <button (click)="onEdit(beer.id)">Aggiorna prodotto</button>
+    <button (click)="onDelete(beer.id)">Elimina prodotto</button>
 </div>
 <div>
     <h2>Recensioni:</h2>
     @if(reviews) {
-    <section id="reviews-section" class="container mt-5">
-        @for (review of reviews; track $index) {
-        <app-review-card [review]="review"></app-review-card>
-        }
-    </section>
+        <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+            <ng-template pTemplate = "review" let-review >
+              <app-review-card [review]="review"></app-review-card>
+            </ng-template>
+          </p-carousel>
+          
     }
 </div>
+
+
+
+

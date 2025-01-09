@@ -5,16 +5,42 @@ import { BeerMiniCardComponent } from "../beer/beer-mini-card/beer-mini-card.com
 import { WinnerBeer } from '../model/winner-beer';
 import { AuthService } from '../services/auth.service';
 import { CombinedWinnerBeer } from '../model/combined-winner-beer';
+import { CommonModule } from '@angular/common';
+import { CarouselModule } from 'primeng/carousel';
+import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
 
 @Component({
   selector: 'app-game',
-  imports: [BeerMiniCardComponent],
+  imports: [CommonModule,CarouselModule,BeerMiniCardComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
 export class GameComponent implements OnInit {
 
   constructor(private gameService: GameService, private authService:AuthService) { }
+
+  responsiveOptions: any[] | undefined = [
+    {
+        breakpoint: '1400px',
+        numVisible: 4,
+        numScroll: 1,
+    },
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1,
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1,
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1,
+    },
+    ]; 
 
   beers!: Beer[];
   chooseBeers: Beer[] = [];
@@ -24,7 +50,7 @@ export class GameComponent implements OnInit {
   thirdRoundBeers: Beer[] = [];
   winner?: Beer; 
   hasStarted: boolean = false;
-  winnerBeers!: CombinedWinnerBeer[];
+  winnerBeers: CombinedWinnerBeer[] = [];
 
   userId: string | null = null;
 

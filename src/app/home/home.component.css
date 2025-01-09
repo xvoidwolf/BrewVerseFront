@@ -32,7 +32,7 @@ p-carousel {
     border-radius: 10px;
     overflow: hidden;
     background: #f2dcb4;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 100px rgba(0, 0, 0, 0.1);
     padding: 20px;
   }
   
