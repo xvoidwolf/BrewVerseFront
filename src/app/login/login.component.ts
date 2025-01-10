@@ -35,9 +35,6 @@ export class LoginComponent implements OnInit {
         //funziona come una mappa, chiavi e valori sono stringhe
         localStorage.setItem('jwtToken', r.token); //setta il token (r = ogg response)
         this.authService.setLoggedIn(true); //diciamo che siamo loggati, tutte le componenti in ascolto sapranno
-        this.authService.getUserRole(); //prendiamo il ruolo dell'utente
-        this.authService.isAdmin(); //vediamo se è admin
-        this.authService.getUserIdFromToken();
         this.router.navigate(['/home']); //andiamo nella pagina home
       },
       error: err => alert('login failed.')
