@@ -13,4 +13,9 @@ export class ShowcaseService {
   getBeersByMonthlySelectedBrewery(): Observable<Beer[]>{
     return this.http.get<Beer[]>('http://localhost:8080/api/brewery/monthly-brewery');
   }
+
+  // getMonthlySelectedBreweryById(id:number):Observable<any>{
+  //   return this.http.get<any>(`http://localhost:8080/api/brewery/monthly-brewery/${id}`);
+
+  // }
 }
