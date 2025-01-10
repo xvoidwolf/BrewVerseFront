@@ -31,7 +31,7 @@
   
   :host  {
     font-family: 'Roboto', sans-serif;
-    background-color: #f2dcb4;
+    background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
     color: #212529;
     display: flex; /* Imposta il contenitore come flessibile */
     flex-direction: column; /* Direzione verticale */
