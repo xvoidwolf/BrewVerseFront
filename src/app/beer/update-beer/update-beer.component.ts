@@ -28,7 +28,7 @@ export class UpdateBeerComponent implements OnInit {
 
     this.beerId = Number(this.route.snapshot.paramMap.get('id'));
     if (this.beerId ){
-      this.action = 'aggiorna';
+      this.action = 'Aggiorna';
       this.beerService.getBeerById(this.beerId).subscribe({
         next: beer => {
           console.log(beer);

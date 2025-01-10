@@ -1,26 +1,29 @@
-@if (beer) {
-<section>
-    <div class="card" style="width: 18rem;">
-        <img class="card-img-top" [src]="beer.imageUrl" alt="Card image cap">
-        <div class="card-body">
-            <h3 class="card-title">{{beer.name}}</h3>
-            <ul>
-                <li><strong>Birrificio:</strong> {{beer.breweryName}}</li>
-                <li><strong>Tipo:</strong> {{beer.type}}</li>
-                <li><strong>Grado alcolico:</strong> {{beer.alcoholPercentage}}%</li>
-                <li><strong>Valutazione Media:</strong> {{beer.averageRating}}</li>
-            </ul>
-        </div>
-    </div>
-</section>
-}
-<div>
+<div class="container">
+    <h1>Crea, Aggiorna o Elimina una Birra</h1>
     <button (click)="onClick(beer.id)">Crea una recensione</button>
     @if (isAdmin) {
         <button (click)="onEdit(beer.id)">Aggiorna prodotto</button>
         <button (click)="onDelete(beer.id)">Elimina prodotto</button>
     }
+    <section>
+        <div class="card-container">
+            <div class="card">
+                <img class="card-img-top" [src]="beer.imageUrl" alt="Card image cap">
+                <div class="card-body">
+                    <h3 class="card-title">{{beer.name}}</h3>
+                    <ul>
+                        <li><strong>Birrificio:</strong> {{beer.breweryName}}</li>
+                        <li><strong>Tipo:</strong> {{beer.type}}</li>
+                        <li><strong>Grado alcolico:</strong> {{beer.alcoholPercentage}}%</li>
+                        <li><strong>Valutazione Media:</strong> {{beer.averageRating}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+@if (beer) {
+}
 <div>
     <h2>Recensioni:</h2>
     @if(reviews) {

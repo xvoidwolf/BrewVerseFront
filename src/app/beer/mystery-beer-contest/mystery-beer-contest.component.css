@@ -82,8 +82,9 @@
   gap: 17px; /* Spaziatura tra le card */
   margin-top: 30px;
   padding: 50px; /* Spaziatura attorno al contenitore */
-  background-color: #f2dcb4; /* Sfondo leggero */
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px; /* Bordo arrotondato per il contenitore */
+  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1); 
 }
 
 /* Stile per la card */
@@ -222,7 +223,7 @@
 
 :host {
   font-family: 'Roboto', sans-serif;
-  background-color: #f2dcb4;
+  background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
   color: #212529;
   display: flex; /* Imposta il contenitore come flessibile */
   flex-direction: column; /* Direzione verticale */

@@ -1,6 +1,16 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
     <div class="card-body">
-        <p>{{review.userFullName}}</p>
-        <p-rating [(ngModel)]="review.rating" [readonly]="true" />
-        <p>{{review.description}}</p>
+        <p class="user-name">
+            {{review.userFullName}}
+        </p>
+        <div class="rating">
+            <p-rating 
+                [(ngModel)]="review.rating" 
+                [readonly]="true">
+            </p-rating>
+        </div>
+        <p class="review-description">
+            {{review.description}}
+        </p>
+    </div>
 </div>
