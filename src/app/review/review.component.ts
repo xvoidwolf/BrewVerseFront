@@ -20,6 +20,7 @@ export class ReviewComponent implements OnInit {
   constructor(private fb: FormBuilder, private reviewService: ReviewService, private authService:AuthService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    console.log("review component ngoninit");
     this.userId = Number(this.authService.getUserIdFromToken());
     this.beerId = Number(this.route.snapshot.paramMap.get('id'));
     this.reviewForm = this.fb.group({

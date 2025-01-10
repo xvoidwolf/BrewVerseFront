@@ -17,10 +17,10 @@
                 <div class="form-group">
                     <h3>Valutazione:</h3>
                     <form id="review-form" [formGroup]="reviewForm">
-                        <p-rating formControlName="rating" [stars]="5" />
+                        <p-rating formControlName="rating" [stars]="5"/>
                     </form>
                 </div>
-                <button (click)="onSubmit()" class="btn btn-primary">Invia la recensione</button>
+                <button (click)="onSubmit()" class="btn btn-primary" [disabled]="reviewForm.invalid">Invia la recensione</button>
             </form>
         </div>
     </div>
