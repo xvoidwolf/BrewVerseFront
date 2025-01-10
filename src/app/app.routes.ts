@@ -10,6 +10,8 @@ import { MysteryBeerContestComponent } from './beer/mystery-beer-contest/mystery
 import { ReviewComponent } from './review/review.component';
 import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { EditReviewComponent } from './edit-review/edit-review.component';
+import { AuthGuard } from './security/auth.guard';
 
 export const routes: Routes = [
     {path: "home", component: HomeComponent},
@@ -17,14 +19,15 @@ export const routes: Routes = [
     {path: "game", component: GameComponent},
     {path: "login", component: LoginComponent},
     {path: "register", component: RegisterComponent},
-    {path: "add-beer", component: UpdateBeerComponent},
+    {path: "add-beer", component: UpdateBeerComponent, canActivate: [AuthGuard]},
     {path: "search-beer", component: SearchBeerComponent},
-    {path: "admin", component: AdminPageComponent}, //qui ci saranno le funzionalità per l'admin
+    {path: "admin", component: AdminPageComponent, canActivate: [AuthGuard]}, //qui ci saranno le funzionalità per l'admin
     {path: "details/:id", component: BeerDetailsComponent}, //qui carosello con le recensioni e tasto per farne un'altra
     {path: "contest", component: MysteryBeerContestComponent},
     {path: "review/:id", component: ReviewComponent},
     {path: "user-reviews/:id", component:UserReviewsComponent},
-    {path:"edit-beer/:id", component:UpdateBeerComponent},
+    {path:"edit-beer/:id", component:UpdateBeerComponent, canActivate: [AuthGuard]},
+    {path:"edit-review/:id", component:EditReviewComponent},
     {path: "**", redirectTo: "pathNotFound"} //se non trova la rotta, reindirizza a pathNotFound
     
 ];

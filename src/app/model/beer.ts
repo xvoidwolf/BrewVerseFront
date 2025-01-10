@@ -8,6 +8,7 @@ export interface Beer {
     imageUrl: string;
     reviewsId: number[];
     breweryName: string;
+    breweryDescription: string;
 }
 export const defaultBeer: Beer = {
     id: 0,
@@ -18,5 +19,6 @@ export const defaultBeer: Beer = {
     averageRating: 0,
     type: '',
     reviewsId: [],
-    breweryName: ''
+    breweryName: '',
+    breweryDescription:''
 }

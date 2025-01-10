@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -45,7 +45,6 @@ export class AuthService {
 
     try {
       const decodedToken = jwtDecode<any>(token); // Decodifica il JWT
-      console.log(decodedToken);
       return decodedToken; // Ritorna il token decodificato
     } catch (error) {
       console.error('Error decoding token', error);
