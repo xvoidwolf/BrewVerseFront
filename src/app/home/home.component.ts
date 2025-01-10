@@ -43,7 +43,6 @@ export class HomeComponent implements OnInit {
   constructor(private showcaseService: ShowcaseService, private router:Router) { }
   ngOnInit(): void {
     this.getBeersByMonthlySelectedBrewery(); 
-    this.getBreweryDescriptionById(5);
   
   }
   
