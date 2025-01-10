@@ -12,7 +12,7 @@
   }
 
 .submit-button {
-    background-color: #f4a300;
+    background-color: #eb9e05;
     color: white;
     padding: 10px 15px;
     font-size: 1.2rem;
@@ -29,6 +29,25 @@
     box-shadow: 0 4px 100px rgba(0, 0, 0, 0.1);
   }
   
-  .submit-button:hover {
-    background-color: #f4a300;
+  .submit-button:hover, .activate-button:hover {
+    background-color:#d69512 ;
+  }
+
+  .activate-button {
+    background-color: #eb9e05;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 100px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
   }

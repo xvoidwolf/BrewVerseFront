@@ -25,14 +25,11 @@ export class MysteryBeerContestComponent implements OnInit {
   userId: string | null = null;
   beerId: number = 0;
   selectedBeerId: number | null = null;
-  description: string = '';
-  beersForSelection: Beer[] = [];
-
 
   constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService, private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.loadAllBeers();
+
     this.loadWeeklyBeerAndHints();
     this.userId = this.authService.getUserIdFromToken();
   }
@@ -52,16 +49,7 @@ export class MysteryBeerContestComponent implements OnInit {
       }
     });
   }
-  loadAllBeers(): void {
-    this.beerService.getAllBeers().subscribe({
-      next: (data) => {
-        this.beersForSelection = data;  
-      },
-      error: (err) => {
-        console.error('Errore nel caricamento delle birre:', err);
-      }
-    });
-  }
+
   loadHint(): void {
     this.mysteryBeerContestService.getHintsByWeeklyBeerId(this.weeklyBeerId).subscribe({
       next: (data) => {
@@ -189,37 +177,4 @@ export class MysteryBeerContestComponent implements OnInit {
     });
   }
   //tutti questi console.log non servono era per debuggare :)
-
-  activateWeeklyBeer(): void {
-    this.mysteryBeerContestService.activateWeeklyBeer(this.weeklyBeerId).subscribe({
-      next: (data) => {
-        console.log('Birra settimanale attivata:', data);
-        this.loadWeeklyBeerAndHints();
-      },
-      error: (err) => {
-        this.errorMessage = 'Errore durante l\'attivazione della birra settimanale';
-        console.error(err);
-      }
-    });
-  }
-  activateSelectedBeer(): void {
-    if ( this.selectedBeerId) {
-      this.mysteryBeerContestService.activateWeeklyBeer(this.selectedBeerId).subscribe({
-        next: () => {
-          console.log('Birra settimanale aggiornata con successo!');
-          this.loadWeeklyBeerAndHints();
-        },
-        error: (err) => {
-          this.errorMessage = 'Errore durante l\'aggiornamento della birra settimanale';
-          console.error(err);
-        }
-      });
-    } else {
-      console.log('Accesso negato. Solo l\'amministratore può cambiare la birra settimanale.');
-    }
-  }
-  onBeerSelectionChange(event: any): void {
-    this.selectedBeerId = parseInt(event.target.value, 10);
-    localStorage.setItem('selectedBeerId', this.selectedBeerId.toString());
-  }
 }

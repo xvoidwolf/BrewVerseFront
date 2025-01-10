@@ -2,27 +2,6 @@
   <div class="container">
     <h2 class="text-center">Concorso Birra Misteriosa</h2>
     <p class="text-center">Ogni settimana una birra misteriosa! Indovina di quale si tratta e vinci un premio.</p>
-    <div>
-      <label for="beerSelect">Seleziona la Birra della Settimana:</label>
-      <select id="beerSelect" (change)="onBeerSelectionChange($event)" class="form-select">
-  
-        @if (!weeklyBeerId) {
-          <option value="">Seleziona Birra</option>
-        }
-
-        @if (weeklyBeerId) {
-          <option [value]="weeklyBeerId" [selected]="true">{{ description }}</option>
-        }
-
-        @for (beer of beersForSelection; track beer.id) {
-          <option [value]="beer.id">{{ beer.name }}</option>
-        }
-      </select>
-    </div>
-    
-    <button (click)="activateSelectedBeer()" class="btn btn-primary" [disabled]="!selectedBeerId">
-      Attiva Birra Selezionata
-    </button>
 
     @if (errorMessage) {
       <div [class.alert-success]="winner" [class.alert-danger]="!winner" class="alert">
