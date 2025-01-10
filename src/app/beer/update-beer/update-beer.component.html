@@ -1,15 +1,15 @@
-<div>
-    <h2>Aggiorna birra</h2>
-    <form (ngSubmit)="updateBeer()" [formGroup]="updateForm">
-        <div>
-            <label for="name">Nome:</label>
+<div class="beer-form">
+    <h2 class="text-center">{{action}} una birra</h2>
+    <form (ngSubmit)="doAction()" [formGroup]="updateForm" class="styled-form">
+      <div class="form-group">
+            <label for="name">Nome della Birra:</label>
             <input type="text" id="name" formControlName="name">
         </div>
-        <div>
-            <label for="type">Tipo:</label>
+        <div class="form-group">
+            <label for="type">Stile della Birra:</label>
             <input type="text" id="type" formControlName="type">
         </div>
-      <div>
+      <div class="form-group">
             <label for="imageUrl">Indirizzo Immagine :</label>
             <input type="text" id="imageUrl" formControlName="imageUrl">
         </div>
@@ -19,9 +19,9 @@
           </div>
 
           <div class="form-group">
-            <label for="breweries">Birrificio:</label>
-            <select id="breweries" formControlName="breweryId">
-              <option value="" disabled selected>Seleziona una Birrificio</option> 
+            <label for="breweryId">Birrificio:</label>
+            <select id="breweryId" formControlName="breweryId">
+              <option value="" disabled selected>Seleziona un Birrificio</option> 
               @for (brewery of breweries; track brewery) {
                 <option value="{{ brewery.id }}">{{ brewery.name }}</option>
               }
@@ -29,7 +29,7 @@
           </div>
 
         <div>
-            <button>Aggiorna</button>
+            <button class="submit-button">{{action}}</button>
         </div>
 </form>
 </div>

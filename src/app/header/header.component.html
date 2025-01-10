@@ -22,6 +22,12 @@
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/game" routerLinkActive="active">Uwufufu</a>
                 </li>
+                @if (isAdmin) {
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/admin" routerLinkActive="active">Admin Page</a>
+                    </li>
+                } 
+            
                 @if (!isLoggedIn) {
                     <li class="nav-item">
                         <a class="nav-link" routerLink="/login" routerLinkActive="active">Accedi</a>
@@ -32,7 +38,7 @@
                 } 
                 @else {
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="logout()">Disconnettiti</a>
+                        <a class="nav-link" routerLink="/home" routerLinkActive="active" (click)="logout()">Benvenutæ {{userName}}, Disconnettiti</a>
                     </li>
                 }
             </ul>

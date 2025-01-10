@@ -4,10 +4,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewService } from '../services/review.service';
 import { AuthService } from '../services/auth.service';
 import { Review } from '../model/review';
+import { RatingModule } from 'primeng/rating';
 
 @Component({
   selector: 'app-review',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, RatingModule],
   templateUrl: './review.component.html',
   styleUrl: './review.component.css'
 })

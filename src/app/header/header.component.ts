@@ -11,20 +11,28 @@ import { AuthService } from '../services/auth.service';
 export class HeaderComponent implements OnInit{
   isLoggedIn = false;
   userId!:number;
+  isAdmin = false;
+  userName!:string|null
 
   constructor(private authService:AuthService, private router: Router) {}
 
   logout() {
+    console.log('logout nell\'header');
     this.authService.logout(); 
     this.router.navigate(['/home']); 
   }
 
   ngOnInit(): void {
+    this.userName=this.authService.getUserNameFromToken();
     this.userId = Number(this.authService.getUserIdFromToken());
     this.authService.loggedIn$.subscribe({
-      next: s => this.isLoggedIn = s,
+      next: s =>{
+        this.isLoggedIn = s,
+        this.isAdmin = this.authService.isAdminFromToken();
+      } ,
       error: err => console.log(err)
     });
+   
   }
 
   onClick(userId:number){

@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: #f2dcb4;
+  min-height: 70vh; 
 }
 
 div h2{
