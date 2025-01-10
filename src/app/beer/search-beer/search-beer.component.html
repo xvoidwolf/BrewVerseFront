@@ -15,7 +15,7 @@
     <div class="form-group">
       <label for="breweryId">Birrificio:</label>
       <select id="breweryId" formControlName="breweryId">
-        <option value="" disabled selected>Seleziona una Birrificio</option> 
+        <option value="" disabled selected>Seleziona un Birrificio</option> 
         @for (brewery of breweries; track brewery) {
           <option value="{{ brewery.id }}">{{ brewery.name }}</option>
         }

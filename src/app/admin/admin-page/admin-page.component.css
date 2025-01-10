@@ -1,0 +1,34 @@
+:host {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2dcb4;
+    color: #212529;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 70vh; 
+    margin: 0; /* Rimuovi margini */
+    padding: 0; /* Rimuovi padding */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra orizzontalmente */
+  }
+
+.submit-button {
+    background-color: #f4a300;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 100px rgba(0, 0, 0, 0.1);
+  }
+  
+  .submit-button:hover {
+    background-color: #f4a300;
+  }

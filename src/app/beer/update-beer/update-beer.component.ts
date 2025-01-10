@@ -12,7 +12,7 @@ import { Beer } from '../../model/beer';
 })
 export class UpdateBeerComponent implements OnInit {
   beerId!: number;
-  action: string = 'crea';
+  action: string = 'Crea';
   updateForm!: FormGroup;
   breweries!: { id: number; name: string }[];
   constructor(private beerService: BeerService, private route: ActivatedRoute, private fb: FormBuilder, private router:Router) {}
