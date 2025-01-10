@@ -24,11 +24,12 @@ export class MysteryBeerContestComponent implements OnInit {
   weeklyBeerId: number = 0;
   userId: string | null = null;
   beerId: number = 0;
+  selectedBeerId: number | null = null;
 
   constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService, private authService: AuthService) { }
 
   ngOnInit(): void {
-   // this.loadBeers();
+
     this.loadWeeklyBeerAndHints();
     this.userId = this.authService.getUserIdFromToken();
   }
@@ -48,17 +49,6 @@ export class MysteryBeerContestComponent implements OnInit {
       }
     });
   }
-  /*loadBeers(): void {
-    this.beerService.getAllBeers().subscribe({
-      next: (data) => {
-        this.beers = data; 
-      },
-      error: (err) => {
-        this.errorMessage = 'Errore durante il caricamento delle birre';
-        console.error(err);
-      },
-    });
-  }*/
 
   loadHint(): void {
     this.mysteryBeerContestService.getHintsByWeeklyBeerId(this.weeklyBeerId).subscribe({
@@ -76,6 +66,12 @@ export class MysteryBeerContestComponent implements OnInit {
   loadWeeklyBeerAndHints(): void {
     this.mysteryBeerContestService.getCurrentWeeklyBeer().subscribe({
       next: (data) => {
+        if (!this.selectedBeerId) { // Solo se l'utente non ha già selezionato manualmente una birra
+          this.weeklyBeerId = data.id;
+          console.log(`Birra settimanale impostata automaticamente: ${this.weeklyBeerId}`);
+        } else {
+          console.log(`L'utente ha già selezionato manualmente una birra: ${this.selectedBeerId}`);
+        }
         try {
           this.weeklyBeerId = data.id; 
           console.log(`Set weeklyBeerId: ${this.weeklyBeerId}`);

@@ -8,34 +8,34 @@ import { AuthService } from '../services/auth.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   isLoggedIn = false;
-  userId!:number;
+  userId!: number;
   isAdmin = false;
-  userName!:string|null
+  userName!: string | null
 
-  constructor(private authService:AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) { }
 
   logout() {
     console.log('logout nell\'header');
-    this.authService.logout(); 
-    this.router.navigate(['/home']); 
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 
   ngOnInit(): void {
-    this.userName=this.authService.getUserNameFromToken();
-    this.userId = Number(this.authService.getUserIdFromToken());
     this.authService.loggedIn$.subscribe({
-      next: s =>{
+      next: s => {
         this.isLoggedIn = s,
         this.isAdmin = this.authService.isAdminFromToken();
-      } ,
+        this.userName = this.authService.getUserNameFromToken();
+        this.userId = Number(this.authService.getUserIdFromToken());
+      },
       error: err => console.log(err)
     });
-   
+
   }
 
-  onClick(userId:number){
+  onClick(userId: number) {
     this.router.navigate([`user-reviews/${userId}`]);
   }
 }

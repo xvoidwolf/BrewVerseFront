@@ -1,1 +1,12 @@
 <button class="submit-button" (click)= "onClick()">Crea una nuova birra</button>
+<div>
+    <label for="beerSelect">Seleziona la Birra della Settimana:</label>
+    <select id="beerSelect" (change)="onBeerSelectionChange($event)" class="form-select">
+
+      @for (beer of beersForSelection; track beer.id) {
+        <option [value]="beer.id">{{ beer.name }}</option>
+      }
+    </select>
+  </div>
+
+  <button class ="activate-button" (click)="activateSelectedBeer()" >Attiva WeeklyBeer</button>
