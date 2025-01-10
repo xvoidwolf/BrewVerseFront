@@ -3,5 +3,6 @@ export interface Review{
     rating:number,
     description:string,
     beerId:number,
-    userId:number
+    userId:number,
+    userFullName:string
 }

@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit{
   isLoggedIn = false;
   userId!:number;
   isAdmin = false;
+  userName!:string|null
 
   constructor(private authService:AuthService, private router: Router) {}
 
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    this.userName=this.authService.getUserNameFromToken();
     this.userId = Number(this.authService.getUserIdFromToken());
     this.authService.loggedIn$.subscribe({
       next: s =>{

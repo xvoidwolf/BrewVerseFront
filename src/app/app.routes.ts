@@ -10,6 +10,7 @@ import { MysteryBeerContestComponent } from './beer/mystery-beer-contest/mystery
 import { ReviewComponent } from './review/review.component';
 import { UserReviewsComponent } from './user-reviews/user-reviews.component';
 import { AdminPageComponent } from './admin/admin-page/admin-page.component';
+import { EditReviewComponent } from './edit-review/edit-review.component';
 
 export const routes: Routes = [
     {path: "home", component: HomeComponent},
@@ -25,6 +26,7 @@ export const routes: Routes = [
     {path: "review/:id", component: ReviewComponent},
     {path: "user-reviews/:id", component:UserReviewsComponent},
     {path:"edit-beer/:id", component:UpdateBeerComponent},
+    {path:"edit-review/:id", component:EditReviewComponent},
     {path: "**", redirectTo: "pathNotFound"} //se non trova la rotta, reindirizza a pathNotFound
     
 ];

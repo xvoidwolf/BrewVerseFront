@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
  
   beers: Beer[] = [];
+
   responsiveOptions: any[] | undefined = [
     {
         breakpoint: '1400px',
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getBeersByMonthlySelectedBrewery();    
   }
+  
   getBeersByMonthlySelectedBrewery(): void {
     this.showcaseService.getBeersByMonthlySelectedBrewery().subscribe({
       next: (res) => {  
@@ -54,16 +56,6 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-// Metodo per creare l'injector dinamico
-// createInjector(beer: any) {
-//   const injector = Injector.create({
-//     providers: [{ provide: 'beer', useValue: beer }],
-//     parent: this.injector
-//   });
-//   return injector;
-// }
-
-// carouselComponents = this.beers.map(beer => BeerCardComponent);
 
 onCardSelected(beer: Beer) {
   this.router.navigate([`details/${beer.id}`]);

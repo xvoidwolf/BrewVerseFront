@@ -15,6 +15,14 @@ export class ReviewService {
     return this.http.post<Review>('http://localhost:8080/api/reviews',newReview);
   }
 
+  updateReview(id:number, updatedReview:Review):Observable<Review>{
+    return this.http.put<Review>(`http://localhost:8080/api/reviews/${id}`, updatedReview);
+  }
+
+  deleteReview(reviewId: number){
+    return this.http.delete<Review>(`http://localhost:8080/api/reviews/${reviewId}`);
+  }
+
   getReviewsByBeerId(id:number):Observable<Review[]>{
     return this.http.get<Review[]>(`http://localhost:8080/api/reviews/beer/${id}`)
   }
@@ -23,4 +31,7 @@ export class ReviewService {
     return this.http.get<BeerReview[]>(`http://localhost:8080/api/reviews/user/${id}`)
   }
 
+  getReviewById(id:number):Observable<Review>{
+    return this.http.get<Review>(`http://localhost:8080/api/reviews/${id}`);
+  }
 }
