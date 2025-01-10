@@ -1,6 +1,6 @@
 <div>
-    <h2>Aggiorna birra</h2>
-    <form (ngSubmit)="updateBeer()" [formGroup]="updateForm">
+    <h2>{{action}} birra</h2>
+    <form (ngSubmit)="doAction()" [formGroup]="updateForm">
         <div>
             <label for="name">Nome:</label>
             <input type="text" id="name" formControlName="name">
@@ -29,7 +29,7 @@
           </div>
 
         <div>
-            <button>Aggiorna</button>
+            <button>{{action}}</button>
         </div>
 </form>
 </div>
