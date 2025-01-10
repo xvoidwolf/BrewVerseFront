@@ -8,7 +8,7 @@
             <li><strong>Valutazione:</strong> {{beerReview.rdto.rating}}</li>
             <li><strong>Descrizione:</strong> {{beerReview.rdto.description}}</li>
         </ul>
-        <button (click)="(beerReview)">Modifica Recensione</button>
+        <button (click)="onEdit(beerReview.rdto.beerId)">Modifica Recensione</button>
         <button class="cancella" (click)="onDelete(beerReview.rdto.id)">Cancella Recensione</button>
     </div>
 </div>
