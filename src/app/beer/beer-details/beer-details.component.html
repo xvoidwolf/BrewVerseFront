@@ -16,8 +16,10 @@
 }
 <div>
     <button (click)="onClick(beer.id)">Crea una recensione</button>
-    <button (click)="onEdit(beer.id)">Aggiorna prodotto</button>
-    <button (click)="onDelete(beer.id)">Elimina prodotto</button>
+    @if (isAdmin) {
+        <button (click)="onEdit(beer.id)">Aggiorna prodotto</button>
+        <button (click)="onDelete(beer.id)">Elimina prodotto</button>
+    }
 </div>
 <div>
     <h2>Recensioni:</h2>

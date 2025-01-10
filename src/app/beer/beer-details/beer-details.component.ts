@@ -7,6 +7,7 @@ import { BeerService } from '../../services/beer.service';
 import { Beer } from '../../model/beer';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-beer-details',
@@ -18,6 +19,7 @@ export class BeerDetailsComponent {
   reviews!: Review[];
   beerId!: number;
   beer!: Beer;
+  isAdmin = false;
 
   responsiveOptions: any[] | undefined = [
     {
@@ -42,12 +44,14 @@ export class BeerDetailsComponent {
     },
     ]; 
   
-  constructor(private beerService: BeerService, private reviewService: ReviewService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private beerService: BeerService, private reviewService: ReviewService, 
+    private router: Router, private route: ActivatedRoute, private authService:AuthService) { }
 
 
   ngOnInit(): void {
     this.getBeerById();
     this.getReviewsByBeerId();
+    this.isAdmin= this.authService.isAdmin();
   }
   getBeerById() {
     this.beerId = Number(this.route.snapshot.paramMap.get('id'));
