@@ -1,8 +1,8 @@
 <h2 class="text-center">Scopri il Birrificio del Mese</h2>
 <p class="text-center">Un viaggio di gusto tra le sue birre artigianali, pronte a stupire il tuo palato!</p>
 @if (beers.length) {
-<p> Il Birrificio del mese è: {{beers[0].breweryName}}.</p>
-<p> {{beers[0].breweryDescription}}.</p>
+<p> Il Birrificio del mese è: <strong>{{beers[0].breweryName}}</strong>.</p>
+<em class="text-center"><strong>{{beers[0].breweryDescription}}</strong> .</em>
 <p-carousel [value]="beers" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
   <ng-template pTemplate="beer" let-beer>
     <app-beer-card-search (chooseBeerEvent)="onCardSelected($event)" [beer]="beer"></app-beer-card-search>
