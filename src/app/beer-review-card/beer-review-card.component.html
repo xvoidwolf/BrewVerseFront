@@ -5,10 +5,10 @@
         <ul>
             <li><strong>Tipo:</strong> {{beerReview.bdto.type}}</li>
             <li><strong>Grado alcolico:</strong> {{beerReview.bdto.alcoholPercentage}}%</li>
-            <li><strong>Valutazione:</strong> {{beerReview.rdto.rating}}</li>
+            <li><strong>Valutazione:</strong> <p-rating [(ngModel)]="beerReview.rdto.rating" [readonly]="true"/></li>
             <li><strong>Descrizione:</strong> {{beerReview.rdto.description}}</li>
         </ul>
-        <button (click)="onEdit(beerReview.rdto.beerId)">Modifica Recensione</button>
-        <button class="cancella" (click)="onDelete(beerReview.rdto.id)">Cancella Recensione</button>
+        <button (click)="onEdit()">Modifica Recensione</button>
+        <button class="cancella" (click)="onDelete()">Cancella Recensione</button>
     </div>
 </div>

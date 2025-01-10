@@ -31,4 +31,7 @@ export class ReviewService {
     return this.http.get<BeerReview[]>(`http://localhost:8080/api/reviews/user/${id}`)
   }
 
+  getReviewById(id:number):Observable<Review>{
+    return this.http.get<Review>(`http://localhost:8080/api/reviews/${id}`);
+  }
 }

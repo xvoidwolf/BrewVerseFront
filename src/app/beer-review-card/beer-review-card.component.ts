@@ -2,24 +2,26 @@ import { Component, Input } from '@angular/core';
 import { BeerReview } from '../model/beer-review';
 import { ReviewService } from '../services/review.service';
 import { Router } from '@angular/router';
+import { RatingModule } from 'primeng/rating';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-beer-review-card',
-  imports: [],
+  imports: [FormsModule, RatingModule],
   templateUrl: './beer-review-card.component.html',
   styleUrl: './beer-review-card.component.css'
 })
 export class BeerReviewCardComponent {
   @Input()
   beerReview!:BeerReview;
-
+  
   constructor(private reviewService:ReviewService, private router:Router){}
 
-  onEdit(reviewId:number){
-    this.router.navigate([`edit-review/${reviewId}`]);
+  onEdit(){
+    this.router.navigate([`edit-review/${this.beerReview.rdto.id}`]);
   }
-  onDelete(reviewId:number){
-    this.reviewService.deleteReview(reviewId).subscribe({
+  onDelete(){
+    this.reviewService.deleteReview(this.beerReview.rdto.id).subscribe({
       next:() => {
         alert('The review was deleted successfully!');
         this.router.navigate([`home`]);

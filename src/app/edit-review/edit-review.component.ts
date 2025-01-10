@@ -3,7 +3,7 @@ import { BeerReview } from '../model/beer-review';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewService } from '../services/review.service';
-import { RatingModule } from 'primeng/rating';
+import { Rating, RatingModule } from 'primeng/rating';
 import { Review } from '../model/review';
 import { AuthService } from '../services/auth.service';
 import { BeerService } from '../services/beer.service';
@@ -16,39 +16,42 @@ import { BeerService } from '../services/beer.service';
 })
 export class EditReviewComponent implements OnInit {
 
-  beerReview!: BeerReview;
+  review!: Review;
   updateForm!: FormGroup;
-  userId!: number;
-  beerId!: number;
 
   constructor(private authService: AuthService, private beerService: BeerService, private reviewService: ReviewService, private route: ActivatedRoute, private fb: FormBuilder, private router: Router) { }
 
-
   ngOnInit(): void {
     this.updateForm = this.fb.group({
-
+      rating:['', []],
+      description:['', []]
     });
-
-    this.userId = Number(this.authService.getUserIdFromToken());
-    this.beerId = Number(this.route.snapshot.paramMap.get('id'));
-  
+    const reviewId = Number(this.route.snapshot.paramMap.get('id'));
+    this.reviewService.getReviewById(reviewId).subscribe({
+      next: r => {
+        this.review=r;
+        this.updateForm.patchValue(this.review);
+      },
+      error: err => alert("review not found")
+      
+    });  
   }
 
   onSubmit() {
-    const review: Review = {
+    const updatedReview: Review = {
       ...this.updateForm.value,
-      userId: this.userId,
-      beerId: this.beerId
+      userId: this.review.userId,
+      beerId: this.review.beerId,
+      id:this.review.id
     }
-    console.log(review);
-    this.reviewService.updateReview(review.id, review).subscribe({
+    this.reviewService.updateReview(updatedReview.id, updatedReview).subscribe({
       next: () => {
-        console.log("review inserita");
-        this.router.navigate([`user-reviews/${this.userId}`]);
+        alert("review aggiornata");
+        this.router.navigate([`user-reviews/${this.review.userId}`]);
       },
       error: err => {
-        alert("Errore nell'inserimento della review. Hai già inserito una recensione per questa birra.");
-        this.router.navigate([`user-reviews/${this.userId}`]);
+        alert("Errore nell'aggiornamento della review. Hai già inserito una recensione per questa birra.");
+        this.router.navigate([`user-reviews/${this.review.userId}`]);
       }
     });
   }
