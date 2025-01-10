@@ -1,5 +1,6 @@
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <p>Valutazione: {{review.rating}}</p>
+        <p>Utente: {{review.userFullName}}</p>
+        <p-rating [(ngModel)]="review.rating" [readonly]="true" />
         <p>Descrizione: {{review.description}}</p>
 </div>

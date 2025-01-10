@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,8 +18,7 @@ export class AuthService {
     if (!decodedToken) {
       return null;
     }
-    console.log('decoded token esiste');
-    console.log(decodedToken);
+  
     return decodedToken.userId; // Ritorna lo userId dal token decodificato
   }
 
@@ -28,8 +27,6 @@ export class AuthService {
     if (!dc) {
       return null;
     }
-    console.log("decoded token esiste");
-    console.log(dc);
     return dc.name; // ritorno lo userName dal token decodificato
   }
 
@@ -42,7 +39,6 @@ export class AuthService {
 
     try {
       const decodedToken = jwtDecode<any>(token); // Decodifica il JWT
-      console.log(decodedToken);
       return decodedToken; // Ritorna il token decodificato
     } catch (error) {
       console.error('Error decoding token', error);

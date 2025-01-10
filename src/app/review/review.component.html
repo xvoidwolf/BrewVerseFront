@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6">
             <h3>Aggiungi la tua recensione</h3>
-            <form id="review-form" [formGroup] = "reviewForm">
+            <form id="review-form" [formGroup]="reviewForm">
                 <div class="form-group">
                     <!-- <label for="beer-name">Nome della Birra:</label>
                     <input type="text" class="form-control" id="beer-name" name="beer-name" required> -->
@@ -10,32 +10,18 @@
 
                 <div class="form-group">
                     <label for="review-text">Scrivi la tua recensione:</label>
-                    <textarea class="form-control" id="review-text" name="review-text" rows="4" required formControlName="description"></textarea>
+                    <textarea class="form-control" id="review-text" name="review-text" rows="4" required
+                        formControlName="description"></textarea>
                 </div>
 
                 <div class="form-group">
                     <h3>Valutazione:</h3>
-                    <div class="form-control">
-                        <label for="star5"></label>
-                        <input type="radio" name="rating" id="star5" value="5" formControlName="rating">
-                        
-                        <label for="star4"></label>
-                        <input type="radio" name="rating" id="star4" value="4" formControlName="rating">
-                        
-                        <label for="star3"></label>
-                        <input type="radio" name="rating" id="star3" value="3" formControlName="rating">
-                        
-                        <label for="star2"></label>
-                        <input type="radio" name="rating" id="star2" value="2" formControlName="rating">
-                        
-                        <label for="star1"></label>
-                        <input type="radio" name="rating" id="star1" value="1" formControlName="rating">
-                    </div>
+                    <form id="review-form" [formGroup]="reviewForm">
+                        <p-rating formControlName="rating" [stars]="5" />
+                    </form>
                 </div>
                 <button (click)="onSubmit()" class="btn btn-primary">Invia la recensione</button>
             </form>
         </div>
     </div>
 </section>
-
-

@@ -22,15 +22,11 @@
 <div>
     <h2>Recensioni:</h2>
     @if(reviews) {
-        <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
-            <ng-template pTemplate = "review" let-review >
-              <app-review-card [review]="review"></app-review-card>
-            </ng-template>
-          </p-carousel>
-          
+    <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+        <ng-template pTemplate="review" let-review>
+            <app-review-card [review]="review"></app-review-card>
+        </ng-template>
+    </p-carousel>
+
     }
 </div>
-
-
-
-

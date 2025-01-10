@@ -66,6 +66,7 @@ export class BeerDetailsComponent {
     this.reviewService.getReviewsByBeerId(this.beerId).subscribe({
       next: reviews => {
         this.reviews = reviews;
+        console.log(this.reviews);
       },
       error: err => {
         console.log("errore nel caricamento delle reviews", err);
