@@ -12,6 +12,7 @@ import { Beer } from '../../model/beer';
 })
 export class UpdateBeerComponent implements OnInit {
   beerId!: number;
+  action: string = 'Crea';
   updateForm!: FormGroup;
   breweries!: { id: number; name: string }[];
   constructor(private beerService: BeerService, private route: ActivatedRoute, private fb: FormBuilder, private router:Router) {}
@@ -26,18 +27,20 @@ export class UpdateBeerComponent implements OnInit {
     });
 
     this.beerId = Number(this.route.snapshot.paramMap.get('id'));
-    this.beerService.getBeerById(this.beerId).subscribe({
-      next: beer => {
-        console.log(beer);
-        console.log(this.updateForm.value); //oggetto valori form
-        this.updateForm.patchValue(beer);
-      },
-      error: err => {
-        console.log("errore nel caricamento della birra", err);
-      }
-
-    });
-    
+    if (this.beerId ){
+      this.action = 'aggiorna';
+      this.beerService.getBeerById(this.beerId).subscribe({
+        next: beer => {
+          console.log(beer);
+          console.log(this.updateForm.value); //oggetto valori form
+          this.updateForm.patchValue(beer);
+        },
+        error: err => {
+          console.log("errore nel caricamento della birra", err);
+        }
+  
+      });
+    }
     this.beerService.getBreweries().subscribe({
       next: breweries => {
         this.breweries = breweries;
@@ -58,7 +61,6 @@ export class UpdateBeerComponent implements OnInit {
      };
     this.beerService.updateBeer(this.beerId, updatedBeer).subscribe({
       next:() => {
-        console.log('The beer was updated successfully!');
         this.router.navigate([`details/${this.beerId}`]);
       },
       error :(error) => {
@@ -66,6 +68,7 @@ export class UpdateBeerComponent implements OnInit {
         alert('The beer could not be updated!');
       }
     });
+
     //.subscribe({
     //next:() => {
     //this.message = 'The beer was updated successfully!';
@@ -76,5 +79,28 @@ export class UpdateBeerComponent implements OnInit {
     //}
     //});
   }
+  createBeer(): void {
+    console.log(this.updateForm.value);
+    const beer: Beer ={
+    id:this.beerId,
+     ...this.updateForm.value
+     };
+    this.beerService.createBeer(beer).subscribe({
+      next: b  => {
+        this.router.navigate([`details/${b.id}`]);
+      },
+      error :(error) => {
+        console.log(error);
+        alert('The beer could not be created!');
+      }
+    });
 
+  }
+  doAction(): void {
+    if (this.beerId) {
+      this.updateBeer();
+    } else {
+      this.createBeer();
+    }
+  }
 }

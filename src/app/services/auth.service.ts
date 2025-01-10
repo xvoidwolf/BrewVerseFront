@@ -9,8 +9,15 @@ export class AuthService {
   // Osservabile per il login
   private loggedIn = new BehaviorSubject<boolean>(false); // Valore iniziale: false
   loggedIn$ = this.loggedIn.asObservable(); // Observable pubblico (convenzione $)
+  //private isAdminState = new BehaviorSubject<boolean>(false);
+  //isAdmin$ = this.isAdminState.asObservable();
+  private admin = false;
 
-  constructor() {}
+  constructor() {
+    if(localStorage.getItem('jwtToken')) { // se il token esiste setto come loggato
+      this.setLoggedIn(true);
+    }
+  }
 
   // ** Ottieni lo userId dal token decodificato **
   getUserIdFromToken(): string | null {
@@ -18,8 +25,6 @@ export class AuthService {
     if (!decodedToken) {
       return null;
     }
-    console.log('decoded token esiste');
-    console.log(decodedToken);
     return decodedToken.userId; // Ritorna lo userId dal token decodificato
   }
 
@@ -28,8 +33,6 @@ export class AuthService {
     if (!dc) {
       return null;
     }
-    console.log("decoded token esiste");
-    console.log(dc);
     return dc.name; // ritorno lo userName dal token decodificato
   }
 
@@ -52,6 +55,7 @@ export class AuthService {
 
   // ** Cambia lo stato di login **
   setLoggedIn(status: boolean): void {
+    this.admin = this.isAdminFromToken(); // Controlla se l'utente è un ADMIN
     this.loggedIn.next(status); // Aggiorna lo stato del BehaviorSubject
   }
 
@@ -66,15 +70,19 @@ export class AuthService {
   }
 
   // ** Controlla se l'utente è un ADMIN **
-  isAdmin(): boolean {
+  isAdminFromToken(): boolean {
     const decodedToken = this.getDecodedToken();
-    return decodedToken && decodedToken.role === 'ADMIN'; // Ritorna true se il ruolo è "ADMIN"
+    return decodedToken && decodedToken.role == 'ADMIN'; // Ritorna true se il ruolo è "ADMIN"
   }
+  isAdmin(): boolean {
+      return this.admin;
+    }
 
   // ** Metodo per il logout **
   logout(): void {
     localStorage.removeItem('jwtToken'); // Rimuovi il token dal localStorage
     this.setLoggedIn(false); // Aggiorna lo stato di login
+    this.admin = false;
     console.log('User logged out successfully.');
   }
 }
