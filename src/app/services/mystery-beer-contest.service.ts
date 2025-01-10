@@ -44,4 +44,7 @@ export class MysteryBeerContestService {
   getRandomSelectionIncludingWeeklyBeer(weeklyBeerId: number): Observable<Beer[]> {
     return this.http.get<Beer[]>(`${this.baseUrl}/random-selection/${weeklyBeerId}`);
   }
+  activateWeeklyBeer(weeklyBeerId: number): Observable<WeeklyBeer> {
+    return this.http.put<WeeklyBeer>(`${this.baseUrl}/activate/${weeklyBeerId}`, {});
+  }
 }
