@@ -1,1 +1,5 @@
-<button></button>
+<div class="pager">
+    <button [disabled]="isFirstPage()" (click)="goToPreviousPage()">Pagina precedente</button>
+    <p>Pagina {{pageNumber + 1}} di {{totalPages}}</p>
+    <button [disabled]="isLastPage()" (click)="goToNextPage()">Pagina Successiva</button>
+</div>

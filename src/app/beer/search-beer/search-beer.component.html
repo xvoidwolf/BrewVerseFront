@@ -1,13 +1,13 @@
 <div class="beer-form">
   <h2 class="text-center">Seleziona i parametri della Birra che cerchi.</h2>
-<p class="text-center">Birre artigianali italiane di ogni tipo, trova la tua preferita!</p>
+  <p class="text-center">Birre artigianali italiane di ogni tipo, trova la tua preferita!</p>
   <form [formGroup]="beerForm" (ngSubmit)="onSubmit($event)" class="styled-form">
     <div class="form-group">
       <label for="name">Nome della Birra:</label>
       <select id="name" formControlName="beerName">
-        <option value="" disabled selected>Seleziona una Birra</option> 
+        <option value="">Seleziona una Birra</option>
         @for (name of beerNames; track name) {
-          <option value="{{ name }}">{{ name }}</option>
+        <option value="{{ name }}">{{ name }}</option>
         }
       </select>
     </div>
@@ -15,9 +15,9 @@
     <div class="form-group">
       <label for="breweryId">Birrificio:</label>
       <select id="breweryId" formControlName="breweryId">
-        <option value="" disabled selected>Seleziona un Birrificio</option> 
+        <option value="">Seleziona un Birrificio</option>
         @for (brewery of breweries; track brewery) {
-          <option value="{{ brewery.id }}">{{ brewery.name }}</option>
+        <option value="{{ brewery.id }}">{{ brewery.name }}</option>
         }
       </select>
     </div>
@@ -25,9 +25,9 @@
     <div class="form-group">
       <label for="type">Stile della Birra:</label>
       <select id="type" formControlName="type">
-        <option value="" disabled selected>Seleziona uno stile di Birra</option> 
+        <option value="">Seleziona uno stile di Birra</option>
         @for (type of beerTypes; track type) {
-          <option value="{{ type }}">{{ type }}</option>
+        <option value="{{ type }}">{{ type }}</option>
         }
       </select>
     </div>
@@ -35,7 +35,7 @@
     <div class="form-group">
       <label for="alcoholRange">Gradazione Alcolica (%):</label>
       <select id="alcoholRange" formControlName="alcoholRange" #alcoholRange>
-        <option value="" disabled selected>Seleziona la Gradazione Alcolica</option> 
+        <option value="">Seleziona la Gradazione Alcolica</option>
         <option value="low">0-5%</option>
         <option value="medium">5-8%</option>
         <option value="high">Più di 8%</option>
@@ -45,35 +45,31 @@
     <div class="form-group">
       <label for="ratingRange">Valutazione Media:</label>
       <select id="ratingRange" formControlName="ratingRange" #ratingRange>
-        <option value="" disabled selected>Seleziona la Valutazione Media</option> 
+        <option value="">Seleziona la Valutazione Media</option>
         <option value="low">4 stelle e più</option>
         <option value="high">5 stelle</option>
       </select>
     </div>
-
-    <button class="submit-button">Cerca</button>
+    <button class="submit-button" [disabled]="this.isButtonDisabled()">Cerca</button>
   </form>
 </div>
 
 @if (beers.length > 0) {
 <div class="beer-results">
-    @for (beer of beers; track beer.id) {
-      <app-beer-card-search (chooseBeerEvent)="onCardSelected($event)" [beer]="beer"></app-beer-card-search>
-    }
+  @for (beer of beers; track beer.id) {
+  <app-beer-card-search (chooseBeerEvent)="onCardSelected($event)" [beer]="beer"></app-beer-card-search>
+  }
 </div>
 }
 
+@if (searchExecuted && beers.length === 0 ) {
 <div class="no-results">
-  @if (beers.length === 0 && searchExecuted) {
-    <h2>Nessuna birra trovata con i parametri selezionati.</h2>
-  }
+  <h2>Nessuna birra trovata con i parametri selezionati.</h2>
 </div>
+}
 
+@if (searchExecuted) {
 <div class="pagination-buttons">
-  @if (pageNumber > 0) {
-    <button class="pagination-button" (click)="goToPreviousPage()">Pagina precedente</button>
-  }
-  @if (pageNumber >= 0) {
-    <button class="pagination-button" (click)="goToNextPage()">Prossima pagina</button>
-  }
+  <app-pager [pageNumber]="pageNumber" [totalElements]="totalElements" [totalPages]="totalPages" (next)="goToNextPage()" (previous)="goToPreviousPage()"></app-pager>
 </div>
+}
