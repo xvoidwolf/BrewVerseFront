@@ -14,12 +14,10 @@
         <div class="hints-container">
           @for (hint of hints; track hint.id) {
             <div class="hint-card" (click)="toggleFlip($event)">
-              <!-- Fronte della card -->
               <div class="front">
                 <h4>Indizio {{ hint.number }}</h4>
                 <p>Clicca per scoprire l'indizio</p>
               </div>
-              <!-- Retro della card -->
               <div class="back" >
                 <h4>{{ hint.description }}</h4>
               </div>
@@ -37,8 +35,7 @@
             <div class="beer-card">
               <img [src]="beer.imageUrl" alt="{{ beer.name }}" class="beer-image"/>
               <div class="beer-info">
-                <h2>{{ beer.name }}</h2>
-                <p>{{ beer.type }} | {{ beer.alcoholPercentage }}%</p>
+                <h2 class="beer">{{ beer.name }}</h2> 
                 <div class="vote-button-container">
                 <button class="vote button" (click)="submitAnswer(beer.id)">Vota</button>
               </div>
@@ -48,7 +45,7 @@
       </div>
     }
   }
-    <!-- Se l'utente ha già votato, mostriamo solo il risultato -->
+
     @if (hasVoted) {
       <div class="result-message">
         <h3>{{ winner ? 'Hai vinto!' : 'Hai perso!' }}</h3>

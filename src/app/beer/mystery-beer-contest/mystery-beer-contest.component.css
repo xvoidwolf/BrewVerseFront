@@ -44,13 +44,13 @@
 
 .hint-card .front {
   background-image: url('https://i.pinimg.com/736x/8f/e0/b7/8fe0b71e8264ea944a540d7990935f83.jpg');
-  background-size: cover; /* Assicura che l'immagine copra completamente lo sfondo */
-  background-position: center; /* Centra l'immagine */
+  background-size: cover; 
+  background-position: center; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px; /* Mantiene gli angoli arrotondati */
+  border-radius: 15px; 
   padding: 20px;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
@@ -78,41 +78,44 @@
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout più responsivo */
-  gap: 17px; /* Spaziatura tra le card */
-  margin-top: 30px;
-  padding: 50px; /* Spaziatura attorno al contenitore */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 17px; 
+  margin-top: 60px;
+  padding: 25px; 
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px; /* Bordo arrotondato per il contenitore */
+  border-radius: 20px;
   box-shadow: 0 10px 100px rgba(0, 0, 0, 0.1); 
+  width: 110%;
+  margin-left: -5%;
 }
 
-/* Stile per la card */
+
 .beer-card {
   background: linear-gradient(145deg, #fff5e1, #e6e1c5);
   border-radius: 20px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   display: flex;
-  flex-direction: column; /* Disposizione verticale degli elementi */
-  height: 400px; /* Altezza fissa per la card */
-  max-width: 100%;
+  flex-direction: column; 
+  height: 400px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  justify-content: space-between; /* Distribuisci uniformemente gli elementi */
+  justify-content: space-between; 
+  border: 2px solid #d4b27e; 
 }
 
 
 .beer-card:hover {
-  transform: scale(1.05); /* Effetto di ingrandimento al passaggio del mouse */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Aggiunge profondità */
+  transform: scale(1.05); 
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Immagine della birra */
+
 .beer-image {
   width: 100%;
-  height: 200px; /* Altezza fissa per tutte le immagini */
-  object-fit: cover; /* Assicura che l'immagine si adatti senza distorsioni */
-  border-bottom: 2px solid #ddd; /* Linea di separazione elegante */
+  background-color: white;
+  height: 220px; 
+  object-fit: contain; 
+  border-bottom: 2px solid rgba(247, 201, 123, 0.5);
 }
 
 .beer-info {
@@ -120,16 +123,20 @@
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribuisce uniformemente lo spazio */
-  flex-grow: 1; /* Fa sì che il contenuto occupi tutto lo spazio disponibile tra l'immagine e il pulsante */
+  justify-content: space-between;
+  flex-grow: 1;
+  background: linear-gradient(145deg, #fef7d4, #eec87e); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .beer-info h2 {
+  font-family: 'Times New Roman', Times, serif;
   font-size: 1.6rem; 
   margin: 0;
   color: #333;
   font-weight: bold;
   transition: color 0.3s ease;
+  margin-top: 35px
 }
 
 .beer-info p {
@@ -140,16 +147,16 @@
 }
 .button-container {
   display: flex;
-  justify-content: center; /* Centra il bottone orizzontalmente */
-  margin-top: 20px; /* Spazio sopra il bottone per distanziarlo dalle informazioni */
-  margin-bottom: 30px; /* Distanza minima dal bordo della card */
-  padding: 0 20px; /* Distanza laterale */
-  flex-shrink: 0; /* Evita che il pulsante venga contratto */
+  justify-content: center; 
+  margin-top: 20px; 
+  margin-bottom: 30px; 
+  padding: 0 20px; 
+  flex-shrink: 0; 
 }
 .button-container button {
-  background: linear-gradient(145deg, #f0e6d2, #d4b27e); /* Gradiente caldo con crema e beige dorato */
-  color: #3e2a47; /* Colore scuro per il testo */
-  border: 2px solid #b67c4e; /* Bordo marrone dorato */
+  background: linear-gradient(145deg, #f0e6d2, #d4b27e);
+  color: #3e2a47; 
+  border: 2px solid #b67c4e;
   padding: 10px 20px;
   border-radius: 50px;
   font-size: 1.4rem;
@@ -157,23 +164,23 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Ombra morbida */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
 }
 
 .button-container button:hover {
-  background: linear-gradient(145deg, #d4b27e, #c1a17b); /* Gradiente con marrone più chiaro durante l'hover */
-  color: #3e2a47; /* Manteniamo il testo scuro per il contrasto */
+  background: linear-gradient(145deg, #d4b27e, #c1a17b); 
+  color: #3e2a47; 
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombra più marcata durante l'hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
 .button-container button:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(244, 163, 91, 0.5); /* Focus dorato delicato */
+  box-shadow: 0 0 0 3px rgba(244, 163, 91, 0.5);
 }
 
 .button-container button:active {
-  background: linear-gradient(145deg, #b67c4e, #d4b27e); /* Colori invertiti per l'effetto di pressione */
+  background: linear-gradient(145deg, #b67c4e, #d4b27e); 
   transform: translateY(2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -182,85 +189,85 @@
   margin-top: 10px;
 }
 
-/* Pulsante all'interno della card (stile più piccolo) */
 .beer-card .vote {
   background: linear-gradient(145deg, #f0e6d2, #d4b27e);
   color: #3e2a47;
   border: 2px solid #b67c4e;
-  padding: 10px 20px; /* Il pulsante sarà più piccolo */
+  padding: 10px 20px; 
   border-radius: 50px;
-  font-size: 1.2rem; /* Dimensione font ridotta per il pulsante */
+  font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-  width: 110px; /* Larghezza fissa per il pulsante */
-  max-width: 100%; /* Garantisce che non ecceda la larghezza della card */
+  width: 110px; 
+  max-width: 100%; 
 }
 
-/* Effetto hover per il pulsante */
+
 .beer-card .vote:hover {
-  background: linear-gradient(145deg, #d4b27e, #c1a17b); /* Gradiente con marrone più chiaro durante l'hover */
+  background: linear-gradient(145deg, #d4b27e, #c1a17b); 
   color: #3e2a47;
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombra più marcata durante l'hover */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
 }
 
-/* Effetto focus per il pulsante */
+
 .beer-card .vote:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(244, 163, 91, 0.5); /* Focus dorato delicato */
+  box-shadow: 0 0 0 3px rgba(244, 163, 91, 0.5); 
 }
 
-/* Effetto active per il pulsante */
+
 .beer-card .vote:active {
-  background: linear-gradient(145deg, #b67c4e, #d4b27e); /* Colori invertiti per l'effetto di pressione */
+  background: linear-gradient(145deg, #b67c4e, #d4b27e); 
   transform: translateY(2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
-/* Reset degli stili base */
+
 
 :host {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
   color: #212529;
-  display: flex; /* Imposta il contenitore come flessibile */
-  flex-direction: column; /* Direzione verticale */
-  min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
-  padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
+  display: flex; 
+  flex-direction: column; 
+  min-height: 100vh; 
+  padding-bottom: 60px;
 }
 
 a:hover {
-  color: #f4a300; /* Giallo oro per hover sugli anchor */
+  color: #f4a300; 
 }
 
 /* Titolo*/
 h2 {
-  font-size: 3rem; /* Dimensione maggiore per i titoli principali */
-  margin-bottom: 20px; /* Distanza inferiore per dare spazio tra il titolo e il contenuto */
-  text-align: center; /* Centra il titolo */
-  letter-spacing: 1px; /* Aumenta lo spazio tra le lettere per migliorare la leggibilità */
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 3.5rem; 
+  margin-bottom: 20px; 
+  text-align: center; 
+  letter-spacing: 1px; 
 }
 h3 {
-  font-size: 2rem; /* Dimensione minore rispetto a h2 */
-  margin-bottom: 20px; /* Distanza inferiore per separare dal contenuto successivo */
-  color: #333; /* Colore leggermente più scuro per i sottotitoli */
-  text-align: center; /* Centra il titolo */
-  font-weight: 700; /* Usa un peso più spesso, ad esempio 700 per un font bold */
-  letter-spacing: 1px; /* Aggiungi più spazio tra le lettere per accentuare l'effetto */
+  font-size: 2rem; 
+  margin-bottom: 20px; 
+  color: #333;
+  text-align: center;
+  font-weight: 700; 
+  letter-spacing: 1px;
 }
 p {
-  font-size: 1.2rem; /* Imposta una dimensione del testo leggibile */
-  color: #333; /* Colore scuro per il testo */
-  line-height: 1.6; /* Aumenta la spaziatura tra le righe per una lettura più facile */
-  margin-bottom: 20px; /* Spazio sotto il paragrafo per separarlo dal contenuto successivo */
-  text-align: center; /* Allinea il testo al centro */
-  font-weight: normal; /* Imposta il peso normale per il testo */
-  letter-spacing: 0.5px; /* Aggiungi uno spazio leggero tra le lettere per una migliore leggibilità */
+  font-size: 1.2rem; 
+  color: #333; 
+  line-height: 1.6; 
+  margin-bottom: 20px; 
+  text-align: center; 
+  font-weight: normal; 
+  letter-spacing: 0.5px; 
 }
 .result-message {
-  background: linear-gradient(145deg, #fff7d6, #e5cb91); /* Sfondo dorato/chiaro */
+  background: linear-gradient(145deg, #fff7d6, #e5cb91); 
   border: 2px solid #d3b992;
   border-radius: 15px;
   padding: 20px;
@@ -281,7 +288,6 @@ p {
   font-size: 1.2rem;
   color: #5f4b3a;
 }
-
 
 
 

@@ -66,7 +66,7 @@ export class MysteryBeerContestComponent implements OnInit {
   loadWeeklyBeerAndHints(): void {
     this.mysteryBeerContestService.getCurrentWeeklyBeer().subscribe({
       next: (data) => {
-        if (!this.selectedBeerId) { // Solo se l'utente non ha già selezionato manualmente una birra
+        if (!this.selectedBeerId) { 
           this.weeklyBeerId = data.id;
           console.log(`Birra settimanale impostata automaticamente: ${this.weeklyBeerId}`);
         } else {
@@ -125,7 +125,6 @@ export class MysteryBeerContestComponent implements OnInit {
     this.mysteryBeerContestService.hasUserWon(this.weeklyBeerId, beerId).subscribe({
       next: (data: boolean) => {
         this.winner = data; 
-        //this.errorMessage = data ? 'Hai vinto!' : 'Hai perso!';
       },
       error: (err) => {
         this.errorMessage = 'Errore durante il controllo della risposta';
