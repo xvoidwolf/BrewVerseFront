@@ -1,13 +1,16 @@
 section {
     min-height: 600px;
 }
-#container{
+.container{
     background: (#333, 0.5);
     max-width: 100%;
     border-radius: 20px;
     box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
     animation: starting 1s ease-out;
     animation: all 1s ease-out;
+}
+#container2 {
+    margin-top: 25px;
 }
 #choosingContainer {
     display: flex;
@@ -333,7 +336,6 @@ p-carousel {
 }
 
 h2 {
-    margin-top: 60px;
     font-size: 3rem; 
     margin-bottom: 20px; 
     text-align: center; 
