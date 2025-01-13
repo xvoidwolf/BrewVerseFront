@@ -1,57 +1,65 @@
-<section id="contest-section" class="section py-5">
-  <div class="container">
+@if (!isLoggedIn) {
+  <div class="container2">
     <h2 class="text-center">Concorso Birra Misteriosa</h2>
-    <p class="text-center">Ogni settimana una birra misteriosa! Indovina di quale si tratta.</p>
-
-    @if (errorMessage) {
-      <div [class.alert-success]="winner" [class.alert-danger]="!winner" class="alert">
-        <p>{{ errorMessage }}</p>
-      </div>
-    }
-
-    @if (!hasVoted) {
-      <div id="contest-hints" class="my-4">
-        <div class="hints-container">
-          @for (hint of hints; track hint.id) {
-            <div class="hint-card" (click)="toggleFlip($event)">
-              <div class="front">
-                <h4>Indizio {{ hint.number }}</h4>
-                <p>Clicca per scoprire l'indizio.</p>
+    <p class="text-center">Ogni settimana una birra misteriosa! Loggati per giocare.</p>
+  </div>
+} @else {
+  <section id="contest-section" class="section py-5">
+    <div class="container">
+      <h2 class="text-center">Concorso Birra Misteriosa</h2>
+      <p class="text-center">Ogni settimana una birra misteriosa! Indovina di quale si tratta.</p>
+  
+      @if (errorMessage) {
+        <div [class.alert-success]="winner" [class.alert-danger]="!winner" class="alert">
+          <p>{{ errorMessage }}</p>
+        </div>
+      }
+  
+      @if (!hasVoted) {
+        <div id="contest-hints" class="my-4">
+          <div class="hints-container">
+            @for (hint of hints; track hint.id) {
+              <div class="hint-card" (click)="toggleFlip($event)">
+                <div class="front">
+                  <h4>Indizio {{ hint.number }}</h4>
+                  <p>Clicca per scoprire l'indizio.</p>
+                </div>
+                <div class="back" >
+                  <h4>{{ hint.description }}</h4>
+                </div>
               </div>
-              <div class="back" >
-                <h4>{{ hint.description }}</h4>
+            }
+          </div>
+        </div>
+        <div class="button-container">
+          <button (click)="toggleBeerCards()">Mostra Birre</button>
+        </div>
+  
+        @if (showBeerCards) {
+          <div class="card-container">
+            @for (beer of beers; track beer.id) {
+              <div class="beer-card">
+                <img [src]="beer.imageUrl" alt="{{ beer.name }}" class="beer-image"/>
+                <div class="beer-info">
+                  <h2 class="beer">{{ beer.name }}</h2> 
+                  <div class="vote-button-container">
+                  <button class="vote button" (click)="submitAnswer(beer.id)">Vota</button>
+                </div>
               </div>
             </div>
           }
         </div>
-      </div>
-      <div class="button-container">
-        <button (click)="toggleBeerCards()">Mostra Birre</button>
-      </div>
-
-      @if (showBeerCards) {
-        <div class="card-container">
-          @for (beer of beers; track beer.id) {
-            <div class="beer-card">
-              <img [src]="beer.imageUrl" alt="{{ beer.name }}" class="beer-image"/>
-              <div class="beer-info">
-                <h2 class="beer">{{ beer.name }}</h2> 
-                <div class="vote-button-container">
-                <button class="vote button" (click)="submitAnswer(beer.id)">Vota</button>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
+      }
     }
-  }
+  
+      @if (hasVoted) {
+        <div class="result-message">
+          <h3>{{ winner ? 'Hai vinto!' : 'Hai perso!' }}</h3>
+          <p>{{ winner ? 'Congratulazioni! Hai indovinato la birra misteriosa.' : 'Purtroppo non è andata bene questa volta.' }}</p>
+          <p>Riprova la settimana prossima per scoprire una nuova birra misteriosa!</p>
+        </div>
+      }
+    </div>  
+  </section>
+}
 
-    @if (hasVoted) {
-      <div class="result-message">
-        <h3>{{ winner ? 'Hai vinto!' : 'Hai perso!' }}</h3>
-        <p>{{ winner ? 'Congratulazioni! Hai indovinato la birra misteriosa.' : 'Purtroppo non è andata bene questa volta.' }}</p>
-        <p>Riprova la settimana prossima per scoprire una nuova birra misteriosa!</p>
-      </div>
-    }
-  </div>  
-</section>

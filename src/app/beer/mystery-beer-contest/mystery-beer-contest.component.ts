@@ -25,12 +25,18 @@ export class MysteryBeerContestComponent implements OnInit {
   userId: string | null = null;
   beerId: number = 0;
   selectedBeerId: number | null = null;
+  isLoggedIn:boolean = false;
 
   constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loadWeeklyBeerAndHints();
     this.userId = this.authService.getUserIdFromToken();
+
+    this.authService.loggedIn$.subscribe({ 
+      next: s => this.isLoggedIn = s,
+      error: err => console.log(err)
+    });
   }
   
   loadBeers(): void {
