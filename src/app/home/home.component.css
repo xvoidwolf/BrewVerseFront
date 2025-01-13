@@ -1,6 +1,6 @@
 :host {
     font-family: 'Roboto', sans-serif;
-    background-color: #f2dcb4;
+    background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
     color: #212529;
     display: flex; 
     flex-direction: column; 
@@ -31,9 +31,10 @@ p-carousel {
     max-width: 1200px;
     border-radius: 10px;
     overflow: hidden;
-    background: #f2dcb4;
-    box-shadow: 0 4px 100px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
     padding: 20px;
+    
   }
   
   p-carousel .ui-carousel {

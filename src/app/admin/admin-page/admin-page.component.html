@@ -1,12 +1,24 @@
-<button class="submit-button" (click)= "onClick()">Crea una nuova birra</button>
-<div>
-    <label for="beerSelect">Seleziona la Birra della Settimana:</label>
-    <select id="beerSelect" (change)="onBeerSelectionChange($event)" class="form-select">
 
-      @for (beer of beersForSelection; track beer.id) {
-        <option [value]="beer.id">{{ beer.name }}</option>
-      }
-    </select>
+
+<div class="container">
+  <h1>Gestione Birra della Settimana</h1>
+  <div>
+      <label for="beerSelect">Seleziona la Birra della Settimana:</label>
+      <select id="beerSelect" (change)="onBeerSelectionChange($event)" class="form-select">
+        <option value="" disabled selected>Seleziona una Birra</option> 
+          @for (beer of beersForSelection; track beer.id) {
+              <option [value]="beer.id">{{ beer.name }}</option>
+          }
+      </select>
   </div>
 
-  <button class ="activate-button" (click)="activateSelectedBeer()" >Attiva WeeklyBeer</button>
+  <button class="activate-button" (click)="activateSelectedBeer()">Attiva la Birra della settimana.</button>
+
+  <p class="note">* Seleziona una birra dalla lista e attivala come "Birra della Settimana".</p>
+</div>
+
+<div class="container">
+  <h1>Aggiungi una nuova Birra</h1>
+  <button class="submit-button" (click)= "onClick()">Crea una nuova birra</button>
+  <p class="note">* Per aggiungere una nuova birra, clicca su "Crea una nuova birra".</p>
+</div>

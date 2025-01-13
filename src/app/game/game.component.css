@@ -2,10 +2,10 @@ section {
     min-height: 600px;
 }
 #container{
-    background-color: #212529;
+    background: (#333, 0.5);
     max-width: 100%;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
     animation: starting 1s ease-out;
     animation: all 1s ease-out;
 }
@@ -14,13 +14,13 @@ section {
     justify-content: center;
     align-items: center;
     animation: starting 1s ease-out;
-    background-color: #212529;
     width: 300px;
     min-height: 200px;
     margin-top: 20px;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     animation: starting 1s ease-out;
+    background: (#333, 0.5);
 }
 #gameContainer {
     display: flex;
@@ -152,7 +152,12 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f2dcb4;
+    background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
+    font-family: 'Roboto', sans-serif;
+    color: #212529;
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
 }
 
 @media (max-width: 600px) {
@@ -304,34 +309,45 @@ button {
     }
 }
 
+/* Schermi grandi (min 1025px) */
+@media (min-width: 1025px) {
+    :host {
+        max-width: 1900px;
+    }
+    #container{
+        max-width: 100%;
+    }
+}
+@media (min-width: 3840px) { /* 32 pollici con risoluzione 4K */
+    :host {
+        max-width: 3840px; /* Larghezza massima per schermo 4K */
+    }
+    #container {
+        max-width: 100%;
+    }
+}
 p-carousel {
     max-width: 700px;
-    background-color: #212529;
+    background: (#333, 0.5);
     border-radius: 20px;
     margin-block: 30px;
+    box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
     margin-top: 60px;
-    font-size: 3rem;
-    margin-bottom: 20px;
-    text-align: center;
-    letter-spacing: 1px;
+    font-size: 3rem; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    letter-spacing: 1px; 
   }
+  
   p {
-    font-size: 1.2rem;
-    color: #333;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: normal;
-    letter-spacing: 0.5px;
-  }
-  :host {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f2dcb4;
-    color: #212529;
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
+    font-size: 1.2rem; 
+    color: #333; 
+    line-height: 1.6; 
+    margin-bottom: 20px; 
+    text-align: center; 
+    font-weight: normal; 
+    letter-spacing: 0.5px; 
   }

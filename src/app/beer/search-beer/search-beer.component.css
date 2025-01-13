@@ -5,8 +5,7 @@
   display: flex; 
   flex-direction: column; 
   min-height: 100vh; 
-  margin: 0; /* Rimuovi margini */
-  padding: 0; /* Rimuovi padding */
+  background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
 }
 .beer-results {
   display: grid; 
