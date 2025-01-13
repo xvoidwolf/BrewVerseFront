@@ -17,6 +17,7 @@ export class UserReviewsComponent implements OnInit {
 
   reviews!: BeerReview[];
   userId!: number;
+  isLoggedIn:boolean = false;
 
   constructor(private reviewService: ReviewService, private authService: AuthService, private router: Router, private route: ActivatedRoute) { }
 
@@ -45,6 +46,11 @@ export class UserReviewsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getReviewsByUserId();
+
+    this.authService.loggedIn$.subscribe({ 
+      next: s => this.isLoggedIn = s,
+      error: err => console.log(err)
+    });
   }
 
   getReviewsByUserId() {
@@ -54,7 +60,7 @@ export class UserReviewsComponent implements OnInit {
         this.reviews = reviews;
       },
       error: err => {
-        alert("Errore nel caricamento delle reviews.");
+        console.log("Errore nel caricamento delle reviews.", err);
       }
     });
   }

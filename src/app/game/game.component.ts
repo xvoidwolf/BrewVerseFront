@@ -17,6 +17,8 @@ import { BeerCardSearchComponent } from '../beer/beer-card-search/beer-card-sear
 })
 export class GameComponent implements OnInit {
 
+  isLoggedIn:boolean = false;
+
   constructor(private gameService: GameService, private authService:AuthService) { }
 
   responsiveOptions: any[] | undefined = [
@@ -59,6 +61,11 @@ export class GameComponent implements OnInit {
     this.userId = this.authService.getUserIdFromToken();
     this.getWinnerBeers();
     console.log(this.userId);
+
+    this.authService.loggedIn$.subscribe({ 
+      next: s => this.isLoggedIn = s,
+      error: err => console.log(err)
+    });
   }
 
   onStart() {
