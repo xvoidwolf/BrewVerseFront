@@ -1,14 +1,16 @@
 @if (!isLoggedIn) {
     <section>
-        <div id="container2">
+        <div class="container2">
             <h2 class="text-center">Champions Beer</h2>
             <p class="text-center">Loggati per vedere questa sezione.</p>
         </div>
     </section>
 } @else {
         <section>
-            <h2 class="text-center">Champions Beer</h2>
-            <p class="text-center">Scelgi la tua birra preferita tra le nostre!</p>
+            <div>
+                <h2 id="title">Champions Beer</h2>
+                <p class="text-center">Scelgi la tua birra preferita tra le nostre!</p>
+            </div>
     @if (beers) {
         <div class="container">
             <div id="randomBeerContainer">

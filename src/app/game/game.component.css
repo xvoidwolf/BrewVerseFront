@@ -9,8 +9,12 @@ section {
     animation: starting 1s ease-out;
     animation: all 1s ease-out;
 }
-#container2 {
+.container2 {
     margin-top: 25px;
+}
+#title {
+    margin-top: 35px;
+    margin-bottom: 0px;
 }
 #choosingContainer {
     display: flex;
