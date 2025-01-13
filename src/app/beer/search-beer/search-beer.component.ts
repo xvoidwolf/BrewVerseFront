@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BeerCardComponent } from '../beer-card/beer-card.component';
 import { BeerService } from '../../services/beer.service';
 import { Beer } from '../../model/beer';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';

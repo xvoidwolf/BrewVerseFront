@@ -54,10 +54,10 @@ export class AdminPageComponent {
     if ( this.selectedBeerId) {
       this.mysteryBeerContestService.activateWeeklyBeer(this.selectedBeerId).subscribe({
         next: () => {
-          console.log('Birra settimanale aggiornata con successo!');
+          alert('Birra settimanale aggiornata con successo!');
         },
         error: (err) => {
-          this.errorMessage = 'Errore durante l\'aggiornamento della birra settimanale';
+          alert('Errore durante l\'aggiornamento della birra settimanale');
           console.error(err);
         }
       });

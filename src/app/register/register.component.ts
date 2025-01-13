@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { RegisterService } from '../services/register.service';
 import { RegisterDto } from '../model/register-dto';
 import { AuthService } from '../services/auth.service';
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
         this.authService.setLoggedIn(true);
         this.router.navigate(['/home']); //andiamo nella pagina home
       },
-      error: err => alert('register failed.')
+      error: err => alert('Non è stato possibile effettuare la registrazione.')
     }); 
   }
 }

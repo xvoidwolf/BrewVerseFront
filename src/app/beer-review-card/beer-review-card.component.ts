@@ -23,13 +23,13 @@ export class BeerReviewCardComponent {
   onDelete(){
     this.reviewService.deleteReview(this.beerReview.rdto.id).subscribe({
       next:() => {
-        alert('The review was deleted successfully!');
+        alert('La recensione è stata cancellata correttamente!');
         this.router.navigate([`home`]);
 
       },
       error :(error) => {
         console.log(error);
-        alert('The review could not be deleted!');
+        alert('La recensione non può essere cancellata.');
       }
     });
   }

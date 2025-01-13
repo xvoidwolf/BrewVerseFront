@@ -1,4 +1,4 @@
-import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Route, Router, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { Injectable } from '@angular/core';
 
@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     if(this.authService.isAdmin()) {
       return true;
     } else {
-      alert("Non puoi accedere a quest'area");
+      alert("Non puoi accedere a quest'area.");
       this.router.navigate(['/home']);
       return false;
     }

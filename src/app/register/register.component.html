@@ -20,7 +20,7 @@
             <input type="password" id="password" formControlName="password">
         </div>
         <div>
-            <button>Registrati</button>
+            <button [disabled]="registerForm.invalid">Registrati</button>
         </div>
     </form>
     <div id="registerLink">

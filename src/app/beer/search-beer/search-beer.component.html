@@ -1,5 +1,5 @@
 <div class="beer-form">
-  <h2 class="text-center">Seleziona i parametri della Birra che cerchi</h2>
+  <h2 class="text-center">Seleziona i parametri della Birra che cerchi.</h2>
 <p class="text-center">Birre artigianali italiane di ogni tipo, trova la tua preferita!</p>
   <form [formGroup]="beerForm" (ngSubmit)="onSubmit($event)" class="styled-form">
     <div class="form-group">
@@ -55,13 +55,13 @@
   </form>
 </div>
 
+@if (beers.length > 0) {
 <div class="beer-results">
-  @if (beers.length > 0) {
     @for (beer of beers; track beer.id) {
       <app-beer-card-search (chooseBeerEvent)="onCardSelected($event)" [beer]="beer"></app-beer-card-search>
     }
-  }
 </div>
+}
 
 <div class="no-results">
   @if (beers.length === 0 && searchExecuted) {

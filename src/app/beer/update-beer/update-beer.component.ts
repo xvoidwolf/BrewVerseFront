@@ -65,7 +65,7 @@ export class UpdateBeerComponent implements OnInit {
       },
       error :(error) => {
         console.log(error);
-        alert('The beer could not be updated!');
+        alert('La birra non può essere aggiornata.');
       }
     });
 
@@ -91,7 +91,7 @@ export class UpdateBeerComponent implements OnInit {
       },
       error :(error) => {
         console.log(error);
-        alert('The beer could not be created!');
+        alert('Errore nella creazione della birra.');
       }
     });
 

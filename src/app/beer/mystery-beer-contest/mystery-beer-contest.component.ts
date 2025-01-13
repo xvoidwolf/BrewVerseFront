@@ -29,13 +29,13 @@ export class MysteryBeerContestComponent implements OnInit {
   constructor(private beerService: BeerService, private mysteryBeerContestService: MysteryBeerContestService, private authService: AuthService) { }
 
   ngOnInit(): void {
-
     this.loadWeeklyBeerAndHints();
     this.userId = this.authService.getUserIdFromToken();
   }
+  
   loadBeers(): void {
     if (this.weeklyBeerId === 0) {
-     console.log ('ID della birra settimanale non valido.');
+     console.log('ID della birra settimanale non valido.');
       return;
     }
     this.mysteryBeerContestService.getRandomSelectionIncludingWeeklyBeer(this.weeklyBeerId).subscribe({
@@ -112,12 +112,9 @@ export class MysteryBeerContestComponent implements OnInit {
       next: () => {
         this.hasVoted = true; 
         this.hasUserWon(beerId);  
-        this.errorMessage = 'Risposta inviata con successo!';
+        alert('Risposta inviata con successo!');
       },
-      error: (err) => {
-        this.errorMessage = 'Hai gia\' votato per questa settimana';
-        console.error(err);
-      }
+      error: () => {alert('Hai già votato per questa settimana');}
     });
   }
 

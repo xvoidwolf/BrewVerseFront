@@ -1,5 +1,5 @@
 <section>
-        <h2 class="text-center">Beer Game</h2>
+        <h2 class="text-center">Champions Beer</h2>
         <p class="text-center">Scelgi la tua birra preferita tra le nostre!</p>
 @if (beers) {
     <div id="container">
@@ -85,7 +85,7 @@
         @if (winner) {
             <h3>La birra vincitrice è:</h3>
             <div class="winner">
-                <app-beer-mini-card  [beer]="winner"></app-beer-mini-card>
+                <app-beer-card-search [beer]="winner"></app-beer-card-search>
             </div>
         }
         @if (winner && hasStarted) {
@@ -97,9 +97,9 @@
 @if (winnerBeers.length > 0) {
     <div id="winnerBeers">
         <h3>Le tue birre vincitrici:</h3>
-        <p-carousel [value]="winnerBeers" [numVisible]="4" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+        <p-carousel [value]="winnerBeers" [numVisible]="4" [numScroll]="1" [circular]="true">
             <ng-template pTemplate = "winnerBeers" let-winnerBeer >
-              <app-beer-mini-card [beer]="winnerBeer.beer"></app-beer-mini-card> <!-- Passa i dati della birra direttamente al componente BeerCard -->
+              <app-beer-card-search [beer]="winnerBeer.beer"></app-beer-card-search> <!-- Passa i dati della birra direttamente al componente BeerCardSearch -->
             </ng-template>
           </p-carousel>
     </div>
