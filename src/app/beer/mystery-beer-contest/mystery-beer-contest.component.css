@@ -231,7 +231,7 @@
 
 
 :host {
-  font-family: 'Roboto', sans-serif;
+  font-family: Helvetica, Sans-Serif;
   background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
   color: #212529;
   display: flex; 

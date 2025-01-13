@@ -1,4 +1,5 @@
 :host {
+  font-family: Helvetica, Sans-Serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
