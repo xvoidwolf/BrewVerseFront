@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../../services/beer.service';
 import { Beer } from '../../model/beer';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BeerCardSearchComponent } from "../beer-card-search/beer-card-search.component";
 import { PagerComponent } from "../../pager/pager.component";
