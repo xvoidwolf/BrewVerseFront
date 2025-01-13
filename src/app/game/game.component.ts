@@ -8,6 +8,7 @@ import { CombinedWinnerBeer } from '../model/combined-winner-beer';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { BeerCardSearchComponent } from '../beer/beer-card-search/beer-card-search.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -19,7 +20,7 @@ export class GameComponent implements OnInit {
 
   isLoggedIn:boolean = false;
 
-  constructor(private gameService: GameService, private authService:AuthService) { }
+  constructor(private gameService: GameService, private authService:AuthService, private router:Router) { }
 
   responsiveOptions: any[] | undefined = [
     {
@@ -170,6 +171,10 @@ export class GameComponent implements OnInit {
         console.error("Errore nel recupero dei vincitori:", error);
       }
     });
+  }
+
+  onCardSelected(beer: Beer) {
+    this.router.navigate([`details/${beer.id}`]);
   }
 }
 
