@@ -2,13 +2,18 @@
     <img class="card-img-top" [src]="beerReview.bdto.imageUrl" alt="Card image cap">
     <div class="card-body">
         <h3 class="card-title">{{beerReview.bdto.name}}</h3>
-        <ul>
-            <li><strong>Tipo:</strong> {{beerReview.bdto.type}}</li>
-            <li><strong>Grado alcolico:</strong> {{beerReview.bdto.alcoholPercentage}}%</li>
-            <li><strong>Valutazione:</strong> <p-rating [(ngModel)]="beerReview.rdto.rating" [readonly]="true"/></li>
-            <li><strong>Descrizione:</strong> {{beerReview.rdto.description}}</li>
-        </ul>
-        <button (click)="onEdit()">Modifica Recensione</button>
-        <button class="cancella" (click)="onDelete()">Cancella Recensione</button>
+        <div class="data">
+            <ul>
+                <li><strong>Tipo:</strong> {{beerReview.bdto.type}}</li>
+                <li><strong>Grado alcolico:</strong> {{beerReview.bdto.alcoholPercentage}}%</li>
+                <li><strong>Valutazione:</strong> <p-rating [(ngModel)]="beerReview.rdto.rating" [readonly]="true" />
+                </li>
+                <li><strong>Descrizione:</strong> {{beerReview.rdto.description}}</li>
+            </ul>
+        </div>
+        <div class="button">
+            <button (click)="onEdit()">Modifica Recensione</button>
+            <button class="cancella" (click)="onDelete()">Cancella Recensione</button>
+        </div>
     </div>
 </div>

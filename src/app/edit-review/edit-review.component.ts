@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BeerReview } from '../model/beer-review';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewService } from '../services/review.service';
-import { Rating, RatingModule } from 'primeng/rating';
+import { RatingModule } from 'primeng/rating';
 import { Review } from '../model/review';
 import { AuthService } from '../services/auth.service';
 import { BeerService } from '../services/beer.service';
@@ -32,7 +31,7 @@ export class EditReviewComponent implements OnInit {
         this.review=r;
         this.updateForm.patchValue(this.review);
       },
-      error: err => alert("review not found")
+      error: err => alert("Recensione non trovata.")
       
     });  
   }
@@ -46,11 +45,11 @@ export class EditReviewComponent implements OnInit {
     }
     this.reviewService.updateReview(updatedReview.id, updatedReview).subscribe({
       next: () => {
-        alert("review aggiornata");
+        alert("Recensione aggiornata!");
         this.router.navigate([`user-reviews/${this.review.userId}`]);
       },
       error: err => {
-        alert("Errore nell'aggiornamento della review. Hai già inserito una recensione per questa birra.");
+        alert("Errore nell'aggiornamento della recensione. Hai già inserito una recensione per questa birra.");
         this.router.navigate([`user-reviews/${this.review.userId}`]);
       }
     });

@@ -3,7 +3,6 @@ import { Beer } from '../model/beer';
 import { ShowcaseService } from '../services/showcase.service';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
-import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
 import { BeerCardSearchComponent } from "../beer/beer-card-search/beer-card-search.component";
 import { Router } from '@angular/router';
 

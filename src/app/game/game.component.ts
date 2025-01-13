@@ -7,11 +7,11 @@ import { AuthService } from '../services/auth.service';
 import { CombinedWinnerBeer } from '../model/combined-winner-beer';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
-import { BeerCardComponent } from '../beer/beer-card/beer-card.component';
+import { BeerCardSearchComponent } from '../beer/beer-card-search/beer-card-search.component';
 
 @Component({
   selector: 'app-game',
-  imports: [CommonModule,CarouselModule,BeerMiniCardComponent],
+  imports: [CommonModule,CarouselModule,BeerMiniCardComponent,BeerCardSearchComponent],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })

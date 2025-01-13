@@ -9,7 +9,7 @@
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: all 1s ease;
-    background: fff; 
+    background: #fff; 
 }
 .card-img-top{
     width: 100%;

@@ -54,7 +54,7 @@ export class UserReviewsComponent implements OnInit {
         this.reviews = reviews;
       },
       error: err => {
-        console.log("errore nel caricamento delle reviews", err);
+        alert("Errore nel caricamento delle reviews.");
       }
     });
   }

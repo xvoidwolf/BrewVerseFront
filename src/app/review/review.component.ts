@@ -37,11 +37,11 @@ export class ReviewComponent implements OnInit {
     console.log(review);
     this.reviewService.saveReview(review).subscribe({
       next: () => {
-        console.log("review inserita");
+        alert("Recensione inserita.");
         this.router.navigate([`details/${this.beerId}`]);
       },
       error: err => {
-        alert("Errore nell'inserimento della review. Hai già inserito una recensione per questa birra.");
+        alert("Errore nell'inserimento della recensione. Hai già inserito una recensione per questa birra.");
         this.router.navigate([`details/${this.beerId}`]);
       }
     });

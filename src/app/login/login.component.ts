@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService} from '../services/login.service';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.authService.setLoggedIn(true); //diciamo che siamo loggati, tutte le componenti in ascolto sapranno
         this.router.navigate(['/home']); //andiamo nella pagina home
       },
-      error: err => alert('login failed.')
+      error: err => alert('Nome utente o password errati.')
     }); 
   }
 }

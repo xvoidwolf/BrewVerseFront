@@ -15,7 +15,7 @@
                         <li><strong>Birrificio:</strong> {{beer.breweryName}}</li>
                         <li><strong>Tipo:</strong> {{beer.type}}</li>
                         <li><strong>Grado alcolico:</strong> {{beer.alcoholPercentage}}%</li>
-                        <li><strong>Valutazione Media:</strong> {{beer.averageRating}}</li>
+                        <li><strong>Valutazione Media:</strong> <p-rating [(ngModel)]="beer.averageRating" [readonly]="true"/></li>
                     </ul>
                 </div>
             </div>
@@ -32,6 +32,8 @@
             <app-review-card [review]="review"></app-review-card>
         </ng-template>
     </p-carousel>
-
+    }
+    @else {
+        <h2>Non ci sono recensioni.</h2>
     }
 </div>

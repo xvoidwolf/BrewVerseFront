@@ -8,10 +8,12 @@ import { Beer } from '../../model/beer';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { AuthService } from '../../services/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RatingModule } from 'primeng/rating';
 
 @Component({
   selector: 'app-beer-details',
-  imports: [CommonModule,CarouselModule,ReviewCardComponent],
+  imports: [CommonModule,CarouselModule,ReviewCardComponent,ReactiveFormsModule, RatingModule, FormsModule],
   templateUrl: './beer-details.component.html',
   styleUrl: './beer-details.component.css'
 })
@@ -56,12 +58,8 @@ export class BeerDetailsComponent {
   getBeerById() {
     this.beerId = Number(this.route.snapshot.paramMap.get('id'));
     this.beerService.getBeerById(this.beerId).subscribe({
-      next: beer => {
-        this.beer = beer;
-      },
-      error: err => {
-        console.log("errore nel caricamento della birra", err);
-      }
+      next: beer => { this.beer = beer; },
+      error: () => { alert("Errore nel caricamento della birra.");}
     });
   }
 
@@ -72,9 +70,7 @@ export class BeerDetailsComponent {
         this.reviews = reviews;
         console.log(this.reviews);
       },
-      error: err => {
-        console.log("errore nel caricamento delle reviews", err);
-      }
+      error: () => { alert("Errore nel caricamento delle recensioni.");}
     });
   }
 
@@ -88,13 +84,10 @@ export class BeerDetailsComponent {
   onDelete(beerId:number){
     this.beerService.deleteBeer(beerId).subscribe({
       next:() => {
-        alert('The beer was deleted successfully!');
+        alert('La birra è stata cancellata.');
         this.router.navigate([`search-beer`]);
       },
-      error :(error) => {
-        console.log(error);
-        alert('The beer could not be deleted!');
-      }
+      error :() => { alert('La birra non può essere cancellata.'); }
     });
   }
   

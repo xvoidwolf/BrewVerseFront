@@ -35,12 +35,7 @@ section {
     align-items: center;
     animation: starting 1s ease-out;
 }
-#winner {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: starting 1s ease-out;
-}
+
 #firstRoundBeers {
     display: flex;
     justify-content: start;
@@ -80,6 +75,7 @@ app-beer-mini-card {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 button {
     background-color: #f4a300;
@@ -97,6 +93,8 @@ button {
     justify-content: start;
     align-items: start;
     animation: forCards 1s ease-out;
+    background: (#333, 0.5);
+
 }
 .horizontalLine {
     margin-inline: 76px;
@@ -111,6 +109,7 @@ button {
     justify-content: center;
     align-items: center;
     animation: forCards 1s ease-out;
+    
 }
 .first {
     margin-inline: 76px;
@@ -119,7 +118,6 @@ button {
     margin-inline: 227px;
 }
 .winner {
-    background-color: #212529;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     display: flex;
@@ -167,7 +165,7 @@ button {
     section {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: start;
         align-items: center;
     }
     #container{
@@ -176,7 +174,7 @@ button {
     }
     #firstRoundBeers, #secondRoundBeers {
         display: flex;
-        justify-content: start; /* Allinea a sinistra */
+        justify-content: start; /* Allinea in alto */
         align-items: center; /* Centra verticalmente */
         flex-wrap: wrap; /* Assicura che gli elementi si adattino */
        
