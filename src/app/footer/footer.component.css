@@ -5,6 +5,8 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: Helvetica, Sans-Serif;
+
 }
 ul {
     display: flex;
