@@ -64,7 +64,7 @@ section {
     padding: 20px;
     animation: starting 1s ease-out;
 }
-app-beer-mini-card {
+app-beer-mini-card, app-beer-card-search {
     animation: forCards 1s ease-out;
 }
 #winnerBeers {
