@@ -3,12 +3,12 @@
   font-family: Helvetica, Sans-Serif;
   background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
   color: #212529;
-  display: flex; 
-  flex-direction: column;
+  display: flex; /* Imposta il contenitore come flessibile */
+  flex-direction: column; /* Direzione verticale */
   justify-content: center;
   align-items: center;
-  min-height: 100vh; 
-  padding-bottom: 60px;
+  min-height: 100vh; /* Assicura che il body occupi l'intera altezza della finestra */
+  padding-bottom: 60px; /* Aggiungi spazio extra per evitare che il bottone sia coperto dal footer */
 }
 section {
   display: flex;
@@ -60,7 +60,7 @@ input:hover {
   border-color: #f4a300;
 }
 button{
-  background-color: #f4a300; 
+  background-color: #f4a300; /* Colore oro personalizzato */
   color: white;
   border: none;
   width: 300px;
@@ -71,7 +71,7 @@ button{
 }
 
 button:hover {
-  background-color: #d57e1d;
+  background-color: #d57e1d; /* Colore più scuro al passaggio del mouse */
 }
 
 a {
@@ -138,7 +138,7 @@ select:focus {
   background-color: #f4a300;
 }
 
-
+/* Stile per i pulsanti di paginazione */
 .pagination-buttons {
   display: flex;
   justify-content: center;
@@ -161,6 +161,7 @@ select:focus {
   background-color: #f4a300;
 }
 
+/* Stile per la sezione dei risultati */
 .beer-results {
   margin-top: 30px;
 }
