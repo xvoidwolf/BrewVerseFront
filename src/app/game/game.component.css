@@ -325,7 +325,7 @@ button {
     }
 }
 p-carousel {
-    max-width: 700px;
+    max-width: 1200px;
     background: (#333, 0.5);
     border-radius: 20px;
     margin-block: 30px;

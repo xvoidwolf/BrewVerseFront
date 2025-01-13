@@ -97,7 +97,7 @@
 @if (winnerBeers.length > 0) {
     <div id="winnerBeers">
         <h3>Le tue birre vincitrici:</h3>
-        <p-carousel [value]="winnerBeers" [numVisible]="4" [numScroll]="1" [circular]="true">
+        <p-carousel [value]="winnerBeers" [numVisible]="3" [numScroll]="1" [circular]="true">
             <ng-template pTemplate = "winnerBeers" let-winnerBeer >
               <app-beer-card-search [beer]="winnerBeer.beer"></app-beer-card-search> <!-- Passa i dati della birra direttamente al componente BeerCardSearch -->
             </ng-template>
