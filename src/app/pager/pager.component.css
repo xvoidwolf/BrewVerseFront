@@ -1,0 +1,34 @@
+button {
+    background-color: #f4a300;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #f4a300;
+    transform: translateY(-2px);
+}
+
+button:focus {
+    outline: none;
+}
+
+.pager {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Allinea verticalmente tutti gli elementi */
+    justify-content: space-between; /* Distribuisce spazio uniformemente tra gli elementi */
+    width: 100%; /* Utilizza tutta la larghezza disponibile */
+}
+
+.pager p {
+    margin: 0; /* Rimuove i margini verticali predefiniti */
+    font-size: 0.9rem; /* Assicura che il testo sia della stessa dimensione dei bottoni */
+    line-height: 1; /* Allinea verticalmente il testo con i bottoni */
+}
