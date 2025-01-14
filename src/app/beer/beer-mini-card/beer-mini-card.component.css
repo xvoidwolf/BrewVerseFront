@@ -1,44 +1,60 @@
-.card{
+.card {
+    display: flex;
+    flex-direction: column;
     max-width: 120px;
     max-height: 200px;
     margin: 10px;
     margin-inline: 15px;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #d4b27e;
+    border-radius: 20px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: all 1s ease;
-    background: #fff; 
-}
-.card-img-top{
-    width: 100%;
-    height: auto; 
-    max-height: 120px; 
-    object-fit: contain; 
-    border-bottom: 2px solid #ddd; 
-    display: block; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: linear-gradient(145deg, #fff5e1, #e6e1c5);
+    justify-content: space-between;
 
 }
-.card-body{
-    padding: 10px;
+
+.card-img-top {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    border-bottom: 2px solid rgba(247, 201, 123, 0.5);
+    display: block;
+    background-color: white;
+}
+
+.card-body {
+    padding: 10px 15px;
     text-align: center;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    background: linear-gradient(145deg, #fef7d4, #eec87e);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
+
 @media (max-width: 600px) {
     .card {
-    max-width: 60px;
-    max-height: 80px;
-    margin-inline: 5px;
+        max-width: 60px;
+        max-height: 80px;
+        margin-inline: 5px;
     }
+
     .card-img-top {
         max-width: 50px;
         min-height: 40px;
         max-height: 40px;
     }
+
     .card-body {
         padding: 0;
     }
+
     h6 {
         font-size: xx-small;
         padding-bottom: 10px;
@@ -52,11 +68,13 @@
         max-width: 60px;
         max-height: 100px;
     }
+
     .card-img-top {
         max-width: 50px;
         min-height: 50px;
         max-height: 50px;
     }
+
     .card-body {
         font-size: smaller;
     }
@@ -69,6 +87,7 @@
         min-height: 200px;
         max-height: 200px;
     }
+
     .card-img-top {
         max-width: 100px;
         min-height: 100px;
