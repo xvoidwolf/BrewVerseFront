@@ -18,7 +18,7 @@ import { RatingModule } from 'primeng/rating';
   styleUrl: './beer-details.component.css'
 })
 export class BeerDetailsComponent {
-  reviews!: Review[];
+  reviews: Review[] = [];
   beerId!: number;
   beer!: Beer;
   isAdmin = false;
