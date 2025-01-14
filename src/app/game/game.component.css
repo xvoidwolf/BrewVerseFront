@@ -5,6 +5,7 @@ section {
 .container {
     background: (#333, 0.5);
     max-width: 100%;
+    width: 1230px;
     border-radius: 20px;
     box-shadow: 0 10px 100px rgba(0, 0, 0, 0.3);
     animation: starting 1s ease-out;
@@ -19,7 +20,6 @@ section {
 }
 
 #title {
-    margin-top: 35px;
     margin-bottom: 0px;
 }
 
