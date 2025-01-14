@@ -4,6 +4,7 @@
     border-radius: 8px;
     overflow: hidden;
     border: none;
+    margin: 15px;
 }
 
 .card:hover {

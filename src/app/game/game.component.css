@@ -1,7 +1,8 @@
 section {
     min-height: 600px;
 }
-.container{
+
+.container {
     background: (#333, 0.5);
     max-width: 100%;
     border-radius: 20px;
@@ -9,13 +10,19 @@ section {
     animation: starting 1s ease-out;
     animation: all 1s ease-out;
 }
+
 .container2 {
-    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
 }
+
 #title {
     margin-top: 35px;
     margin-bottom: 0px;
 }
+
 #choosingContainer {
     display: flex;
     justify-content: center;
@@ -25,10 +32,11 @@ section {
     min-height: 200px;
     margin-top: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     animation: starting 1s ease-out;
     background: (#333, 0.5);
 }
+
 #gameContainer {
     display: flex;
     flex-direction: column;
@@ -36,6 +44,7 @@ section {
     align-items: center;
     margin: 20px;
 }
+
 #randomBeers {
     display: flex;
     justify-content: center;
@@ -49,18 +58,21 @@ section {
     align-items: start;
     animation: starting 1s ease-out;
 }
+
 #secondRoundBeers {
     display: flex;
     justify-content: start;
     align-items: start;
     animation: starting 1s ease-out;
 }
+
 #winner {
     display: flex;
     justify-content: center;
     align-items: center;
     animation: starting 1s ease-out;
 }
+
 #title {
     display: flex;
     justify-content: center;
@@ -68,9 +80,12 @@ section {
     padding: 20px;
     animation: starting 1s ease-out;
 }
-app-beer-mini-card, app-beer-card-search {
+
+app-beer-mini-card,
+app-beer-card-search {
     animation: forCards 1s ease-out;
 }
+
 #winnerBeers {
     display: flex;
     flex-direction: column;
@@ -78,12 +93,14 @@ app-beer-mini-card, app-beer-card-search {
     align-items: center;
     padding: 20px;
 }
+
 #winnerBeersContainer {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
+
 button {
     background-color: #f4a300;
     color: white;
@@ -95,6 +112,7 @@ button {
     font-size: 1.2em;
     animation: starting 1s ease-out;
 }
+
 .svgContainer {
     display: flex;
     justify-content: start;
@@ -103,135 +121,173 @@ button {
     background: (#333, 0.5);
 
 }
+
 .horizontalLine {
     margin-inline: 76px;
     animation: forCards 1s ease-out;
 }
+
 .secondLine {
     margin-inline: 152px;
     animation: forCards 1s ease-out;
 }
+
 #svgContainer3 {
     display: flex;
     justify-content: center;
     align-items: center;
     animation: forCards 1s ease-out;
-    
+
 }
+
 .first {
     margin-inline: 76px;
 }
+
 .second {
     margin-inline: 227px;
 }
+
 .winner {
     border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
+
 @keyframes starting {
     from {
         opacity: 0;
         transform: translateY(20%);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 @keyframes forCards {
     from {
         opacity: 0;
         transform: translateY(-20%);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
+
 :host {
+    padding-top: 55px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(to bottom, #f2dcb4, #f0ac26);
     font-family: Helvetica, Sans-Serif;
     color: #212529;
-    display: flex; 
-    flex-direction: column; 
-    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 @media (max-width: 600px) {
     :host {
         max-width: 600px;
     }
+
     section {
         display: flex;
         flex-direction: column;
         justify-content: start;
         align-items: center;
     }
-    #container{
+
+    #container {
         width: 600px;
         transform: scale(0.9);
     }
-    #firstRoundBeers, #secondRoundBeers {
+
+    #firstRoundBeers,
+    #secondRoundBeers {
         display: flex;
-        justify-content: start; /* Allinea in alto */
-        align-items: center; /* Centra verticalmente */
-        flex-wrap: wrap; /* Assicura che gli elementi si adattino */
-       
+        justify-content: start;
+        /* Allinea in alto */
+        align-items: center;
+        /* Centra verticalmente */
+        flex-wrap: wrap;
+        /* Assicura che gli elementi si adattino */
+
     }
+
     #firstRoundBeers {
-        gap: 70px; /* Spaziatura tra le carte */
+        gap: 70px;
+        /* Spaziatura tra le carte */
         margin-left: 55px;
     }
-    #secondRoundBeers  {
-        gap: 230px; /* Spaziatura tra le carte */
+
+    #secondRoundBeers {
+        gap: 230px;
+        /* Spaziatura tra le carte */
         margin-left: 113px;
     }
-    .first, .second {
-        margin: 0; /* Rimuove margini laterali */
-        flex: 0 0 auto; /* Previene lo stiramento degli elementi */
+
+    .first,
+    .second {
+        margin: 0;
+        /* Rimuove margini laterali */
+        flex: 0 0 auto;
+        /* Previene lo stiramento degli elementi */
     }
+
     .winner {
         transform: scale(1.5);
     }
+
     #randomBeers {
         margin: 0 0;
         max-width: fit-content;
     }
+
     #randomBeerContainer {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .svgContainer div {
-        margin: 0 0; /* Evita spazi superflui */
+        margin: 0 0;
+        /* Evita spazi superflui */
     }
+
     #svgContainer3 {
         transform: scale(0.7);
     }
+
     svg {
         transform: scale(0.7);
     }
-    .horizontalLine, .secondLine {
-        margin: 0;   
-        padding: 0; 
-        width: 100%;  
+
+    .horizontalLine,
+    .secondLine {
+        margin: 0;
+        padding: 0;
+        width: 100%;
         display: block;
     }
+
     .svgContainer #f {
-        margin: 0 0; /* Evita spazi superflui */
+        margin: 0 0;
+        /* Evita spazi superflui */
         margin-left: 0px;
         transform: scale(0.8);
     }
+
     .svgContainer #s {
-        margin: 0 0; /* Evita spazi superflui */
+        margin: 0 0;
+        /* Evita spazi superflui */
         transform: scale(0.8);
     }
 }
@@ -241,65 +297,91 @@ button {
     :host {
         max-width: 1024px;
     }
-    #container{
+
+    #container {
         max-width: 750px;
     }
-    #firstRoundBeers, #secondRoundBeers {
+
+    #firstRoundBeers,
+    #secondRoundBeers {
         display: flex;
-        justify-content: start; /* Allinea a sinistra */
-        align-items: center; /* Centra verticalmente */
-        flex-wrap: wrap; /* Assicura che gli elementi si adattino */
-       
+        justify-content: start;
+        /* Allinea a sinistra */
+        align-items: center;
+        /* Centra verticalmente */
+        flex-wrap: wrap;
+        /* Assicura che gli elementi si adattino */
+
     }
+
     #firstRoundBeers {
-        gap: 90px; /* Spaziatura tra le carte */
+        gap: 90px;
+        /* Spaziatura tra le carte */
         margin-left: 55px;
     }
-    #secondRoundBeers  {
-        gap: 270px; /* Spaziatura tra le carte */
+
+    #secondRoundBeers {
+        gap: 270px;
+        /* Spaziatura tra le carte */
         margin-left: 145px;
     }
-    .first, .second {
-        margin: 0; /* Rimuove margini laterali */
-        flex: 0 0 auto; /* Previene lo stiramento degli elementi */
+
+    .first,
+    .second {
+        margin: 0;
+        /* Rimuove margini laterali */
+        flex: 0 0 auto;
+        /* Previene lo stiramento degli elementi */
     }
-    
+
     .winner {
         transform: scale(1.5);
     }
+
     #randomBeers {
         margin: 0 0;
     }
+
     #randomBeerContainer {
         display: flex;
         justify-content: center;
         align-items: center;
     }
+
     .svgContainer #f {
-        margin: 0 0; /* Evita spazi superflui */
+        margin: 0 0;
+        /* Evita spazi superflui */
         min-width: 160px;
         margin-left: 20px;
     }
+
     .svgContainer #s {
-        margin: 0 0; /* Evita spazi superflui */
+        margin: 0 0;
+        /* Evita spazi superflui */
         margin-left: 40px;
     }
+
     .svgContainer #s:nth-child(2) {
-        margin: 0 0; /* Evita spazi superflui */
+        margin: 0 0;
+        /* Evita spazi superflui */
         margin-left: 60px;
     }
+
     #svgContainer3 {
         min-width: 160px;
         margin-left: 20px;
         transform: scale(0.85);
     }
+
     svg {
         transform: scale(0.7);
     }
-    .horizontalLine, .secondLine {
-        margin: 0;   
-        padding: 0; 
-        width: 100%;  
+
+    .horizontalLine,
+    .secondLine {
+        margin: 0;
+        padding: 0;
+        width: 100%;
         display: block;
     }
 }
@@ -309,7 +391,8 @@ button {
     :host {
         max-width: 1900px;
     }
-    #container{
+
+    #container {
         max-width: 100%;
     }
 }
@@ -319,18 +402,25 @@ button {
     :host {
         max-width: 1900px;
     }
-    #container{
-        max-width: 100%;
-    }
-}
-@media (min-width: 3840px) { /* 32 pollici con risoluzione 4K */
-    :host {
-        max-width: 3840px; /* Larghezza massima per schermo 4K */
-    }
+
     #container {
         max-width: 100%;
     }
 }
+
+@media (min-width: 3840px) {
+
+    /* 32 pollici con risoluzione 4K */
+    :host {
+        max-width: 3840px;
+        /* Larghezza massima per schermo 4K */
+    }
+
+    #container {
+        max-width: 100%;
+    }
+}
+
 p-carousel {
     max-width: 1200px;
     background: (#333, 0.5);
@@ -340,18 +430,51 @@ p-carousel {
 }
 
 h2 {
-    font-size: 3rem; 
-    margin-bottom: 20px; 
-    text-align: center; 
-    letter-spacing: 1px; 
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
+
+#button {
+    background-color: #f4a300;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+    width: auto;
   }
   
-  p {
-    font-size: 1.2rem; 
-    color: #333; 
-    line-height: 1.6; 
-    margin-bottom: 20px; 
-    text-align: center; 
-    font-weight: normal; 
-    letter-spacing: 0.5px; 
+  #button:hover {
+    background-color: #f4a300;
+    transform: translateY(-2px);
   }
+  
+  #button:focus {
+    outline: none;
+  }
+
+.note {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 20px;
+  }
+  
+  .note strong {
+    color: #eb9e05;
+  }
+  

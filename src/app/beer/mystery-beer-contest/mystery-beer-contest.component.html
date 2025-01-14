@@ -1,7 +1,9 @@
 @if (!isLoggedIn) {
   <div class="container2">
     <h2 class="text-center">Concorso Birra Misteriosa</h2>
-    <p class="text-center">Ogni settimana una birra misteriosa! Loggati per giocare.</p>
+    <p class="text-center">Ogni settimana una birra misteriosa!</p>
+    <p class="note">* Accedi per giocare.</p>
+    <button routerLink="/login">Accedi</button>      
   </div>
 } @else {
   <section id="contest-section" class="section py-5">

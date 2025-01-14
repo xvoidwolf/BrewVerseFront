@@ -35,22 +35,22 @@
     background-color: #d57e1d; /* Oro più scuro per hover */
 }
 
-.navbar .nav-link {
+.navbar .nav-link, p{
     color: #f4a300; /* Colore oro per i link */
     font-size: 1.2rem; /* Dimensione del testo dei link */
     margin: 0 10px; /* Spaziatura orizzontale tra i link */
     transition: color 0.3s ease; /* Transizione per hover */
 }
 
-.navbar .nav-link:hover {
+.navbar .nav-link:hover, p {
     color: #fff; /* Colore bianco per hover */
 }
 
-.navbar .nav-link.active {
+.navbar .nav-link.active, p {
     color: #fff; /* Colore bianco per il link attivo */
     font-weight: 700; /* Grassetto per il link attivo */
 }
 
-.navbar .collapse {
+.navbar .collapse, p {
     justify-content: flex-end; /* Allinea i link a destra */
 }

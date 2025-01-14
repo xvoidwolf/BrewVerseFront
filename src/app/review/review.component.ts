@@ -41,7 +41,7 @@ export class ReviewComponent implements OnInit {
         this.router.navigate([`details/${this.beerId}`]);
       },
       error: err => {
-        alert("Errore nell'inserimento della recensione. Hai già inserito una recensione per questa birra.");
+        alert("Errore nell'inserimento della recensione: " + err);
         this.router.navigate([`details/${this.beerId}`]);
       }
     });

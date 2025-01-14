@@ -1,18 +1,23 @@
 @if (!isLoggedIn) {
+<h2>Le tue recensioni:</h2>
+<div class="container">
+  <p class="note">* Accedi per visualizzare le tue recensioni.</p>
+  <button routerLink="/login">Accedi</button>
+</div>
+}
+@else {
+<div>
+  @if(reviews.length) {
   <h2>Le tue recensioni:</h2>
-  <p>Accedi e crea una recensione per vedere questa sezione.</p>
-} @else {
-  <div>
-    @if(reviews.length) {
-    <h2>Le tue recensioni:</h2>
-    <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
-      <ng-template pTemplate="review" let-review>
-        <app-beer-review-card [beerReview]="review"></app-beer-review-card>
-      </ng-template>
-    </p-carousel>
-    }
-    @else {
-      <h2>Non hai ancora inserito nessuna recensione.</h2>
-    }
-  </div>
+  <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions"
+    [circular]="true">
+    <ng-template pTemplate="review" let-review>
+      <app-beer-review-card [beerReview]="review"></app-beer-review-card>
+    </ng-template>
+  </p-carousel>
+  }
+  @else {
+  <h2>Non hai ancora inserito nessuna recensione.</h2>
+  }
+</div>
 }

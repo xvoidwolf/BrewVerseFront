@@ -8,11 +8,11 @@ import { CombinedWinnerBeer } from '../model/combined-winner-beer';
 import { CommonModule } from '@angular/common';
 import { CarouselModule } from 'primeng/carousel';
 import { BeerCardSearchComponent } from '../beer/beer-card-search/beer-card-search.component';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-game',
-  imports: [CommonModule,CarouselModule,BeerMiniCardComponent,BeerCardSearchComponent],
+  imports: [CommonModule,CarouselModule,BeerMiniCardComponent,BeerCardSearchComponent, RouterModule],
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })

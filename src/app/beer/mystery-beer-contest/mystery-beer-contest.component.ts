@@ -5,11 +5,12 @@ import { Hint } from '../../model/hint';
 import { MysteryBeerContestService } from '../../services/mystery-beer-contest.service';
 import { AnswerDto } from '../../model/answer';
 import { AuthService } from '../../services/auth.service';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-mystery-beer-contest',
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './mystery-beer-contest.component.html',
   styleUrl: './mystery-beer-contest.component.css'
 })

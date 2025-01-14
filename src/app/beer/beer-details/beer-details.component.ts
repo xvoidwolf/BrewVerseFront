@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ReviewService } from '../../services/review.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Review } from '../../model/review';
 import { ReviewCardComponent } from '../../review-card/review-card.component';
 import { BeerService } from '../../services/beer.service';
@@ -13,7 +13,7 @@ import { RatingModule } from 'primeng/rating';
 
 @Component({
   selector: 'app-beer-details',
-  imports: [CommonModule,CarouselModule,ReviewCardComponent,ReactiveFormsModule, RatingModule, FormsModule],
+  imports: [CommonModule,CarouselModule,ReviewCardComponent,ReactiveFormsModule, RatingModule, FormsModule, RouterModule],
   templateUrl: './beer-details.component.html',
   styleUrl: './beer-details.component.css'
 })
@@ -22,6 +22,7 @@ export class BeerDetailsComponent {
   beerId!: number;
   beer!: Beer;
   isAdmin = false;
+  isLoggedIn = false;
 
   responsiveOptions: any[] | undefined = [
     {
@@ -46,6 +47,7 @@ export class BeerDetailsComponent {
     },
     ]; 
   
+  
   constructor(private beerService: BeerService, private reviewService: ReviewService, 
     private router: Router, private route: ActivatedRoute, private authService:AuthService) { }
 
@@ -54,6 +56,10 @@ export class BeerDetailsComponent {
     this.getBeerById();
     this.getReviewsByBeerId();
     this.isAdmin= this.authService.isAdmin();
+    this.authService.loggedIn$.subscribe({ 
+      next: s => this.isLoggedIn = s,
+      error: err => console.log(err)
+    });
   }
   getBeerById() {
     this.beerId = Number(this.route.snapshot.paramMap.get('id'));
@@ -70,7 +76,7 @@ export class BeerDetailsComponent {
         this.reviews = reviews;
         console.log(this.reviews);
       },
-      error: () => { alert("Errore nel caricamento delle recensioni.");}
+      error: (err) => { alert("Errore nel caricamento delle recensioni. " + err);}
     });
   }
 

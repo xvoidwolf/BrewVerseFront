@@ -1,10 +1,5 @@
 <div class="container">
-    <h1>Crea, Aggiorna o Elimina una Birra</h1>
-    <button (click)="onClick(beer.id)">Crea una recensione</button>
-    @if (isAdmin) {
-        <button (click)="onEdit(beer.id)">Aggiorna prodotto</button>
-        <button (click)="onDelete(beer.id)">Elimina prodotto</button>
-    }
+    <h1>Dettagli della birra: {{beer.name}}</h1>
     <section>
         <div class="card-container">
             <div class="card">
@@ -15,25 +10,37 @@
                         <li><strong>Birrificio:</strong> {{beer.breweryName}}</li>
                         <li><strong>Tipo:</strong> {{beer.type}}</li>
                         <li><strong>Grado alcolico:</strong> {{beer.alcoholPercentage}}%</li>
-                        <li><strong>Valutazione Media:</strong> <p-rating [(ngModel)]="beer.averageRating" [readonly]="true"/></li>
+                        <li><strong>Valutazione Media:</strong> <p-rating [(ngModel)]="beer.averageRating"
+                                [readonly]="true" /></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
+    @if (isLoggedIn) {
+    <button (click)="onClick(beer.id)">Crea una recensione</button>
+    }
+    @else {
+    <p class="note">* Accedi per lasciare una recensione.</p>
+    <button routerLink="/login">Accedi</button>
+    }
+    @if (isAdmin) {
+    <button (click)="onEdit(beer.id)">Aggiorna prodotto</button>
+    <button (click)="onDelete(beer.id)">Elimina prodotto</button>
+    }
+
 </div>
-@if (beer) {
-}
+@if(reviews.length>0) {
 <div>
     <h2>Recensioni:</h2>
-    @if(reviews) {
-    <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions" [circular]="true">
+    <p-carousel [value]="reviews" [numVisible]="3" [numScroll]="1" [responsiveOptions]="responsiveOptions"
+        [circular]="true">
         <ng-template pTemplate="review" let-review>
             <app-review-card [review]="review"></app-review-card>
         </ng-template>
     </p-carousel>
-    }
-    @else {
-        <h2>Non ci sono recensioni.</h2>
-    }
 </div>
+}
+@else {
+<h4>Non ci sono ancora recensioni per questa birra.</h4>
+}
