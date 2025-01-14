@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ReviewService } from '../services/review.service';
@@ -10,7 +10,7 @@ import { RatingModule } from 'primeng/rating';
   selector: 'app-review',
   imports: [ReactiveFormsModule, RatingModule],
   templateUrl: './review.component.html',
-  styleUrl: './review.component.css'
+  styleUrl: './review.component.css',
 })
 export class ReviewComponent implements OnInit {
   reviewForm!: FormGroup;
